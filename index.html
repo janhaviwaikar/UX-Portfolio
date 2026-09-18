@@ -43,7 +43,8 @@
         text-rendering: optimizeLegibility;
     }
 
-    <!-- Responsive Navigation -->
+  /* ---------- Floating navigation ---------- */
+/*<!-- Responsive Navigation -->*/
 <nav>
     <div class="logo">JW</div>
     <div class="nav-divider"></div>
@@ -56,14 +57,14 @@
         <button onclick="scrollToSection('contact')">Get in touch</button>
     </div>
 
-    <!-- Mobile Hamburger -->
+ /*   <!-- Mobile Hamburger -->*/
     <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- Mobile Menu -->
+  /*  <!-- Mobile Menu -->*/
     <div class="nav-links-mobile" id="navMobile">
         <button onclick="scrollToSection('process'); closeMenu()">Projects</button>
         <button onclick="scrollToSection('resume'); closeMenu()">Resume</button>
@@ -183,7 +184,6 @@
             font-size: 16px;
         }
     }
-</style>
 
 <script>
     function scrollToSection(sectionId) {
@@ -213,7 +213,7 @@
     });
 </script>
 
-    /* ---------- Merged landing / hero + projects ---------- */
+
     .landing {
         position: relative;
         margin: 76px 5.5% 0;
