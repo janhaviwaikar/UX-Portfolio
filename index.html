@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janhavi Waikar - Product Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 40px;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        nav button {
+            padding: 10px 20px;
+            border: 1px solid #333;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        /* Section Wrapper */
+        section {
+            padding: 60px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .project-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            position: relative;
+            height: 300px;
+            cursor: pointer;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .project-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: white;
+            display: none;
+        }
+        
+        .project-card:hover .project-card-content {
+            display: block;
+        }
+        
+        .project-card:hover img {
+            display: none;
+        }
+        
+        .project-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: #f0f0f0;
+            padding: 4px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .skills-list {
+            margin-bottom: 20px;
+        }
+        
+        .skills-list h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .skills-list ul {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Experience */
+        .experience-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .company-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .job-title {
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .job-date {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .job-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .job-description li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* Certificates */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .certificate {
+            border: 1px solid #ddd;
+            padding: 40px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        
+        /* About */
+        .about-content {
+            max-width: 800px;
+            line-height: 1.8;
+        }
+        
+        /* Contact */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .contact-item {
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 10px;
+        }
+        
+        .contact-item a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #eee;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SECTION 1: Navigation & Hero -->
+<nav>
+    <div class="logo">JW</div>
+    <button onclick="scrollToSection('projects')">Projects</button>
+    <button onclick="scrollToSection('resume')">Resume</button>
+    <button onclick="scrollToSection('contact')">Get in Touch</button>
+</nav>
+
+<div class="hero">
+    <h1>Janhavi Waikar</h1>
+    <p>Product Designer</p>
+    <p>Crafting Agentic AI & Data-Driven Solutions</p>
+</div>
+
+<!-- SECTION 2: Projects Showcase -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+        <!-- Project 1 -->
+        <a href="project-chaos-agentic-chat.html" style="text-decoration: none; color: inherit;">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/500x300?text=Chaos+Behind+Agentic+Chat" alt="Project 1">
+                <div class="project-card-content">
+                    <h3>For Chaos Behind Agentic Chat</h3>
+                    <div class="project-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Design</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="project-quick-solutions.html" style="text-decoration: none; color: inherit;">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/500x300?text=Quick+Solutions+for+Daily+Apps" alt="Project 2">
+                <div class="project-card-content">
+                    <h3>Quick Solutions for Daily Apps</h3>
+                    <div class="project-tags">
+                        <span class="tag">Mobile Design</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project 3 -->
+        <a href="project-dls-creation.html" style="text-decoration: none; color: inherit;">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/500x300?text=DLS+Creation" alt="Project 3">
+                <div class="project-card-content">
+                    <h3>DLS Creation</h3>
+                    <div class="project-tags">
+                        <span class="tag">Design System</span>
+                        <span class="tag">Systems Design</span>
+                        <span class="tag">Documentation</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project 4 -->
+        <a href="project-etl-designer.html" style="text-decoration: none; color: inherit;">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/500x300?text=ETL+Designer" alt="Project 4">
+                <div class="project-card-content">
+                    <h3>ETL Designer</h3>
+                    <div class="project-tags">
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Complex UX</span>
+                        <span class="tag">Enterprise</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- SECTION 3: Skills & Softwares -->
+<section>
+    <h2>Skills & Tools</h2>
+    <div class="skills-container">
+        <!-- Softwares -->
+        <div class="skills-list">
+            <h3>Softwares</h3>
+            <ul>
+                <li>Figma</li>
+                <li>Cursor (for UI fixes)</li>
+                <li>Claude Design</li>
+                <li>Adobe Illustrator</li>
+                <li>Adobe Photoshop</li>
+                <li>Framer</li>
+            </ul>
+        </div>
+
+        <!-- Skills -->
+        <div class="skills-list">
+            <h3>Skills</h3>
+            <ul>
+                <li>UI Visual Design</li>
+                <li>UX Research & Enhancement</li>
+                <li>AI Tools Adaption in Design</li>
+                <li>Accessibility Implementation</li>
+                <li>Design System</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: Experience & Education -->
+<section id="resume">
+    <h2>Experience & Education</h2>
+    
+    <h3 style="margin-top: 30px; margin-bottom: 20px;">Work Experience</h3>
+    
+    <!-- Job 1 -->
+    <div class="experience-item">
+        <div class="company-name">Acuity Analytics</div>
+        <div class="job-title">UI/UX Designer | Full-time</div>
+        <div class="job-date">Mar'25 - Present</div>
+        <div class="job-description">
+            <ul>
+                <li>Owned UX and front-end design for an AI conversational platform with 10+ MFEs, utilizing Claude, Cursor, and Figma to streamline product delivery.</li>
+                <li>Designed an Agentic AI solution for Private Markets research, reducing manual effort by 70% through scalable, auditable workflows.</li>
+                <li>Led an Asset Management product serving 200+ users, delivering 3 major features and a global tracker that increased user efficiency by 40%+.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="experience-item">
+        <div class="company-name">Acuity Analytics</div>
+        <div class="job-title">UI/UX Designer | Internship</div>
+        <div class="job-date">Sep'24 - Mar'25</div>
+        <div class="job-description">
+            <ul>
+                <li>Worked on design system and enhanced productivity by 20% along with accessibility features.</li>
+                <li>Assisted on 2 major AI financial projects with 12 user interviews, research analysis, complete design with prototypes and smooth execution with entire team.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Job 3 -->
+    <div class="experience-item">
+        <div class="company-name">Mondelēz International</div>
+        <div class="job-title">UI/UX Designer | Internship</div>
+        <div class="job-date">Sep'24 - Present</div>
+        <div class="job-description">
+            <ul>
+                <li>Designed 50+ visual assets using Adobe XD, Illustrator, Photoshop, and Figma for Mobile CoE & Mondelēz Digital Services.</li>
+                <li>Produced 20+ videos and interactive stories, enhancing platform navigation for 5,000+ users.</li>
+                <li>Delivered creative solutions with 100% on-time turnaround in cross-functional collaborations.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 40px; margin-bottom: 20px;">Education</h3>
+
+    <!-- Education 1 -->
+    <div class="experience-item">
+        <div class="company-name">P.G. Diploma in Design & Innovation (88%)</div>
+        <div class="job-title">Indian School of Design and Innovation</div>
+        <div class="job-date">2023-2024 | Full Time</div>
+        <div>Atlas Skilltech University (Parsons-New York), Mumbai</div>
+    </div>
+
+    <!-- Education 2 -->
+    <div class="experience-item">
+        <div class="company-name">MBA in Marketing & HR (85.6%)</div>
+        <div class="job-title">International Institute of Professional Studies</div>
+        <div class="job-date">2021-2023 | Full Time</div>
+        <div>Devi Ahilya Vishwa Vidyalaya, Indore</div>
+    </div>
+
+    <!-- Education 3 -->
+    <div class="experience-item">
+        <div class="company-name">BBA in Management Science (71.4%)</div>
+        <div class="job-title">International Institute of Professional Studies</div>
+        <div class="job-date">2021-2023 | Full Time</div>
+        <div>Devi Ahilya Vishwa Vidyalaya, Indore</div>
+    </div>
+
+    <!-- Education 4 -->
+    <div class="experience-item">
+        <div class="company-name">High School - Commerce (70%)</div>
+        <div class="job-title">Sri Sathya Sai Vidya Vihar</div>
+        <div class="job-date">2016-2018 | Full Time</div>
+        <div>Indore</div>
+    </div>
+</section>
+
+<!-- SECTION 5: Rewards & Recognition -->
+<section>
+    <h2>Rewards & Recognition</h2>
+    <div class="certificates-grid">
+        <div class="certificate">
+            <p>[Certificate Placeholder 1]</p>
+            <p style="font-size: 14px; color: #999; margin-top: 10px;">Award Name / Certification</p>
+        </div>
+        <div class="certificate">
+            <p>[Certificate Placeholder 2]</p>
+            <p style="font-size: 14px; color: #999; margin-top: 10px;">Award Name / Certification</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 6: About Me -->
+<section>
+    <h2>About Me</h2>
+    <div class="about-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p style="margin-top: 20px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p style="margin-top: 20px;"><strong>Hobbies:</strong> Placeholder text for hobbies and interests.</p>
+    </div>
+</section>
+
+<!-- SECTION 7: Contact -->
+<section id="contact">
+    <h2>Seems Like a Fit?</h2>
+    <p style="margin-bottom: 30px;">Get in Touch</p>
+    <div class="contact-info">
+        <div class="contact-item">
+            <h3>Email</h3>
+            <p><a href="mailto:janhavi.waikar@example.com">janhavi.waikar@example.com</a></p>
+        </div>
+        <div class="contact-item">
+            <h3>Phone</h3>
+            <p><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></p>
+        </div>
+        <div class="contact-item">
+            <h3>LinkedIn</h3>
+            <p><a href="https://linkedin.com/in/janhaviWaikar" target="_blank">linkedin.com/in/janhaviWaikar</a></p>
+        </div>
+        <div class="contact-item">
+            <h3>Behance</h3>
+            <p><a href="https://behance.net/janhaviWaikar" target="_blank">behance.net/janhaviWaikar</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Janhavi Waikar. All rights reserved.</p>
+</footer>
+
+<script>
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
