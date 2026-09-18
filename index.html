@@ -948,81 +948,218 @@
 </div>
 
 <!-- How I Do The Magic -->
-<!-- Skills & Tools Section -->
-<section id="process" style="padding: 80px 40px; background: #fff; border-bottom: 1px solid #e8eaed; position: relative; overflow: hidden;">
+<!-- Process Section -->
+<section id="process" style="padding:80px 0; background:#fff; border-bottom:1px solid #e8eaed; position:relative; overflow:hidden;">
 
-    <!-- Notebook line background -->
+    <!-- Notebook lines with blurred edges -->
     <div style="position:absolute;inset:0;pointer-events:none;z-index:0;">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <defs>
-                <pattern id="lines" x="0" y="0" width="100%" height="44" patternUnits="userSpaceOnUse">
-                    <line x1="0" y1="43" x2="10000" y2="43" stroke="#e8eaed" stroke-width="1"/>
+                <pattern id="nblines" x="0" y="0" width="100%" height="44" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="43.5" x2="10000" y2="43.5" stroke="#e8eaed" stroke-width="1"/>
                 </pattern>
+                <linearGradient id="fadeH" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="12%" stop-color="#fff" stop-opacity="0"/>
+                    <stop offset="88%" stop-color="#fff" stop-opacity="0"/>
+                    <stop offset="100%" stop-color="#fff" stop-opacity="1"/>
+                </linearGradient>
             </defs>
-            <rect width="100%" height="100%" fill="url(#lines)"/>
+            <rect width="100%" height="100%" fill="url(#nblines)"/>
+            <rect width="100%" height="100%" fill="url(#fadeH)"/>
         </svg>
     </div>
 
     <!-- Section Header -->
-    <div style="text-align:center; margin-bottom:60px; position:relative; z-index:1;">
-        <p style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:#8a92a2; margin-bottom:12px;">My Process</p>
-        <h2 style="font-family:'Outfit',sans-serif; font-size:32px; font-weight:700; color:#1a1a1a; letter-spacing:-0.5px; margin-bottom:14px;">How I do the magic</h2>
-        <p style="font-family:'Outfit',sans-serif; font-size:18px; color:#6c7481; font-weight:400; max-width:620px; margin:0 auto; line-height:1.6;">Turning complex requirements into thoughtful, validated, high-quality product experiences.</p>
+    <div style="text-align:center;margin-bottom:64px;position:relative;z-index:1;padding:0 40px;">
+        <p style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:#8a92a2;margin-bottom:14px;">My Process</p>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:700;color:#1a1a1a;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.2;">How I do the magic</h2>
+        <p style="font-family:'Outfit',sans-serif;font-size:18px;color:#6c7481;font-weight:400;max-width:620px;margin:0 auto;line-height:1.6;">Turning complex requirements into thoughtful, validated, high-quality product experiences.</p>
     </div>
 
     <!-- Cards Grid -->
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px; max-width:1100px; margin:0 auto; position:relative; z-index:1;">
+    <div class="process-grid">
 
         <!-- Card 1 -->
-        <div style="background:#ffffff; border-radius:16px; padding:32px 28px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.10); position:relative; transform:rotate(-2deg); transition:transform 0.3s ease;" onmouseover="this.style.transform='rotate(0deg) scale(1.03)'" onmouseout="this.style.transform='rotate(-2deg)'">
-            <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); width:22px; height:22px; background:radial-gradient(circle at 40% 35%, #888, #3a3a3a); border-radius:50%; box-shadow:0 3px 8px rgba(0,0,0,0.35);"></div>
-            <p style="font-family:'Shantell Sans',cursive; font-size:22px; color:#b0b8c8; font-weight:600; margin-bottom:14px;">01</p>
-            <h3 style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:10px;">Stakeholder Meeting</h3>
-            <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#6c7481; line-height:1.7;">Get the requirements of features and define a clear release scope.</p>
+        <div class="pcard" style="--rot:-2.2deg;">
+            <!-- Pin: angled left -->
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:20px;height:28px;z-index:3;">
+                <div style="width:14px;height:14px;background:radial-gradient(circle at 35% 30%,#aaa 0%,#555 45%,#2a2a2a 100%);border-radius:50%;margin:0 auto;box-shadow:2px 3px 6px rgba(0,0,0,0.45);transform:rotate(-18deg) translateX(-2px);"></div>
+                <div style="width:4px;height:16px;background:linear-gradient(180deg,#666 0%,#333 100%);margin:-3px auto 0;border-radius:0 0 3px 3px;transform:rotate(-18deg) translateX(-2px);box-shadow:1px 2px 4px rgba(0,0,0,0.3);"></div>
+            </div>
+            <div class="pcard-number">01</div>
+            <div class="pcard-white">
+                <div class="pcard-title">Stakeholder meeting</div>
+            </div>
+            <div class="pcard-gray">
+                <p class="pcard-desc">Get the requirements of features and define a clear release scope.</p>
+            </div>
         </div>
 
         <!-- Card 2 -->
-        <div style="background:#ffffff; border-radius:16px; padding:32px 28px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.10); position:relative; transform:rotate(1.5deg); margin-top:28px; transition:transform 0.3s ease;" onmouseover="this.style.transform='rotate(0deg) scale(1.03)'" onmouseout="this.style.transform='rotate(1.5deg)'">
-            <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); width:22px; height:22px; background:radial-gradient(circle at 40% 35%, #888, #3a3a3a); border-radius:50%; box-shadow:0 3px 8px rgba(0,0,0,0.35);"></div>
-            <p style="font-family:'Shantell Sans',cursive; font-size:22px; color:#b0b8c8; font-weight:600; margin-bottom:14px;">02</p>
-            <h3 style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:10px;">Thorough Research</h3>
-            <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#6c7481; line-height:1.7;">Interact with internal analysts for domain understanding and stay aligned with market trends.</p>
+        <div class="pcard" style="--rot:1.8deg;margin-top:32px;">
+            <!-- Pin: straight -->
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:20px;height:28px;z-index:3;">
+                <div style="width:14px;height:14px;background:radial-gradient(circle at 40% 28%,#bbb 0%,#555 50%,#222 100%);border-radius:50%;margin:0 auto;box-shadow:-1px 3px 6px rgba(0,0,0,0.45);"></div>
+                <div style="width:4px;height:16px;background:linear-gradient(180deg,#666 0%,#2a2a2a 100%);margin:-3px auto 0;border-radius:0 0 3px 3px;box-shadow:1px 2px 4px rgba(0,0,0,0.3);"></div>
+            </div>
+            <div class="pcard-number">02</div>
+            <div class="pcard-white">
+                <div class="pcard-title">Thorough research</div>
+            </div>
+            <div class="pcard-gray">
+                <p class="pcard-desc">Interact with internal analysts for domain understanding and stay aligned with market trends.</p>
+            </div>
         </div>
 
         <!-- Card 3 -->
-        <div style="background:#ffffff; border-radius:16px; padding:32px 28px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.10); position:relative; transform:rotate(-1deg); transition:transform 0.3s ease;" onmouseover="this.style.transform='rotate(0deg) scale(1.03)'" onmouseout="this.style.transform='rotate(-1deg)'">
-            <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); width:22px; height:22px; background:radial-gradient(circle at 40% 35%, #888, #3a3a3a); border-radius:50%; box-shadow:0 3px 8px rgba(0,0,0,0.35);"></div>
-            <p style="font-family:'Shantell Sans',cursive; font-size:22px; color:#b0b8c8; font-weight:600; margin-bottom:14px;">03</p>
-            <h3 style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:10px;">Quick Iteration</h3>
-            <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#6c7481; line-height:1.7;">Use AI for rapid UI development and get concept clarity fast.</p>
+        <div class="pcard" style="--rot:-1.4deg;">
+            <!-- Pin: angled right -->
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:20px;height:28px;z-index:3;">
+                <div style="width:14px;height:14px;background:radial-gradient(circle at 60% 28%,#bbb 0%,#555 50%,#222 100%);border-radius:50%;margin:0 auto;box-shadow:-2px 3px 6px rgba(0,0,0,0.45);transform:rotate(14deg) translateX(2px);"></div>
+                <div style="width:4px;height:16px;background:linear-gradient(180deg,#666 0%,#333 100%);margin:-3px auto 0;border-radius:0 0 3px 3px;transform:rotate(14deg) translateX(2px);box-shadow:-1px 2px 4px rgba(0,0,0,0.3);"></div>
+            </div>
+            <div class="pcard-number">03</div>
+            <div class="pcard-white">
+                <div class="pcard-title">Quick iteration</div>
+            </div>
+            <div class="pcard-gray">
+                <p class="pcard-desc">Use AI for rapid UI development and get concept clarity fast.</p>
+            </div>
         </div>
 
         <!-- Card 4 -->
-        <div style="background:#ffffff; border-radius:16px; padding:32px 28px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.10); position:relative; transform:rotate(2deg); transition:transform 0.3s ease;" onmouseover="this.style.transform='rotate(0deg) scale(1.03)'" onmouseout="this.style.transform='rotate(2deg)'">
-            <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); width:22px; height:22px; background:radial-gradient(circle at 40% 35%, #888, #3a3a3a); border-radius:50%; box-shadow:0 3px 8px rgba(0,0,0,0.35);"></div>
-            <p style="font-family:'Shantell Sans',cursive; font-size:22px; color:#b0b8c8; font-weight:600; margin-bottom:14px;">04</p>
-            <h3 style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:10px;">UX Detailing</h3>
-            <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#6c7481; line-height:1.7;">Have immersive team discussions to validate UX approach and decisions.</p>
+        <div class="pcard" style="--rot:2.1deg;">
+            <!-- Pin: angled left heavy -->
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:20px;height:28px;z-index:3;">
+                <div style="width:14px;height:14px;background:radial-gradient(circle at 30% 35%,#aaa 0%,#4a4a4a 45%,#1e1e1e 100%);border-radius:50%;margin:0 auto;box-shadow:3px 2px 7px rgba(0,0,0,0.5);transform:rotate(-24deg) translateX(-3px);"></div>
+                <div style="width:4px;height:16px;background:linear-gradient(180deg,#5a5a5a 0%,#222 100%);margin:-3px auto 0;border-radius:0 0 3px 3px;transform:rotate(-24deg) translateX(-3px);box-shadow:2px 2px 4px rgba(0,0,0,0.35);"></div>
+            </div>
+            <div class="pcard-number">04</div>
+            <div class="pcard-white">
+                <div class="pcard-title">UX detailing</div>
+            </div>
+            <div class="pcard-gray">
+                <p class="pcard-desc">Have immersive team discussions to validate the UX approach and decisions.</p>
+            </div>
         </div>
 
         <!-- Card 5 -->
-        <div style="background:#ffffff; border-radius:16px; padding:32px 28px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.10); position:relative; transform:rotate(-1.5deg); margin-top:28px; transition:transform 0.3s ease;" onmouseover="this.style.transform='rotate(0deg) scale(1.03)'" onmouseout="this.style.transform='rotate(-1.5deg)'">
-            <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); width:22px; height:22px; background:radial-gradient(circle at 40% 35%, #888, #3a3a3a); border-radius:50%; box-shadow:0 3px 8px rgba(0,0,0,0.35);"></div>
-            <p style="font-family:'Shantell Sans',cursive; font-size:22px; color:#b0b8c8; font-weight:600; margin-bottom:14px;">05</p>
-            <h3 style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:10px;">UI Enhancements</h3>
-            <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#6c7481; line-height:1.7;">Make UI changes directly on tool via Cursor to save time and increase accuracy & quality.</p>
+        <div class="pcard" style="--rot:-1.8deg;margin-top:32px;">
+            <!-- Pin: slight right angle -->
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:20px;height:28px;z-index:3;">
+                <div style="width:14px;height:14px;background:radial-gradient(circle at 55% 32%,#c0c0c0 0%,#606060 45%,#252525 100%);border-radius:50%;margin:0 auto;box-shadow:-2px 4px 7px rgba(0,0,0,0.45);transform:rotate(10deg) translateX(1px);"></div>
+                <div style="width:4px;height:16px;background:linear-gradient(180deg,#606060 0%,#282828 100%);margin:-3px auto 0;border-radius:0 0 3px 3px;transform:rotate(10deg) translateX(1px);box-shadow:-1px 2px 4px rgba(0,0,0,0.3);"></div>
+            </div>
+            <div class="pcard-number">05</div>
+            <div class="pcard-white">
+                <div class="pcard-title">UI enhancements</div>
+            </div>
+            <div class="pcard-gray">
+                <p class="pcard-desc">Make UI changes directly on tool via Cursor to save time and increase accuracy & quality.</p>
+            </div>
         </div>
 
         <!-- Card 6 -->
-        <div style="background:#ffffff; border-radius:16px; padding:32px 28px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.10); position:relative; transform:rotate(1deg); transition:transform 0.3s ease;" onmouseover="this.style.transform='rotate(0deg) scale(1.03)'" onmouseout="this.style.transform='rotate(1deg)'">
-            <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); width:22px; height:22px; background:radial-gradient(circle at 40% 35%, #888, #3a3a3a); border-radius:50%; box-shadow:0 3px 8px rgba(0,0,0,0.35);"></div>
-            <p style="font-family:'Shantell Sans',cursive; font-size:22px; color:#b0b8c8; font-weight:600; margin-bottom:14px;">06</p>
-            <h3 style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:10px;">User Testing</h3>
-            <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#6c7481; line-height:1.7;">Once deployed, get detailed feedback from users and enhance further for a seamless experience.</p>
+        <div class="pcard" style="--rot:1.2deg;">
+            <!-- Pin: top-down flat angle -->
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:20px;height:28px;z-index:3;">
+                <div style="width:14px;height:14px;background:radial-gradient(circle at 45% 25%,#d0d0d0 0%,#585858 40%,#1c1c1c 100%);border-radius:50%;margin:0 auto;box-shadow:0px 4px 8px rgba(0,0,0,0.5);"></div>
+                <div style="width:4px;height:16px;background:linear-gradient(160deg,#646464 0%,#1e1e1e 100%);margin:-3px auto 0;border-radius:0 0 3px 3px;box-shadow:0px 3px 5px rgba(0,0,0,0.3);"></div>
+            </div>
+            <div class="pcard-number">06</div>
+            <div class="pcard-white">
+                <div class="pcard-title">User testing</div>
+            </div>
+            <div class="pcard-gray">
+                <p class="pcard-desc">Once deployed, get detailed feedback from users and enhance further for a seamless experience.</p>
+            </div>
         </div>
 
     </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Caveat:wght@700&display=swap');
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 20px 40px 20px;
+        }
+
+        .pcard {
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 6px 28px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+            position: relative;
+            transform: rotate(var(--rot));
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pcard:hover {
+            transform: rotate(0deg) translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.07);
+        }
+
+        .pcard-number {
+            font-family: 'Caveat', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: #c8cdd8;
+            padding: 24px 24px 0 24px;
+        }
+
+        .pcard-white {
+            padding: 10px 24px 16px 24px;
+        }
+
+        .pcard-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .pcard-gray {
+            background: #f2f3f5;
+            border-radius: 10px;
+            margin: 0 14px 14px 14px;
+            padding: 14px 16px;
+            flex: 1;
+        }
+
+        .pcard-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            color: #6c7481;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 960px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pcard { margin-top: 0 !important; }
+        }
+
+        @media (max-width: 560px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                padding: 20px 24px;
+            }
+        }
+    </style>
 </section>
+    
 <!-- Experience & Education Section -->
 <section id="resume">
     <h2>Experience & Education</h2>
