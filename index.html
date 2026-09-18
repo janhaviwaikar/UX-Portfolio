@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Janhavi Waikar - Product Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,9 +14,31 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        
+        /* Color Palette */
+        :root {
+            --white: #ffffff;
+            --black: #1a1a1a;
+            --cool-gray-1: #f8f9fa;
+            --cool-gray-2: #e8eaed;
+            --cool-gray-3: #d0d5dd;
+            --cool-gray-4: #8a92a2;
+            --cool-gray-5: #6c7481;
+            --accent: #0066cc;
+        }
+        
+        /* Dot Pattern Background - Subtle */
+        .dot-pattern {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--cool-gray-2);
+            border-radius: 50%;
         }
         
         /* Navigation */
@@ -22,65 +46,152 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            gap: 40px;
+            padding: 28px 40px;
+            gap: 50px;
+            background: var(--white);
+            border-bottom: 1px solid var(--cool-gray-2);
+            position: relative;
         }
         
         .logo {
-            font-weight: bold;
+            font-weight: 700;
             font-size: 18px;
+            letter-spacing: -0.5px;
+            color: var(--black);
         }
         
         nav button {
-            padding: 10px 20px;
-            border: 1px solid #333;
-            background: white;
+            padding: 10px 24px;
+            border: 1px solid var(--cool-gray-3);
+            background: var(--white);
             cursor: pointer;
             font-size: 14px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        nav button:hover {
+            background: var(--cool-gray-1);
+            border-color: var(--cool-gray-4);
         }
         
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 20px;
-            border-bottom: 1px solid #eee;
+            padding: 100px 40px;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle dot accents in hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            width: 3px;
+            height: 3px;
+            background: var(--cool-gray-2);
+            border-radius: 50%;
+            box-shadow: 200px 150px 0 var(--cool-gray-2), 
+                        800px 100px 0 var(--cool-gray-2),
+                        1000px 300px 0 var(--cool-gray-2);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 80px;
+            right: 60px;
+            width: 3px;
+            height: 3px;
+            background: var(--cool-gray-2);
+            border-radius: 50%;
+            box-shadow: -300px -200px 0 var(--cool-gray-2),
+                        -600px 50px 0 var(--cool-gray-2),
+                        -900px -300px 0 var(--cool-gray-2);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            color: var(--black);
         }
         
-        .hero p {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 5px;
+        .hero .subtitle {
+            font-size: 18px;
+            color: var(--cool-gray-5);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .hero .tagline {
+            font-size: 16px;
+            color: var(--cool-gray-4);
+            font-weight: 400;
+            line-height: 1.6;
         }
         
         /* Section Wrapper */
         section {
-            padding: 60px 40px;
-            border-bottom: 1px solid #eee;
+            padding: 80px 40px;
+            background: var(--white);
+            border-bottom: 1px solid var(--cool-gray-2);
+            position: relative;
         }
         
         section h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+            color: var(--black);
+        }
+        
+        section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--cool-gray-4);
+            margin-bottom: 16px;
         }
         
         /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            gap: 32px;
         }
         
         .project-card {
-            border: 1px solid #ddd;
-            padding: 20px;
+            border: 1px solid var(--cool-gray-2);
+            padding: 0;
             position: relative;
-            height: 300px;
+            height: 320px;
             cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--cool-gray-1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            border-color: var(--cool-gray-3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         
         .project-card img {
@@ -90,6 +201,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            transition: opacity 0.3s ease;
         }
         
         .project-card-content {
@@ -97,22 +209,29 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 20px;
-            background: white;
+            padding: 28px;
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.8), transparent);
             display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .project-card:hover .project-card-content {
             display: block;
+            opacity: 1;
         }
         
         .project-card:hover img {
-            display: none;
+            opacity: 0.3;
         }
         
         .project-card h3 {
             font-size: 18px;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--white);
+            text-transform: none;
+            letter-spacing: 0;
         }
         
         .project-tags {
@@ -122,123 +241,287 @@
         }
         
         .tag {
-            background: #f0f0f0;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
             padding: 4px 10px;
             font-size: 12px;
             border-radius: 4px;
+            font-weight: 500;
         }
         
         /* Skills Section */
         .skills-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
+        }
+        
+        .skills-category {
+            background: var(--cool-gray-1);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--cool-gray-2);
+        }
+        
+        .skills-category h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--cool-gray-5);
+            margin-bottom: 28px;
+            letter-spacing: 1px;
         }
         
         .skills-list {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
         
-        .skills-list h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--cool-gray-2);
+            font-size: 15px;
+            color: var(--black);
+            font-weight: 500;
         }
         
-        .skills-list ul {
-            list-style: none;
+        .skill-item:last-child {
+            border-bottom: none;
         }
         
-        .skills-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+        .skill-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
         }
         
-        /* Experience */
+        /* Experience Section */
+        .experience-timeline {
+            background: var(--cool-gray-1);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--cool-gray-2);
+        }
+        
         .experience-item {
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #eee;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--cool-gray-2);
+            margin-bottom: 32px;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         
         .company-name {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--black);
+            margin-bottom: 6px;
         }
         
         .job-title {
-            color: #666;
-            margin-bottom: 5px;
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
         
         .job-date {
-            color: #999;
+            color: var(--cool-gray-4);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .job-description {
+            color: var(--cool-gray-5);
             font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .job-description ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        
-        .job-description li {
-            margin-bottom: 10px;
-            color: #555;
+            line-height: 1.6;
         }
         
         /* Certificates */
         .certificates-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
         
         .certificate {
-            border: 1px solid #ddd;
-            padding: 40px;
+            background: var(--cool-gray-1);
+            padding: 32px;
             text-align: center;
-            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid var(--cool-gray-2);
         }
         
-        /* About */
+        .certificate-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+        
+        .certificate-subtitle {
+            font-size: 13px;
+            color: var(--cool-gray-4);
+            line-height: 1.6;
+        }
+        
+        /* About Section */
         .about-content {
             max-width: 800px;
+            background: var(--cool-gray-1);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--cool-gray-2);
             line-height: 1.8;
+            color: var(--cool-gray-5);
+            font-size: 15px;
         }
         
-        /* Contact */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+        /* Contact Section */
+        .contact-section {
+            background: var(--white);
+        }
+        
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .contact-intro h3 {
+            font-size: 16px;
+            color: var(--cool-gray-4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .contact-intro p {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--black);
+        }
+        
+        .contact-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 100%;
         }
         
         .contact-item {
-            padding: 20px;
-            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+            padding: 0;
+            border: none;
+            background: none;
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--cool-gray-1);
+            border: 1px solid var(--cool-gray-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
         }
         
         .contact-item h3 {
-            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            text-transform: capitalize;
+            letter-spacing: 0;
+            margin: 0;
         }
         
         .contact-item a {
-            color: #0066cc;
+            color: var(--accent);
             text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
         }
         
+        .contact-item a:hover {
+            opacity: 0.7;
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px;
-            border-top: 1px solid #eee;
-            color: #999;
+            border-top: 1px solid var(--cool-gray-2);
+            color: var(--cool-gray-4);
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            section h2 {
+                font-size: 28px;
+            }
+            
+            nav {
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- SECTION 1: Navigation & Hero -->
+<!-- Navigation -->
 <nav>
     <div class="logo">JW</div>
     <button onclick="scrollToSection('projects')">Projects</button>
@@ -246,26 +529,29 @@
     <button onclick="scrollToSection('contact')">Get in Touch</button>
 </nav>
 
+<!-- Hero Section -->
 <div class="hero">
-    <h1>Janhavi Waikar</h1>
-    <p>Product Designer</p>
-    <p>Crafting Agentic AI & Data-Driven Solutions</p>
+    <div class="hero-content">
+        <h1>Janhavi Waikar</h1>
+        <p class="subtitle">Product Designer</p>
+        <p class="tagline">Crafting Agentic AI & Data-Driven Solutions</p>
+    </div>
 </div>
 
-<!-- SECTION 2: Projects Showcase -->
+<!-- Projects Section -->
 <section id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
         <!-- Project 1 -->
         <a href="project-solving-chaos-agentic-chat.html" style="text-decoration: none; color: inherit;">
             <div class="project-card">
-                <img src="https://via.placeholder.com/500x300?text=Chaos+Behind+Agentic+Chat" alt="Project 1">
+                <img src="https://via.placeholder.com/500x300?text=Solving+Chaos+Behind+Agentic+Chat" alt="Project 1">
                 <div class="project-card-content">
                     <h3>Solving For Chaos Behind Agentic Chat</h3>
                     <div class="project-tags">
-                        <span class="tag">AI</span>
+                        <span class="tag">AI/Agentic</span>
                         <span class="tag">UX Research</span>
-                        <span class="tag">Design</span>
+                        <span class="tag">Enterprise</span>
                     </div>
                 </div>
             </div>
@@ -318,164 +604,177 @@
     </div>
 </section>
 
-<!-- SECTION 3: Skills & Softwares -->
+<!-- Skills & Tools Section -->
 <section>
     <h2>Skills & Tools</h2>
     <div class="skills-container">
         <!-- Softwares -->
-        <div class="skills-list">
+        <div class="skills-category">
             <h3>Softwares</h3>
-            <ul>
-                <li>Figma</li>
-                <li>Cursor (for UI fixes)</li>
-                <li>Claude Design</li>
-                <li>Adobe Illustrator</li>
-                <li>Adobe Photoshop</li>
-                <li>Framer</li>
-            </ul>
+            <div class="skills-list">
+                <div class="skill-item"><div class="skill-dot"></div>Figma</div>
+                <div class="skill-item"><div class="skill-dot"></div>Cursor (UI Development)</div>
+                <div class="skill-item"><div class="skill-dot"></div>Claude Design</div>
+                <div class="skill-item"><div class="skill-dot"></div>Adobe Illustrator</div>
+                <div class="skill-item"><div class="skill-dot"></div>Adobe Photoshop</div>
+                <div class="skill-item"><div class="skill-dot"></div>Framer</div>
+            </div>
         </div>
 
         <!-- Skills -->
-        <div class="skills-list">
-            <h3>Skills</h3>
-            <ul>
-                <li>UI Visual Design</li>
-                <li>UX Research & Enhancement</li>
-                <li>AI Tools Adaption in Design</li>
-                <li>Accessibility Implementation</li>
-                <li>Design System</li>
-            </ul>
+        <div class="skills-category">
+            <h3>Core Competencies</h3>
+            <div class="skills-list">
+                <div class="skill-item"><div class="skill-dot"></div>UI Visual Design</div>
+                <div class="skill-item"><div class="skill-dot"></div>UX Research & Enhancement</div>
+                <div class="skill-item"><div class="skill-dot"></div>AI Tools Adoption</div>
+                <div class="skill-item"><div class="skill-dot"></div>Accessibility Implementation</div>
+                <div class="skill-item"><div class="skill-dot"></div>Design System Architecture</div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- SECTION 4: Experience & Education -->
+<!-- Experience & Education Section -->
 <section id="resume">
     <h2>Experience & Education</h2>
     
-    <h3 style="margin-top: 30px; margin-bottom: 20px;">Work Experience</h3>
-    
-    <!-- Job 1 -->
-    <div class="experience-item">
-        <div class="company-name">Acuity Analytics</div>
-        <div class="job-title">UI/UX Designer | Full-time</div>
-        <div class="job-date">Mar'25 - Present</div>
-        <div class="job-description">
-            <ul>
-                <li>Owned UX and front-end design for an AI conversational platform with 10+ MFEs, utilizing Claude, Cursor, and Figma to streamline product delivery.</li>
-                <li>Designed an Agentic AI solution for Private Markets research, reducing manual effort by 70% through scalable, auditable workflows.</li>
-                <li>Led an Asset Management product serving 200+ users, delivering 3 major features and a global tracker that increased user efficiency by 40%+.</li>
-            </ul>
+    <div class="experience-timeline">
+        <h3 style="margin-bottom: 32px;">Work Experience</h3>
+        
+        <!-- Job 1 -->
+        <div class="experience-item">
+            <div class="company-name">Acuity Analytics</div>
+            <div class="job-title">UI/UX Designer • Full-time</div>
+            <div class="job-date">Mar 2025 - Present</div>
+            <div class="job-description">
+                Led UX design for AI conversational platform (10+ MFEs). Designed Agentic AI solution reducing manual effort by 70%. Led Asset Management product for 200+ users with 40%+ efficiency gains.
+            </div>
         </div>
-    </div>
 
-    <!-- Job 2 -->
-    <div class="experience-item">
-        <div class="company-name">Acuity Analytics</div>
-        <div class="job-title">UI/UX Designer | Internship</div>
-        <div class="job-date">Sep'24 - Mar'25</div>
-        <div class="job-description">
-            <ul>
-                <li>Worked on design system and enhanced productivity by 20% along with accessibility features.</li>
-                <li>Assisted on 2 major AI financial projects with 12 user interviews, research analysis, complete design with prototypes and smooth execution with entire team.</li>
-            </ul>
+        <!-- Job 2 -->
+        <div class="experience-item">
+            <div class="company-name">Acuity Analytics</div>
+            <div class="job-title">UI/UX Designer • Internship</div>
+            <div class="job-date">Sep 2024 - Mar 2025</div>
+            <div class="job-description">
+                Worked on design system & accessibility features. Conducted 12 user interviews on 2 major AI financial projects. Delivered complete designs with prototypes.
+            </div>
         </div>
-    </div>
 
-    <!-- Job 3 -->
-    <div class="experience-item">
-        <div class="company-name">Mondelēz International</div>
-        <div class="job-title">UI/UX Designer | Internship</div>
-        <div class="job-date">Sep'24 - Present</div>
-        <div class="job-description">
-            <ul>
-                <li>Designed 50+ visual assets using Adobe XD, Illustrator, Photoshop, and Figma for Mobile CoE & Mondelēz Digital Services.</li>
-                <li>Produced 20+ videos and interactive stories, enhancing platform navigation for 5,000+ users.</li>
-                <li>Delivered creative solutions with 100% on-time turnaround in cross-functional collaborations.</li>
-            </ul>
+        <!-- Job 3 -->
+        <div class="experience-item">
+            <div class="company-name">Mondelēz International</div>
+            <div class="job-title">UI/UX Designer • Internship</div>
+            <div class="job-date">Sep 2024 - Present</div>
+            <div class="job-description">
+                Designed 50+ visual assets for Mobile CoE & Digital Services. Produced 20+ interactive stories for 5,000+ users. Delivered 100% on-time creative solutions.
+            </div>
         </div>
-    </div>
 
-    <h3 style="margin-top: 40px; margin-bottom: 20px;">Education</h3>
+        <h3 style="margin-top: 40px; margin-bottom: 32px;">Education</h3>
 
-    <!-- Education 1 -->
-    <div class="experience-item">
-        <div class="company-name">P.G. Diploma in Design & Innovation (88%)</div>
-        <div class="job-title">Indian School of Design and Innovation</div>
-        <div class="job-date">2023-2024 | Full Time</div>
-        <div>Atlas Skilltech University (Parsons-New York), Mumbai</div>
-    </div>
+        <!-- Education 1 -->
+        <div class="experience-item">
+            <div class="company-name">P.G. Diploma in Design & Innovation • 88%</div>
+            <div class="job-date">2023-2024</div>
+            <div class="job-description">
+                Indian School of Design and Innovation | Atlas Skilltech University (Parsons-New York), Mumbai
+            </div>
+        </div>
 
-    <!-- Education 2 -->
-    <div class="experience-item">
-        <div class="company-name">MBA in Marketing & HR (85.6%)</div>
-        <div class="job-title">International Institute of Professional Studies</div>
-        <div class="job-date">2021-2023 | Full Time</div>
-        <div>Devi Ahilya Vishwa Vidyalaya, Indore</div>
-    </div>
+        <!-- Education 2 -->
+        <div class="experience-item">
+            <div class="company-name">MBA in Marketing & HR • 85.6%</div>
+            <div class="job-date">2021-2023</div>
+            <div class="job-description">
+                International Institute of Professional Studies, Devi Ahilya Vishwa Vidyalaya, Indore
+            </div>
+        </div>
 
-    <!-- Education 3 -->
-    <div class="experience-item">
-        <div class="company-name">BBA in Management Science (71.4%)</div>
-        <div class="job-title">International Institute of Professional Studies</div>
-        <div class="job-date">2021-2023 | Full Time</div>
-        <div>Devi Ahilya Vishwa Vidyalaya, Indore</div>
-    </div>
-
-    <!-- Education 4 -->
-    <div class="experience-item">
-        <div class="company-name">High School - Commerce (70%)</div>
-        <div class="job-title">Sri Sathya Sai Vidya Vihar</div>
-        <div class="job-date">2016-2018 | Full Time</div>
-        <div>Indore</div>
+        <!-- Education 3 -->
+        <div class="experience-item">
+            <div class="company-name">BBA in Management Science • 71.4%</div>
+            <div class="job-date">2021-2023</div>
+            <div class="job-description">
+                International Institute of Professional Studies, Devi Ahilya Vishwa Vidyalaya, Indore
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- SECTION 5: Rewards & Recognition -->
+<!-- Awards & Recognition Section -->
 <section>
-    <h2>Rewards & Recognition</h2>
+    <h2>Awards & Recognition</h2>
     <div class="certificates-grid">
         <div class="certificate">
-            <p>[Certificate Placeholder 1]</p>
-            <p style="font-size: 14px; color: #999; margin-top: 10px;">Award Name / Certification</p>
+            <div class="certificate-title">🏆 Extra Miler Award</div>
+            <div class="certificate-subtitle">Q2 2026 • Acuity Analytics</div>
+            <p style="font-size: 13px; color: var(--cool-gray-5); margin-top: 12px; line-height: 1.6;">
+                Recognized for proactively contributing to frontend implementation using Cursor, bridging the gap between design and engineering through AI-assisted UI development.
+            </p>
         </div>
+        
         <div class="certificate">
-            <p>[Certificate Placeholder 2]</p>
-            <p style="font-size: 14px; color: #999; margin-top: 10px;">Award Name / Certification</p>
+            <div class="certificate-title">⭐ Digi-Star Award</div>
+            <div class="certificate-subtitle">Q2 2025 • Acuity Analytics</div>
+            <p style="font-size: 13px; color: var(--cool-gray-5); margin-top: 12px; line-height: 1.6;">
+                Awarded for high level of tech proficiency and contributions to technological innovations during internship and transition to full-time.
+            </p>
         </div>
     </div>
 </section>
 
-<!-- SECTION 6: About Me -->
+<!-- About Section -->
 <section>
     <h2>About Me</h2>
     <div class="about-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p style="margin-top: 20px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p style="margin-top: 20px;"><strong>Hobbies:</strong> Placeholder text for hobbies and interests.</p>
+        <p>I'm a Product Designer passionate about solving complex problems through research-driven design and emerging technologies. I bridge the gap between design and development, leveraging AI tools to accelerate innovation.</p>
+        <p style="margin-top: 16px;">Beyond design systems and interfaces, I'm fascinated by how agentic AI can reshape workflows. I believe great design isn't about aesthetics—it's about deeply understanding user needs, validating with data, and iterating based on real usage.</p>
+        <p style="margin-top: 16px;"><strong>Currently exploring:</strong> AI-assisted design workflows, enterprise product design, and the intersection of UX research and AI innovation.</p>
     </div>
 </section>
 
-<!-- SECTION 7: Contact -->
+<!-- Contact Section -->
 <section id="contact">
-    <h2>Seems Like a Fit?</h2>
-    <p style="margin-bottom: 30px;">Get in Touch</p>
-    <div class="contact-info">
-        <div class="contact-item">
-            <h3>Email</h3>
-            <p><a href="mailto:janhavi.waikar@example.com">janhavi.waikar@example.com</a></p>
+    <div class="contact-container">
+        <div class="contact-intro">
+            <h3>Seems Like a Fit?</h3>
+            <p>Get in Touch</p>
         </div>
-        <div class="contact-item">
-            <h3>Phone</h3>
-            <p><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></p>
-        </div>
-        <div class="contact-item">
-            <h3>LinkedIn</h3>
-            <p><a href="https://linkedin.com/in/janhaviWaikar" target="_blank">linkedin.com/in/janhaviWaikar</a></p>
-        </div>
-        <div class="contact-item">
-            <h3>Behance</h3>
-            <p><a href="https://behance.net/janhaviWaikar" target="_blank">behance.net/janhaviWaikar</a></p>
+        
+        <div class="contact-stack">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <a href="mailto:janhavi.waikar@example.com">janhavi.waikar@example.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Phone</h3>
+                <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/janhaviWaikar" target="_blank">linkedin.com/in/janhaviWaikar</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-behance"></i>
+                </div>
+                <h3>Behance</h3>
+                <a href="https://behance.net/janhaviWaikar" target="_blank">behance.net/janhaviWaikar</a>
+            </div>
         </div>
     </div>
 </section>
