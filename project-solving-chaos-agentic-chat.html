@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solving For Chaos Behind Agentic Chat - Janhavi Waikar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #fafbfc;
+        }
+        
+        /* Navigation */
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: white;
+            border-bottom: 1px solid #e8eef5;
+        }
+        
+        .back-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .nav-header .logo {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            margin-bottom: 80px;
+        }
+        
+        .project-title {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #1a202c;
+        }
+        
+        .project-tagline {
+            font-size: 20px;
+            color: #5a6c7d;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+        
+        /* Project Metadata */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e8eef5;
+        }
+        
+        .meta-item h3 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #7a8ba8;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        .meta-item p {
+            font-size: 15px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        /* Tags */
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .tag {
+            background: #e8f0ff;
+            color: #0066cc;
+            padding: 6px 14px;
+            font-size: 13px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        /* Two-Column Layout */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+        
+        .content-text {
+            padding: 0;
+        }
+        
+        .content-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a202c;
+        }
+        
+        .content-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .content-text p {
+            margin-bottom: 16px;
+            color: #4a5f7f;
+            line-height: 1.8;
+        }
+        
+        .content-text ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .content-text li {
+            margin-bottom: 12px;
+            color: #4a5f7f;
+            line-height: 1.8;
+        }
+        
+        /* Image Placeholder */
+        .image-placeholder {
+            width: 100%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7a8ba8;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            min-height: 400px;
+        }
+        
+        .full-width-image {
+            width: 100%;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 80px;
+            margin-top: 60px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e8eef5;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 8px;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            color: #7a8ba8;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Full Width Section */
+        .full-section {
+            background: white;
+            padding: 60px;
+            border-radius: 8px;
+            border: 1px solid #e8eef5;
+            margin-bottom: 80px;
+        }
+        
+        .full-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1a202c;
+        }
+        
+        .research-findings {
+            margin-bottom: 40px;
+        }
+        
+        .finding-item {
+            padding: 30px;
+            background: #f9fbfd;
+            border-left: 4px solid #0066cc;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .finding-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+        
+        .finding-description {
+            font-size: 14px;
+            color: #4a5f7f;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+        
+        .finding-quote {
+            font-style: italic;
+            color: #5a6c7d;
+            border-left: 2px solid #cbd5e0;
+            padding-left: 16px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+        
+        /* Personas Section */
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .persona-card {
+            background: #f9fbfd;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e8eef5;
+        }
+        
+        .persona-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+        
+        .persona-role {
+            font-size: 14px;
+            color: #0066cc;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .persona-detail {
+            font-size: 13px;
+            color: #4a5f7f;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+        
+        .persona-detail strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 8px;
+            margin-bottom: 80px;
+        }
+        
+        .impact-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .impact-stat {
+            text-align: center;
+        }
+        
+        .impact-stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .impact-stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e8eef5;
+        }
+        
+        .cta-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            color: #5a6c7d;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #004499;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #e8eef5;
+            color: #7a8ba8;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .project-title {
+                font-size: 36px;
+            }
+            
+            .project-meta {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid,
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .personas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Header -->
+<div class="nav-header">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    <div class="logo">JW</div>
+    <div style="width: 80px;"></div> <!-- Spacer for centering -->
+</div>
+
+<!-- Main Container -->
+<div class="container">
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1 class="project-title">Solving For Chaos Behind Agentic Chat</h1>
+        <p class="project-tagline">Designing an AI-powered platform that enables investment banking analysts to generate institutional-grade reports 10x faster</p>
+        
+        <!-- Project Tags -->
+        <div class="project-tags">
+            <span class="tag">AI/Agentic Design</span>
+            <span class="tag">Enterprise UX</span>
+            <span class="tag">Research-Driven</span>
+            <span class="tag">Product Design</span>
+            <span class="tag">Complexity Simplification</span>
+        </div>
+        
+        <!-- Project Metadata -->
+        <div class="project-meta">
+            <div class="meta-item">
+                <h3>My Role</h3>
+                <p>Product Designer & Lead UX Architect</p>
+            </div>
+            <div class="meta-item">
+                <h3>Timeline</h3>
+                <p>8 Months</p>
+            </div>
+            <div class="meta-item">
+                <h3>Team</h3>
+                <p>Cross-functional (PM, Engineers, ML)</p>
+            </div>
+            <div class="meta-item">
+                <h3>Users Impacted</h3>
+                <p>250+ Institutional Analysts</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Impact Metrics -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-value">8.5x</div>
+            <div class="metric-label">Faster Delivery</div>
+            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">6 hours → 42 minutes</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">340%</div>
+            <div class="metric-label">Productivity Gain</div>
+            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">3.4x reports/week</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">92%</div>
+            <div class="metric-label">Adoption Rate</div>
+            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">In first 6 months</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">67%</div>
+            <div class="metric-label">Error Reduction</div>
+            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">Through validation</p>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <div class="content-layout">
+        <div class="content-text">
+            <h2>The Problem</h2>
+            <h3>The Broken Workflow</h3>
+            <p>Investment banking analysts spent 60-70% of their time collecting data, formatting reports, and managing versions—not analyzing. A single institutional-grade report required 6-8 hours of manual work:</p>
+            <ul>
+                <li><strong>Data Collection:</strong> 2-3 hours pulling from Bloomberg, CapIQ, PitchBook, FactSet</li>
+                <li><strong>Organization & Cleaning:</strong> 1.5-2 hours standardizing formats, cross-referencing</li>
+                <li><strong>Report Assembly:</strong> 1-1.5 hours building PowerPoint, Excel, Word documents</li>
+                <li><strong>Review & Versioning:</strong> 1-2 hours managing feedback and revisions</li>
+                <li><strong>Compliance Check:</strong> 30-45 minutes ensuring regulatory alignment</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>Result:</strong> Analysts produced only 1-2 reports per week, with only 30-40% of their time spent on actual analysis.</p>
+        </div>
+        <div>
+            <div class="image-placeholder">
+                [Hero Image: Current Workflow Chaos]<br/><br/>
+                📊 Wireframe/screenshot of analyst juggling multiple apps<br/>
+                Suggested: 5-app context switching chaos diagram
+            </div>
+        </div>
+    </div>
+
+    <!-- Business Opportunity -->
+    <div class="content-layout">
+        <div>
+            <div class="image-placeholder">
+                [Business Context Image]<br/><br/>
+                💰 Financial impact visualization<br/>
+                Suggested: Chart showing $30M in annual labor inefficiency
+            </div>
+        </div>
+        <div class="content-text">
+            <h2>Business Opportunity</h2>
+            <p>The financial incentive was clear:</p>
+            <ul>
+                <li>Institutions pay analysts <strong>$150K-$300K annually</strong></li>
+                <li>Report-writing overhead: <strong>$36-48K per analyst per year</strong> (30-40% of salary)</li>
+                <li>Across 15 institutional clients × 50 analysts = <strong>$30M annual inefficiency</strong></li>
+            </ul>
+            <h3>Why Existing Solutions Failed</h3>
+            <ul>
+                <li>Bloomberg & CapIQ provide data access, not deliverables</li>
+                <li>Tableau/Power BI dashboards aren't client-ready reports</li>
+                <li>RPA tools require IT involvement for every workflow</li>
+                <li>AI chatbots don't understand financial domain context</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Research Section -->
+    <div class="full-section">
+        <h2>User Research & Discovery</h2>
+        <p style="margin-bottom: 30px; color: #4a5f7f;">We conducted in-depth research across 12 senior analysts, 8 portfolio managers, and 3 institutions through interviews, contextual inquiry, and workflow analysis.</p>
+        
+        <div class="research-findings">
+            <div class="finding-item">
+                <div class="finding-title">🔍 Finding #1: Data Anxiety</div>
+                <div class="finding-description">73% of analysts manually validate numbers across 2-3 sources. Average 3-5 data discrepancies per report create "verification paralysis."</div>
+                <div class="finding-quote">"I spend more time verifying that my numbers match Bloomberg and CapIQ than actually thinking about what the numbers mean."</div>
+                <div class="finding-description"><strong>Design Implication:</strong> Provide transparent data lineage, source attribution, and one-click validation.</div>
+            </div>
+
+            <div class="finding-item">
+                <div class="finding-title">⚡ Finding #2: Context Switching Tax</div>
+                <div class="finding-description">Analysts juggle 5-7 applications simultaneously. Each switch costs 8 seconds, with 120+ switches per report (16+ minutes wasted) plus information loss.</div>
+                <div class="finding-quote">"I have Bloomberg in one monitor, CapIQ in another, Excel on my laptop, and I'm copying data between them. I can't focus."</div>
+                <div class="finding-description"><strong>Design Implication:</strong> Create a unified workspace minimizing friction between tools.</div>
+            </div>
+
+            <div class="finding-item">
+                <div class="finding-title">📋 Finding #3: Template Inflexibility</div>
+                <div class="finding-description">While analysts need templates, current ones require 40-60 minutes to customize. This leads to unsafe copy-paste workflows.</div>
+                <div class="finding-quote">"I have 20 report templates, but none match what this client wants. So I copy last month's report and change numbers—it's faster but terrifying."</div>
+                <div class="finding-description"><strong>Design Implication:</strong> Templates must be modular, customizable, and version-controlled.</div>
+            </div>
+
+            <div class="finding-item">
+                <div class="finding-title">✅ Finding #4: Approval Workflow Friction</div>
+                <div class="finding-description">Manual compliance review adds 2-3 days; 40% of reports return for revisions (mostly formatting, not content).</div>
+                <div class="finding-quote">"A report that took 6 hours to write takes 3 days to approve because of back-and-forth feedback."</div>
+                <div class="finding-description"><strong>Design Implication:</strong> Build compliance checks into the workflow, not after.</div>
+            </div>
+
+            <div class="finding-item">
+                <div class="finding-title">🤝 Finding #5: Knowledge Silos</div>
+                <div class="finding-description">Institutional knowledge trapped in personal workflows. New analysts rebuild work instead of reusing it. Onboarding takes 4-6 weeks.</div>
+                <div class="finding-quote">"My colleague built an amazing dashboard, but nobody uses it because I didn't know it existed."</div>
+                <div class="finding-description"><strong>Design Implication:</strong> Enable discovery, sharing, and reuse of workflows.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Personas Section -->
+    <div class="full-section">
+        <h2>User Personas</h2>
+        
+        <div class="personas-grid">
+            <div class="persona-card">
+                <div class="persona-name">Sarah</div>
+                <div class="persona-role">Senior Equity Analyst</div>
+                <div class="persona-detail">
+                    <strong>Age:</strong> 32 | <strong>Experience:</strong> 7 years<br/>
+                    <strong>Reports/week:</strong> 3-4
+                </div>
+                <div class="persona-detail">
+                    <strong>Motivation:</strong> Spend time on analysis & insights, not admin work
+                </div>
+                <div class="persona-detail">
+                    <strong>Pain Points:</strong> Template customization, version control, compliance delays
+                </div>
+                <div class="persona-detail">
+                    <strong>Tech Comfort:</strong> High (power user of finance tools)
+                </div>
+            </div>
+
+            <div class="persona-card">
+                <div class="persona-name">Marcus</div>
+                <div class="persona-role">Associate Analyst (Year 1)</div>
+                <div class="persona-detail">
+                    <strong>Age:</strong> 23 | <strong>Experience:</strong> &lt; 1 year<br/>
+                    <strong>Reports/week:</strong> 1-2
+                </div>
+                <div class="persona-detail">
+                    <strong>Motivation:</strong> Learn best practices, prove capability, move up
+                </div>
+                <div class="persona-detail">
+                    <strong>Pain Points:</strong> Don't know what good looks like, fear mistakes
+                </div>
+                <div class="persona-detail">
+                    <strong>Tech Comfort:</strong> Medium (web native but new to finance)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design Solution Section -->
+    <div class="content-layout">
+        <div class="content-text">
+            <h2>Design Solution</h2>
+            <h3>Unified AI-Powered Workflow</h3>
+            <p>Instead of analysts jumping between 5-7 apps, we created a unified platform where:</p>
+            <ul>
+                <li><strong>Data Access:</strong> Bloomberg, CapIQ data integrated directly—no copy-paste</li>
+                <li><strong>Smart Templates:</strong> AI suggests sections based on report type; analysts customize in minutes</li>
+                <li><strong>Real-Time Validation:</strong> Data lineage tracked automatically; sources transparent</li>
+                <li><strong>Built-in Compliance:</strong> Rules enforced during creation, not review</li>
+                <li><strong>Knowledge Sharing:</strong> Analysts fork successful reports, learn methodologies</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>Result:</strong> 6-8 hour process compressed to 40 minutes.</p>
+        </div>
+        <div>
+            <div class="image-placeholder">
+                [Solution Architecture Image]<br/><br/>
+                🎨 Wireframes/mockups of unified platform<br/>
+                Suggested: Before/after workflow visualization
+            </div>
+        </div>
+    </div>
+
+    <!-- Design Decision Deep Dive -->
+    <div class="full-width-image">
+        <div class="image-placeholder">
+            [Design Decisions Image]<br/><br/>
+            📐 Key design decisions & rationale<br/>
+            Suggested: 3-4 annotated interface mockups with design thinking notes
+        </div>
+    </div>
+
+    <!-- Impact Results -->
+    <div class="impact-section">
+        <h2>Impact & Results</h2>
+        <div class="impact-metrics">
+            <div class="impact-stat">
+                <div class="impact-stat-value">8.5x</div>
+                <div class="impact-stat-label">Faster Report Delivery</div>
+                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">From 6 hours to 42 minutes</p>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-stat-value">92%</div>
+                <div class="impact-stat-label">User Adoption</div>
+                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">Within 6 months of launch</p>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-stat-value">2.1M</div>
+                <div class="impact-stat-label">Hours Saved Annually</div>
+                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">Across user base per institution</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testing & Validation -->
+    <div class="full-section">
+        <h2>Testing & Validation</h2>
+        <h3>Usability Testing</h3>
+        <p>Conducted 5 one-on-one sessions with power users from different institutions:</p>
+        <ul style="margin-left: 20px;">
+            <li><strong>Task Completion:</strong> 22 min average (target: 25 min) ✓</li>
+            <li><strong>System Usability Scale (SUS):</strong> 78/100 (target: 70+) ✓</li>
+            <li><strong>Pain Point Identified:</strong> Data source selection UX needed refinement</li>
+        </ul>
+        
+        <h3 style="margin-top: 30px;">Beta Testing (25 Analysts, 6 Weeks)</h3>
+        <ul style="margin-left: 20px;">
+            <li>92% satisfaction rate</li>
+            <li>Resolved 47 feature requests & 23 bugs during beta</li>
+            <li>Feature priority: Custom Skills Editor → Advanced Search → Collaboration Tools</li>
+        </ul>
+    </div>
+
+    <!-- User Journey Outcome -->
+    <div class="content-layout">
+        <div class="content-text">
+            <h2>User Journey Before & After</h2>
+            <h3>Sarah's Workflow (Senior Analyst)</h3>
+            
+            <p><strong style="color: #8b5a3c;">❌ Before (6 hours):</strong></p>
+            <ul>
+                <li>Open Bloomberg, pull data → 45 min</li>
+                <li>Cross-reference with CapIQ → 30 min</li>
+                <li>Format in Excel, validate → 1 hour</li>
+                <li>Build PowerPoint manually → 1.5 hours</li>
+                <li>Send to compliance → wait 24 hours</li>
+                <li>Revisions, re-approval → 1.5 hours</li>
+            </ul>
+
+            <p style="margin-top: 20px;"><strong style="color: #0066cc;">✓ After (42 minutes):</strong></p>
+            <ul>
+                <li>Select client template → 2 min</li>
+                <li>Platform auto-pulls Bloomberg data → 3 min</li>
+                <li>Review pre-validated data → 5 min</li>
+                <li>Customize narrative (AI suggests sections) → 15 min</li>
+                <li>Platform auto-checks compliance → 2 min</li>
+                <li>One-click send to client → 15 min</li>
+            </ul>
+        </div>
+        <div>
+            <div class="image-placeholder">
+                [Journey Mapping Image]<br/><br/>
+                🗺️ Before/after workflow visualization<br/>
+                Suggested: Timeline showing time savings at each step
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Learnings -->
+    <div class="full-section">
+        <h2>Key Design Learnings</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+            <div>
+                <h3 style="color: #0066cc; margin-bottom: 15px;">1. Domain Expertise Matters</h3>
+                <p>Understanding finance terminology, compliance requirements, and institutional workflows was critical. Generic UX patterns don't work in specialized domains.</p>
+            </div>
+            <div>
+                <h3 style="color: #0066cc; margin-bottom: 15px;">2. Trust > Efficiency</h3>
+                <p>Even 8.5x faster delivery meant nothing if analysts didn't trust the data. Transparent lineage and validation built confidence.</p>
+            </div>
+            <div>
+                <h3 style="color: #0066cc; margin-bottom: 15px;">3. Power Users Need Escape Hatches</h3>
+                <p>Advanced users like Sarah needed customization depth. Junior users like Marcus needed guided workflows. One-size-fits-all UI failed both.</p>
+            </div>
+            <div>
+                <h3 style="color: #0066cc; margin-bottom: 15px;">4. Context Switching is Underrated</h3>
+                <p>Most platforms ignore app-switching friction. Consolidating 5 apps into 1 was more valuable than any feature optimization.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>Interested in learning more?</h2>
+        <p>This case study demonstrates research-driven design, cross-functional collaboration, and measurable impact. Let's talk about your next product challenge.</p>
+        <a href="index.html#contact" class="cta-button">Get in Touch</a>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Janhavi Waikar. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
