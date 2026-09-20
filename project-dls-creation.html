@@ -3,179 +3,725 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DLS Creation - Janhavi Waikar</title>
+    <title>Rebuilding the Rules Behind the UI - Janhavi Waikar</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--black:#111;--ink:#171717;
+  --gray-1:#f8f9fa;--gray-2:#eef0f2;--gray-3:#dfe2e6;
+  --gray-4:#8b9098;--gray-5:#5f646c;
+  --muted:#737982;--line:#e5e7ea;
+  --shadow-soft:0 8px 28px rgba(25,30,35,.08);
+  --shadow-hover:0 14px 34px rgba(25,30,35,.12);
+  --radius-xl:34px;--radius-lg:18px;--radius-md:16px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  line-height:1.65;color:var(--ink);background:var(--white);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:inherit}
+
+/* Floating portfolio navigation — matched to index */
+.site-nav{
+  position:sticky;top:20px;z-index:20;
+  display:flex;justify-content:center;align-items:center;
+  padding:0 10px 0 30px; min-height: 68px; gap:0px;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(14px);
+  border-radius:40px;border:1px solid rgba(232,234,237,.8);
+  width:fit-content;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+.logo{font-weight:500;font-size:32px;letter-spacing:-1.5px;color:var(--ink);text-decoration:none; padding-right: 22px;
+        margin-right: 2px;}
+.nav-divider{width:1px;height:36px;background:var(--gray-3)}
+.nav-links{display:flex;gap:12px;align-items:center}
+.nav-links a,.nav-mobile a{
+  padding:12px 16px;text-decoration:none;font-size:18px;font-weight:400;
+  color:var(--ink);transition:color .25s ease;font-family:'Outfit',sans-serif;
+}
+.nav-links a:hover, .nav-mobile a:hover {
+  color: #70757d;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  z-index: 100;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Morph to X Animation when active */
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-mobile {
+  display: none;
+}
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        .back-button {
-            display: inline-block;
-            padding: 20px 40px;
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        .back-button:hover {
-            text-decoration: underline;
-        }
-        
-        .project-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px;
-        }
-        
-        .project-hero {
-            margin-bottom: 60px;
-        }
-        
-        .project-hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .project-meta {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: #f0f0f0;
-            padding: 6px 12px;
-            font-size: 13px;
-            border-radius: 4px;
-        }
-        
-        .project-description {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        .project-hero-image {
-            width: 100%;
-            height: 400px;
-            background: #e0e0e0;
-            border: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 40px;
-        }
-        
-        .project-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .project-content section {
-            padding: 0;
-        }
-        
-        .project-content h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        
-        .project-content p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid #eee;
-            color: #999;
-            margin-top: 60px;
-        }
-    </style>
+/* Main case-study frame */
+.container{max-width:1180px;margin:0 auto;padding:76px 32px 82px}
+.hero-section{
+  position:relative;overflow:hidden;margin:0px 0 18px;padding:78px 56px 50px;
+  min-height:430px;border-radius:var(--radius-xl);
+  background:linear-gradient(#f2f3f5,#fff);border:1px solid var(--gray-2);
+  box-shadow:var(--shadow-soft);
+  
+    background-image: url("chaos-hero1.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 300px;
+   
+    
+    pointer-events: none;
+
+    z-index: 0;
+}
+.hero-section::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(#e2e4e7 1.5px,transparent 1.5px);
+  background-size:165px 165px;opacity:.28;
+  mask-image:linear-gradient(to bottom,black 0%,transparent 72%);
+  -webkit-mask-image:linear-gradient(to bottom,black 0%,transparent 72%);
+}
+.hero-section>*{position:relative;z-index:1}
+.project-title{
+  max-width:900px;font-size:clamp(48px,6vw,72px);line-height:1.02;
+  font-weight:500;letter-spacing:-3px;color:var(--black);margin-bottom:20px;
+}
+.project-tagline{
+  max-width:760px;font-size:22px;line-height:1.42;color:#4e5259;
+  font-weight:300;letter-spacing:-.2px;margin-bottom:28px;
+}
+.project-tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:36px}
+.tag{
+  padding:8px 13px;border:1px solid #e1e3e6;border-radius:999px;
+  background:rgba(255,255,255,.8);color:#40444a;font-size:13px;font-weight:400;
+  box-shadow:0 2px 7px rgba(25,30,35,.035)
+}
+.project-meta{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:0 -56px -50px;padding:24px 56px;
+  background:rgba(255,255,255,.7);border-top:1px solid rgba(223,226,230,.9);
+  backdrop-filter:blur(6px)
+}
+.meta-item{padding:0 24px;border-right:1px solid var(--line)}
+.meta-item:first-child{padding-left:0}.meta-item:last-child{border-right:0}
+.meta-item h3,.content-text h3,.full-section>h3{
+  font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--gray-4);margin-bottom:8px
+}
+.meta-item p{font-size:14px;color:var(--gray-5);font-weight:400}
+
+/* Metrics */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:36px 0 82px}
+.metric-card{
+  padding:26px 24px;border-radius:var(--radius-lg);background:#232323;
+  border:1px solid var(--gray-2);box-shadow:var(--shadow-soft);transition:transform .25s ease,box-shadow .25s ease
+}
+.metric-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.metric-value{font-size:34px;line-height:1;font-weight:500;letter-spacing:-1.2px;color:#fff;margin-bottom:11px}
+.metric-label{font-size:16px;color:#cfd3d8;font-weight:400;letter-spacing:1px;margin-bottom:6px}
+.metric-card p{font-size:14px!important;color:#8b9098!important;margin:0!important}
+
+/* Editorial content layout */
+.content-layout{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;
+  margin-bottom:22px;align-items:stretch
+}
+.content-text,.content-layout>div:has(.image-placeholder){min-height:100%}
+.content-text{
+  padding:38px 40px;
+}
+.content-text h2,.full-section h2,.impact-section h2{font-size:36px;line-height:1.08;font-weight:500;letter-spacing:-1.2px;color:var(--black);margin-bottom:18px}
+.content-text h3{margin-top:25px;margin-bottom:12px}
+.content-text p,.content-text li,.full-section p,.full-section li{color:var(--gray-5);font-size:15px;line-height:1.72}
+.content-text p{margin-bottom:15px}.content-text ul,.full-section ul{margin:0 0 14px 20px}.content-text li,.full-section li{margin-bottom:8px}
+.content-text strong,.full-section strong{color:#272a2e;font-weight:500}
+
+.image-placeholder{
+  min-height:100%;height:100%;min-height:330px;padding:28px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  box-shadow:var(--shadow-soft);color:var(--gray-4);font-size:13px;line-height:1.6
+}
+.full-width-image{margin:22px 0}
+.full-width-image .image-placeholder{min-height:420px}
+
+/* Large cards */
+.full-section{
+  margin:22px 0;padding:42px;border-radius:var(--radius-xl);
+  background:#fff;
+}
+.full-section>p{max-width:840px;margin-bottom:28px}
+.research-findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.finding-item{
+  padding:24px;border-radius:var(--radius-md);background:linear-gradient(145deg,#fafafa,#f3f4f6);
+  border:1px solid #e4e6e9;box-shadow:0 3px 14px rgba(25,30,35,.04)
+}
+.finding-item:first-child{grid-column:1/-1}
+.finding-title{font-size:18px;font-weight:500;letter-spacing:-.3px;color:var(--black);margin-bottom:9px}
+.finding-description{font-size:14px;color:var(--gray-5);line-height:1.65;margin-bottom:10px}
+.finding-description strong{color:#31343a;font-weight:500}
+.finding-quote{font-style:italic;color:#777d86;border-left:2px solid #cfd3d8;padding-left:13px;margin:12px 0;font-size:13px;line-height:1.6}
+
+.personas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.persona-card{padding:28px;border-radius:var(--radius-md);border:1px solid var(--gray-2);background:linear-gradient(145deg,#fafafa,#f3f4f6)}
+.persona-name{font-size:25px;font-weight:500;color:var(--black);letter-spacing:-.6px;margin-bottom:2px}
+.persona-role{font-size:13px;color:var(--gray-4);margin-bottom:18px}
+.persona-detail{font-size:13px;color:var(--gray-5);line-height:1.7;margin-bottom:10px}
+.persona-detail strong{color:#2b2e33;font-weight:500}
+
+
+/* ---------- Problem / Opportunity / Validation storytelling ---------- */
+.section-intro-card{text-align:center;margin:20px 0 26px}.section-intro-card .section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:var(--gray-4);font-weight:600;margin-bottom:10px}.section-intro-card h2{font-size:38px;line-height:1.05;font-weight:500;letter-spacing:-1.3px;color:var(--black);margin-bottom:10px}.section-intro-card p{max-width:760px;margin:0 auto;color:var(--gray-5);font-size:16px;line-height:1.6}
+.story-card{position:relative;overflow:hidden;margin:22px 0 64px;padding:34px 36px;border-radius:var(--radius-xl);box-shadow:var(--shadow-soft)}.story-card--dark{color:#fff;background:linear-gradient(135deg,#5a1518 0%,#3f1013 100%);border:1px solid #6f2729}.story-card--dark::before{content:"";position:absolute;width:520px;height:520px;right:-180px;top:-210px;border:42px solid rgba(255,255,255,.06);border-radius:50%;pointer-events:none;transform:rotate(18deg)}.story-card--dark::after{content:"";position:absolute;width:240px;height:240px;left:-120px;bottom:-120px;border:22px solid rgba(255,255,255,.05);border-radius:50%;pointer-events:none}.story-card>*{position:relative;z-index:1}
+.problem-timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0}.problem-step{position:relative;padding:12px 22px 6px;text-align:center}.problem-step+.problem-step{border-left:1px solid rgba(255,255,255,.16)}.problem-step:first-child{padding-left:6px}.problem-step:last-child{padding-right:6px}.problem-step h3{font-size:15px;line-height:1.2;font-weight:500;color:#fff;margin-bottom:12px}.problem-step .step-time{font-size:34px;line-height:1;font-weight:500;letter-spacing:-1.1px;color:#fff;margin-bottom:12px}.problem-step p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.78);margin:0}.problem-bottom-line{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;align-items:center;gap:20px}.problem-bottom-line .label{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;color:rgba(255,255,255,.62);font-weight:600}.problem-bottom-line .result{font-size:15px;color:#fff;font-weight:400}
+.opportunity-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:12px}.opportunity-hero{position:relative;overflow:hidden;padding:34px;border-radius:var(--radius-lg);background:#232323;color:#fff;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}.opportunity-hero::after{content:"$";position:absolute;right:-15px;bottom:-70px;font-size:280px;line-height:1;font-weight:500;color:rgba(255,255,255,.035);pointer-events:none}.opportunity-hero>*{position:relative;z-index:1}.opportunity-hero .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#aeb3ba;font-weight:600}.opportunity-hero .big-number{margin-top:16px;font-size:76px;line-height:.95;letter-spacing:-3px;font-weight:500}.opportunity-hero .big-label{margin-top:12px;max-width:500px;font-size:15px;line-height:1.5;color:#cfd3d8}.opportunity-facts{display:grid;grid-template-columns:1fr;gap:12px}.opportunity-fact{padding:24px;border-radius:var(--radius-lg);background:linear-gradient(145deg,#fafafa,#f1f2f4);border:1px solid var(--gray-2)}.opportunity-fact .fact-number{font-size:28px;line-height:1;letter-spacing:-1px;color:var(--black);font-weight:500;margin-bottom:8px}.opportunity-fact .fact-text{font-size:14px;line-height:1.55;color:var(--gray-5)}.opportunity-friction{margin-top:12px;padding:28px;border-radius:var(--radius-lg);background:#f7f8f9;border:1px solid var(--gray-2)}.opportunity-friction h3{margin-bottom:16px;font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--gray-4);font-weight:600}.friction-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.friction-item{padding:18px;border-radius:var(--radius-md);background:#fff;border:1px solid #e3e5e8}.friction-item strong{display:block;font-size:14px;color:#2a2d31;font-weight:500;margin-bottom:6px}.friction-item span{display:block;font-size:12px;line-height:1.45;color:var(--gray-4)}
+.validation-shell{padding:34px;border-radius:var(--radius-xl);background:linear-gradient(145deg,#f6f7f8,#eceef1);border:1px solid var(--gray-2);box-shadow:var(--shadow-soft)}.validation-top{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:end;margin-bottom:26px}.validation-title h2{margin-bottom:10px}.validation-title p{max-width:700px;color:var(--gray-5);font-size:15px;line-height:1.65}.validation-score{padding:24px;border-radius:var(--radius-lg);background:#232323;color:#fff;text-align:right}.validation-score .score-label{display:block;margin-bottom:8px;color:#aeb3ba;font-size:11px;text-transform:uppercase;letter-spacing:1.1px;font-weight:600}.validation-score .score{font-size:46px;line-height:1;letter-spacing:-1.5px;font-weight:500}.validation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.validation-card{padding:24px;min-height:190px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--gray-2);box-shadow:0 3px 14px rgba(25,30,35,.04)}.validation-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border-radius:12px;background:#f0f1f3;color:#363a40;font-size:12px}.validation-card h3{margin-bottom:8px;font-size:17px;color:var(--black);font-weight:500;letter-spacing:-.3px}.validation-card p{margin:0;font-size:13px;line-height:1.6;color:var(--gray-5)}.beta-strip{display:grid;grid-template-columns:1.1fr repeat(3,1fr);gap:0;margin-top:12px;border-radius:var(--radius-lg);overflow:hidden;background:#232323;color:#fff}.beta-strip .beta-title{padding:20px 22px}.beta-strip .beta-title small{display:block;margin-bottom:5px;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8f969f;font-weight:600}.beta-strip .beta-title strong{font-size:17px;font-weight:500;color:#fff}.beta-stat{padding:20px 22px;border-left:1px solid rgba(255,255,255,.12)}.beta-stat strong{display:block;font-size:22px;line-height:1;margin-bottom:6px;color:#fff;font-weight:500}.beta-stat span{font-size:12px;line-height:1.4;color:#aeb3ba}
+@media(max-width:1050px){.problem-timeline{grid-template-columns:repeat(3,1fr)}.problem-step:nth-child(4){border-left:0}.problem-step:nth-child(n+4){margin-top:18px}.opportunity-grid,.validation-top{grid-template-columns:1fr}.validation-score{text-align:left}.friction-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.section-intro-card h2{font-size:31px}.story-card{padding:24px 20px;margin-bottom:46px}.problem-timeline{grid-template-columns:1fr 1fr}.problem-step,.problem-step:first-child,.problem-step:last-child{padding:18px 12px}.problem-step:nth-child(odd){border-left:0}.problem-step:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}.problem-step .step-time{font-size:29px}.problem-bottom-line{flex-direction:column;align-items:flex-start}.opportunity-hero{min-height:250px;padding:26px}.opportunity-hero .big-number{font-size:60px}.opportunity-fact{padding:20px}.friction-grid{grid-template-columns:1fr 1fr}.validation-shell{padding:24px 20px;border-radius:24px}.validation-grid{grid-template-columns:1fr}.beta-strip{grid-template-columns:1fr 1fr}.beta-strip .beta-title{grid-column:1/-1}.beta-stat:nth-child(3){border-left:0;border-top:1px solid rgba(255,255,255,.12)}.beta-stat:nth-child(4){border-top:1px solid rgba(255,255,255,.12)}}
+@media(max-width:480px){.problem-timeline{grid-template-columns:1fr}.problem-step,.problem-step:nth-child(4),.problem-step:nth-child(n+3){border-left:0;border-top:1px solid rgba(255,255,255,.12)}.problem-step:first-child{border-top:0}.friction-grid{grid-template-columns:1fr}.beta-strip{grid-template-columns:1fr}.beta-strip .beta-title{grid-column:auto}.beta-stat,.beta-stat:nth-child(3),.beta-stat:nth-child(4){border-left:0;border-top:1px solid rgba(255,255,255,.12)}}
+
+/* Impact */
+.impact-section {
+    position: relative;
+    overflow: hidden;
+
+    margin: 22px 0;
+    padding: 42px;
+    border-radius: var(--radius-xl);
+
+    background: #232323;
+    border: 1px solid var(--gray-2);
+    box-shadow: var(--shadow-soft);
+    color: var(--ink);
+}
+
+/* Faded SVG decoration */
+.impact-section::before {
+    content: "";
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    left: 00px;
+    bottom: -140px;
+
+    background-image: url("arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+/* Keep heading above SVG */
+.impact-section h2 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 26px;
+    color: #fff;
+}
+
+/* Keep metrics above SVG */
+.impact-metrics {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.impact-stat {
+    position: relative;
+    z-index: 2;
+
+    padding: 28px 24px;
+    border-radius: var(--radius-lg);
+}
+
+.impact-stat-value {
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+    margin-bottom: 9px;
+    color: #fff;
+}
+
+.impact-stat-label {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #cfd3d8;
+    font-weight: 400;
+}
+
+.impact-stat p {
+    font-size: 12px !important;
+    color: #8b9098;
+    margin: 10px 0 0 !important;
+    opacity: 1 !important;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .impact-section {
+        padding: 28px 20px;
+    }
+
+    .impact-section::before {
+        width: 320px;
+        height: 320px;
+        right: -80px;
+        bottom: -70px;
+        opacity: 0.06;
+    }
+
+    .impact-metrics {
+        grid-template-columns: 1fr;
+    }
+}
+/* Make the two-column learning block feel like cards */
+.full-section .full-section-grid,
+.full-section>div[style*="grid-template-columns"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px!important;margin-top:20px!important}
+.full-section>div[style*="grid-template-columns"]>div{padding:22px;border:1px solid var(--gray-2);border-radius:var(--radius-md);background:linear-gradient(145deg,#fafafa,#f3f4f6)}
+.full-section>div[style*="grid-template-columns"] h3{color:var(--gray-5)!important;margin:0 0 10px!important}
+
+
+
+/* ---------- Editable Before / After User Journey ---------- */
+.journey-section{margin:68px 0 22px}
+.journey-intro{text-align:center;margin:0 auto 28px;max-width:780px}
+.journey-intro .journey-kicker{font-size:12px;text-transform:uppercase;letter-spacing:1.3px;color:var(--gray-4);font-weight:600;margin-bottom:10px}
+.journey-intro h2{font-size:38px;line-height:1.05;font-weight:500;letter-spacing:-1.3px;color:var(--black);margin:0 0 10px}
+.journey-intro p{margin:0;color:var(--gray-5);font-size:16px;line-height:1.6}
+
+.journey-panel{position:relative;overflow:hidden;border-radius:var(--radius-xl);padding:34px 28px 24px;margin-top:18px;box-shadow:var(--shadow-soft);}
+.journey-panel--before{background:#fff8f8;border:1px solid #efdfe0}
+.journey-panel--after{background:linear-gradient(145deg,#063f37 0%,#002f2a 100%);border:1px solid #176e60;color:#fff}
+.journey-panel::after{content:"";position:absolute;inset:auto -120px -150px auto;width:360px;height:360px;border-radius:50%;border:34px solid rgba(255,255,255,.05);pointer-events:none}
+.journey-panel--before::after{border-color:rgba(190,67,72,.06)}
+.journey-panel>*{position:relative;z-index:1}
+
+.journey-header{display:flex; align-items:center; justify-content: center; gap:14px;margin-bottom:28px}
+.journey-header h3{font-size:28px;line-height:1.05;font-weight:500;letter-spacing:-.8px;margin:0 0 6px;  text-align: center;}
+.journey-panel--before .journey-header h3{color:#25272b}
+.journey-panel--after .journey-header h3{color:#fff}
+.journey-subtitle{margin:0;font-size:13px;line-height:1.45}
+.journey-panel--before .journey-subtitle{color:#7b7f86}
+.journey-panel--after .journey-subtitle{color:rgba(255,255,255,.76)}
+
+.journey-steps{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    align-items:stretch;
+    }
+.journey-step{    min-width:0;
+    border-radius:18px;
+    padding:18px 14px 16px;
+    min-height:190px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    font-size:clamp(12px,1vw,15px);}
+.journey-step-number{font-size:11px;font-weight:500;letter-spacing:.8px;margin-bottom:12px}
+.journey-panel--before .journey-step-number{color:#a8adb5}
+.journey-panel--after .journey-step-number{color:rgba(255,255,255,.6)}
+.journey-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.journey-panel--before .journey-icon{background:#fff0f1;color:#c84f57}
+.journey-panel--after .journey-icon{background:rgba(37,193,150,.16);color:#8effd9}
+.journey-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.journey-step h4{font-size:14px;line-height:1.35;font-weight:400;margin:0 0 14px;letter-spacing:-.15px}
+.journey-panel--before .journey-step h4{color:#202328}
+.journey-panel--after .journey-step h4{color:#fff}
+.journey-time{display:inline-flex;align-items:center;gap:7px;margin-top:auto;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:500;white-space:nowrap}
+.journey-panel--before .journey-time{background:#fff0f1;color:#2b2829}
+.journey-panel--after .journey-time{background:rgba(20,184,136,.16);color:#dbede8}
+.journey-time svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+
+.journey-total{margin-top:18px;border-radius:14px;padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:18px}
+.journey-panel--before .journey-total{background:#fff0f1;color:#5d1a20;border:1px solid #f2d8da}
+.journey-panel--after .journey-total{background:rgba(8,83,70,.72);color:#eafff9;border:1px solid rgba(38,201,163,.44)}
+.journey-total-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:400}
+.journey-total-label svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.journey-total strong{font-size:22px;line-height:1;font-weight:500;letter-spacing:-.4px}
+.journey-panel--before .journey-total strong{color:#671b22}
+.journey-panel--after .journey-total strong{color:#70f3cc}
+
+@media(max-width:1100px){
+  .journey-panel{padding:30px 20px 20px}
+  .journey-steps{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:12px}
+  .journey-step{min-height:170px}
+}
+@media(max-width:768px){
+  .journey-section{margin-top:52px}
+  .journey-intro h2{font-size:31px}
+  .journey-panel{padding:24px 16px 18px;border-radius:24px}
+  .journey-header{gap:10px;margin-bottom:22px}
+  .journey-status{width:34px;height:34px;flex-basis:34px;font-size:17px}
+  .journey-header h3{font-size:24px}
+  .journey-subtitle{font-size:12px}
+  .journey-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .journey-step{min-height:168px;padding:15px 14px}
+  .journey-total{justify-content:flex-start;padding:13px 16px;gap:12px}
+}
+@media(max-width:480px){
+  .journey-steps{grid-template-columns:1fr}
+  .journey-step{min-height:150px}
+  .journey-total{flex-direction:column;align-items:flex-start}
+}
+
+footer{padding:34px 24px;text-align:center;font-size:13px}
+
+@media(max-width:1050px){
+  .site-nav{top:16px}.container{padding-left:24px;padding-right:24px}
+  .hero-section{padding:58px 38px 42px}.project-meta{margin-left:-38px;margin-right:-38px;padding-left:38px;padding-right:38px}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .site-nav{width:calc(100% - 32px);justify-content:flex-start;gap:18px;padding:13px 18px;top:14px}
+  .nav-links{display:none}.nav-divider{display:none}.hamburger{display:flex;margin-left:auto}
+  .nav-mobile.active{position:absolute;display:flex;top:56px;left:0;right:0;padding:16px 18px;flex-direction:column;gap:4px;background:rgba(255,255,255,.98);border:1px solid var(--gray-2);border-radius:18px;box-shadow:var(--shadow-soft)}
+  .nav-mobile a{padding:10px 4px;font-size:14px}
+  .container{padding:24px 16px 60px}
+  .hero-section{margin-top:30px;padding:46px 24px 24px;border-radius:24px}
+  .project-title{font-size:46px;letter-spacing:-2px}.project-tagline{font-size:18px}
+  .project-meta{grid-template-columns:1fr 1fr;gap:18px;margin:24px -24px -24px;padding:22px 24px}
+  .meta-item{padding:0;border-right:0}.meta-item p{font-size:13px}
+  .metrics-grid{grid-template-columns:1fr 1fr;margin:24px 0 55px}
+  .metric-value{font-size:30px}.content-layout{grid-template-columns:1fr;gap:12px}.content-text{padding:28px 24px}
+  .content-text h2,.full-section h2,.impact-section h2{font-size:30px}
+  .image-placeholder{min-height:250px}.full-width-image .image-placeholder{min-height:300px}
+  .full-section{padding:28px 20px;border-radius:24px}.research-findings,.personas-grid,.impact-metrics{grid-template-columns:1fr}
+  .finding-item:first-child{grid-column:auto}
+  .full-section>div[style*="grid-template-columns"]{grid-template-columns:1fr!important}
+}
+@media(max-width:480px){
+  .project-title{font-size:38px}.metrics-grid{grid-template-columns:1fr}.project-meta{grid-template-columns:1fr}
+}
+
+<style>
+/* DLS case-study layer — intentionally inherits the source site's geometry */
+:root{
+  --problem:#5a1518;--problem-soft:#fff6f6;--problem-line:#efdfe0;
+  --solution:#063f37;--solution-2:#0b5147;--solution-soft:#f2faf7;--solution-line:#cfe7df;
+  --system:#232323;--system-soft:#f4f5f6;--system-line:#dfe2e6;
+}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:var(--gray-4);font-weight:600;margin-bottom:10px}
+.lead{max-width:820px;color:var(--gray-5);font-size:16px;line-height:1.7}
+.hero-section.dls-hero{background:linear-gradient(145deg,#f3f4f5 0%,#fff 62%);background-image:radial-gradient(circle at 88% 18%,rgba(90,21,24,.10),transparent 24%),radial-gradient(#e2e4e7 1.5px,transparent 1.5px);background-size:auto,165px 165px;background-position:center,center;}
+.hero-orbit{position:absolute;right:58px;top:58px;width:210px;height:210px;border:1px solid #d9dcdf;border-radius:50%;opacity:.8}.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;border:1px solid #dfe2e5;border-radius:50%;inset:25px}.hero-orbit:after{inset:68px;border-color:#c9cccf}.hero-orbit-dot{position:absolute;width:12px;height:12px;background:var(--problem);border-radius:50%;right:32px;top:34px;box-shadow:0 0 0 8px rgba(90,21,24,.08)}
+.metric-card .metric-accent{width:34px;height:4px;border-radius:99px;background:#5f646c;margin-bottom:18px}.metric-card.problem .metric-accent{background:var(--problem)}.metric-card.solution .metric-accent{background:#2f7768}.metric-card.system .metric-accent{background:#555}
+.metric-card .metric-label{letter-spacing:.5px}.metric-card p{line-height:1.5}
+.section-intro-card .section-kicker.problem{color:#9b4a4f}.section-intro-card .section-kicker.solution{color:#3d786d}.section-intro-card .section-kicker.system{color:#626870}
+.story-card--problem{color:#fff;background:linear-gradient(135deg,#5a1518 0%,#3f1013 100%);border:1px solid #6f2729}.story-card--solution{color:#fff;background:linear-gradient(135deg,#063f37 0%,#002f2a 100%);border:1px solid #176e60}.story-card--system{color:#fff;background:#232323;border:1px solid #333}
+.story-card--problem,.story-card--solution,.story-card--system{position:relative;overflow:hidden;margin:22px 0 64px;padding:34px 36px;border-radius:var(--radius-xl);box-shadow:var(--shadow-soft)}
+.story-card--problem:after,.story-card--solution:after,.story-card--system:after{content:"";position:absolute;width:390px;height:390px;right:-170px;bottom:-240px;border:36px solid rgba(255,255,255,.055);border-radius:50%;pointer-events:none}.story-card--problem>*,.story-card--solution>*,.story-card--system>*{position:relative;z-index:1}
+.story-card h3{font-size:18px;font-weight:500;margin-bottom:8px;color:#fff}.story-card p,.story-card li{font-size:14px;line-height:1.65;color:rgba(255,255,255,.78)}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.story-cell{padding:22px;border-radius:var(--radius-md);background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10)}
+.story-cell .num{font-size:12px;color:rgba(255,255,255,.55);letter-spacing:1px;margin-bottom:16px}.story-cell strong{display:block;font-size:16px;color:#fff;font-weight:500;margin-bottom:8px}.story-cell span{display:block;font-size:13px;line-height:1.55;color:rgba(255,255,255,.68)}
+.problem-list,.solution-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.problem-list .finding-item{background:var(--problem-soft);border-color:var(--problem-line)}.solution-list .finding-item{background:var(--solution-soft);border-color:var(--solution-line)}
+.finding-tag{display:inline-block;margin-bottom:12px;padding:5px 9px;border-radius:999px;font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600;background:#fff;border:1px solid #e4e6e9;color:#777}.finding-tag.negative{color:#8b383d;border-color:#efd0d2;background:#fff7f7}.finding-tag.positive{color:#276c5e;border-color:#cce5dd;background:#f5fbf9}.finding-tag.neutral{color:#565b63}
+.principles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.principle{padding:22px;border-radius:var(--radius-lg);background:#f7f8f9;border:1px solid var(--gray-2)}.principle-number{font-size:11px;color:#8b9098;letter-spacing:1px;margin-bottom:18px}.principle h3{font-size:17px;color:#24272b;font-weight:500;margin-bottom:8px}.principle p{font-size:13px!important;line-height:1.55!important;margin:0!important;color:#737982!important}
+.reference-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.reference-card{padding:24px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--gray-2);box-shadow:0 3px 14px rgba(25,30,35,.04)}.reference-card .ref-name{font-size:22px;font-weight:500;letter-spacing:-.6px;margin-bottom:7px}.reference-card p{font-size:13px;line-height:1.6;color:var(--gray-5);margin:0}.reference-card small{display:block;margin-top:14px;color:#969ba2;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.token-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin-top:24px}.token-box{padding:26px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--gray-2);min-height:150px}.token-box.dark{background:#232323;color:#fff;border-color:#333}.token-box.green{background:var(--solution);color:#fff;border-color:#176e60}.token-box h3{font-size:17px;font-weight:500;margin-bottom:9px}.token-box p{font-size:13px!important;line-height:1.55!important;margin:0!important;color:#737982!important}.token-box.dark p,.token-box.green p{color:rgba(255,255,255,.70)!important}.token-arrow{display:flex;align-items:center;justify-content:center;color:#9a9fa6;font-size:20px}
+.contrast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.contrast-card{padding:20px;border-radius:var(--radius-md);background:#fff;border:1px solid var(--gray-2)}.contrast-swatch{height:74px;border-radius:12px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500}.contrast-swatch.dark{background:#232323;color:#fff}.contrast-swatch.red{background:#5a1518;color:#fff}.contrast-swatch.green{background:#063f37;color:#fff}.ratio{font-size:22px;font-weight:500;color:#25272b}.ratio-note{font-size:12px;color:#7b8088;margin-top:5px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.compare-panel{border-radius:var(--radius-xl);padding:30px;min-height:300px;border:1px solid var(--gray-2)}.compare-panel.before{background:#fff8f8;border-color:#efdfe0}.compare-panel.after{background:linear-gradient(145deg,#f2faf7,#e8f4f0);border-color:#cfe7df}.compare-panel h3{font-size:24px;font-weight:500;margin-bottom:8px}.compare-panel.before h3{color:#671b22}.compare-panel.after h3{color:#0d5146}.compare-panel p{font-size:14px;color:#737982;line-height:1.6;margin-bottom:16px}.compare-list{display:grid;gap:8px}.compare-row{padding:12px 14px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.06);font-size:13px;color:#4f545c}.compare-panel.after .compare-row{background:rgba(255,255,255,.72);border-color:#d9ebe5}.compare-row strong{font-weight:500;color:#282b30}
+.image-placeholder.dls-placeholder{border-radius:var(--radius-xl);background:linear-gradient(145deg,#fafafa,#f1f2f4);border:1px dashed #cfd3d8;min-height:360px;position:relative;overflow:hidden}.dls-placeholder .placeholder-label{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#7e848c;font-weight:600}.dls-placeholder .placeholder-copy{max-width:520px;margin-top:10px;color:#9a9fa6;font-size:13px;line-height:1.55}.dls-placeholder:before{content:"";position:absolute;inset:22px;border:1px solid #e1e3e6;border-radius:20px;pointer-events:none}.dls-placeholder>*{position:relative;z-index:1}
+.callout{padding:24px 26px;border-radius:var(--radius-lg);margin-top:18px}.callout.problem{background:var(--problem-soft);border:1px solid var(--problem-line)}.callout.solution{background:var(--solution-soft);border:1px solid var(--solution-line)}.callout.system{background:#f5f5f5;border:1px solid #dedfe1}.callout h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:600}.callout.problem h3{color:#8b383d}.callout.solution h3{color:#2c6f62}.callout.system h3{color:#5f646c}.callout p{margin:0;color:#626870;font-size:14px;line-height:1.6}
+.handoff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.handoff-card{padding:24px;border-radius:var(--radius-lg);background:#232323;color:#fff;min-height:180px}.handoff-card .handoff-index{font-size:11px;color:#8f969f;letter-spacing:1px;margin-bottom:28px}.handoff-card h3{font-size:18px;font-weight:500;margin-bottom:8px}.handoff-card p{font-size:13px!important;color:#aeb3ba!important;line-height:1.55!important;margin:0!important}
+.closing{margin:22px 0;padding:56px 52px;border-radius:var(--radius-xl);background:linear-gradient(135deg,#232323,#151515);color:#fff;text-align:center;box-shadow:var(--shadow-soft)}.closing .kicker{color:#8f969f}.closing h2{font-size:42px;line-height:1.05;font-weight:500;letter-spacing:-1.4px;max-width:820px;margin:0 auto 14px}.closing p{max-width:720px;margin:0 auto;color:#aeb3ba;font-size:15px;line-height:1.7}
+@media(max-width:1050px){.principles{grid-template-columns:repeat(2,1fr)}.handoff-grid{grid-template-columns:repeat(2,1fr)}.hero-orbit{right:28px;opacity:.5}.token-flow{grid-template-columns:1fr;}.token-arrow{transform:rotate(90deg);height:12px}.story-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.hero-orbit{display:none}.story-grid,.problem-list,.solution-list,.reference-strip,.contrast-grid,.compare{grid-template-columns:1fr}.principles{grid-template-columns:1fr}.handoff-grid{grid-template-columns:1fr}.closing{padding:38px 24px}.closing h2{font-size:31px}.compare-panel{min-height:240px}.dls-placeholder{min-height:270px!important}}
+</style>
+
+</style>
 </head>
 <body>
 
-<a href="index.html" class="back-button">← Back to Portfolio</a>
+<nav class="site-nav" aria-label="Primary navigation">
+  <a href="index.html" class="logo">JW</a>
+  <div class="nav-divider" aria-hidden="true"></div>
+  <div class="nav-links">
+    <a href="index.html#process">Projects</a>
+    <a href="index.html#resume">Resume</a>
+    <a href="index.html#about">About Me</a>
+    <a href="index.html#contact">Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html#process">Projects</a><a href="index.html#resume">Resume</a><a href="index.html#about">About Me</a><a href="index.html#contact">Get in touch</a>
+  </div>
+</nav>
 
-<div class="project-container">
-    <!-- Project Title -->
-    <div class="project-hero">
-        <h1>DLS Creation</h1>
+<div class="container">
+
+  <section class="hero-section dls-hero">
+    <div class="hero-orbit" aria-hidden="true"><div class="hero-orbit-dot"></div></div>
+    <h1 class="project-title">Rebuilding the Rules Behind the UI</h1>
+    <p class="project-tagline">Revamping a product Design Language System in 3 weeks — translating a company rebrand into a quieter, denser, accessible and scalable interface language for data-heavy products.</p>
+    <div class="project-tags">
+      <span class="tag">Design Systems</span><span class="tag">DLS Revamp</span><span class="tag">Accessibility</span><span class="tag">Figma Systems</span><span class="tag">Design Tokens</span><span class="tag">Enterprise UX</span>
     </div>
-
-    <!-- Project Meta Info (Tags + Description on Left, Hero Image on Right) -->
     <div class="project-meta">
-        <div>
-            <div class="project-tags">
-                <span class="tag">Design System</span>
-                <span class="tag">Systems Design</span>
-                <span class="tag">Documentation</span>
-                <span class="tag">Scalability</span>
-            </div>
-            <div class="project-description">
-                <p><strong>Project Overview:</strong></p>
-                <p>Created a comprehensive Design Language System (DLS) to ensure consistency and scalability across multiple products. Lorem ipsum dolor sit amet, consectetur adipiscing elit. The system became the foundation for all future design decisions.</p>
-                <p><strong>Problem Statement:</strong></p>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-            </div>
-        </div>
-        <div class="project-hero-image">
-            [Hero Image Placeholder]
-        </div>
+      <div class="meta-item"><h3>My Role</h3><p>Solo DLS Designer &amp; System Owner</p></div>
+      <div class="meta-item"><h3>Timeline</h3><p>3 weeks · Urgent rebrand priority</p></div>
+      <div class="meta-item"><h3>Scope</h3><p>Brand language → components → tokens → handoff</p></div>
+      <div class="meta-item"><h3>Core Tools</h3><p>Figma · Tokens · JSON · Cursor AI workflow</p></div>
     </div>
+  </section>
 
-    <!-- Project Content -->
-    <div class="project-content">
-        <section>
-            <h2>System Architecture</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Designed a modular system with components, patterns, and guidelines for consistency.</p>
-        </section>
-        <section>
-            <h2>Component Library</h2>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Developed 50+ reusable components with clear documentation and usage guidelines.</p>
-        </section>
-    </div>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="metric-accent"></div><div class="metric-value">3 wks</div><div class="metric-label">Rebrand sprint</div><p>System revamp completed as an urgent product priority.</p></div>
+    <div class="metric-card problem"><div class="metric-accent"></div><div class="metric-value">↓ Blue</div><div class="metric-label">Less visual noise</div><p>Reduced dependence on the previous blue-heavy visual language.</p></div>
+    <div class="metric-card solution"><div class="metric-accent"></div><div class="metric-value">↑ Density</div><div class="metric-label">More compact UI</div><p>Refined sizing and spacing for information-dense workflows.</p></div>
+    <div class="metric-card system"><div class="metric-accent"></div><div class="metric-value">1 system</div><div class="metric-label">Design → Dev</div><p>Components, variants, tokens and implementation guidance connected.</p></div>
+  </div>
 
-    <div class="project-content">
-        <section>
-            <h2>Stakeholder Alignment</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Worked with designers, engineers, and product managers to ensure adoption and alignment.</p>
-        </section>
-        <section>
-            <h2>Adoption & Impact</h2>
-            <p>The DLS led to 40% reduction in design time and 35% improvement in team productivity.</p>
-            <p>Key metrics: Design consistency 95%, Component reusability 85%, Team efficiency +40%.</p>
-        </section>
+  <section class="section-intro-card">
+    <div class="section-kicker problem">The Trigger</div>
+    <h2>The brand changed. The system had to catch up.</h2>
+    <p>A company-wide rebrand turned the DLS into an urgent product priority. But simply changing the palette would have carried the old system's visual and structural problems into the new brand.</p>
+  </section>
+
+  <div class="story-card--problem">
+    <div class="story-grid">
+      <div class="story-cell"><div class="num">01 · VISUAL</div><strong>Too much blue</strong><span>Blue and accent colour appeared too frequently, making hierarchy harder to establish in dense screens.</span></div>
+      <div class="story-cell"><div class="num">02 · STRUCTURE</div><strong>Too much space</strong><span>Large component dimensions consumed valuable viewport space in data-heavy workflows.</span></div>
+      <div class="story-cell"><div class="num">03 · SYSTEM</div><strong>Inconsistency accumulated</strong><span>Past patterns needed a more systematic foundation of variants, tokens and reusable component logic.</span></div>
     </div>
+    <div class="problem-bottom-line"><span class="label">The tension</span><span class="result">Move fast enough for the rebrand without creating another layer of design debt.</span></div>
+  </div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker system">The Brief</div>
+    <h2>Make the interface quieter — without making it weaker.</h2>
+    <p>The redesign was guided by a simple idea: when the product is full of information, the design system should create clarity through hierarchy rather than visual volume.</p>
+  </section>
+
+  <div class="full-section">
+    <div class="principles">
+      <div class="principle"><div class="principle-number">01</div><h3>Reduce accent</h3><p>Use brand colour where it communicates action, focus or meaning — not as default decoration.</p></div>
+      <div class="principle"><div class="principle-number">02</div><h3>Increase density</h3><p>Reduce unnecessary dimensions while preserving readability, usability and accessible interaction states.</p></div>
+      <div class="principle"><div class="principle-number">03</div><h3>Systematise</h3><p>Turn repeated decisions into components, variants, tokens and predictable states.</p></div>
+      <div class="principle"><div class="principle-number">04</div><h3>Build for handoff</h3><p>Make the system understandable to design, business and development teams without a live explanation.</p></div>
+    </div>
+  </div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker system">Reference, Not Replication</div>
+    <h2>Borrow the discipline. Build the language.</h2>
+    <p>Established design systems were used as references for system architecture, tokens, component thinking and accessibility — then adapted to the product's own density and brand requirements.</p>
+  </section>
+
+  <div class="reference-strip">
+    <div class="reference-card"><div class="ref-name">Atlassian</div><p>Reference for scalable component thinking, foundations, states and system-level consistency.</p><small>Benchmark reference</small></div>
+    <div class="reference-card"><div class="ref-name">Material</div><p>Reference for colour, spacing, component behaviour, states and accessibility principles.</p><small>Benchmark reference</small></div>
+    <div class="reference-card"><div class="ref-name">Leading DLS patterns</div><p>Compared patterns across mature systems to understand what should become a rule instead of a one-off decision.</p><small>Pattern study</small></div>
+  </div>
+
+  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Reference board</div><div class="placeholder-copy">Show a visual benchmark board with selected Atlassian / Material / other DLS patterns. Highlight what was borrowed as a principle: tokens, variants, hierarchy, states and accessibility — not visual styling.</div></div></div></div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker solution">The New Language</div>
+    <h2>Colour stopped being decoration and started carrying meaning.</h2>
+    <p>The biggest visual shift was moving away from a blue-dominant interface toward a neutral foundation with restrained brand and semantic colour.</p>
+  </section>
+
+  <div class="compare">
+    <div class="compare-panel before"><h3>Before</h3><p>The previous language made colour work hard across dense interfaces.</p><div class="compare-list"><div class="compare-row"><strong>Blue-heavy:</strong> brand colour appeared across broad UI surfaces.</div><div class="compare-row"><strong>Accent-heavy:</strong> emphasis was easy to over-apply.</div><div class="compare-row"><strong>Hierarchy:</strong> multiple elements could compete for attention.</div><div class="compare-row"><strong>Density:</strong> larger component dimensions reduced information visible at once.</div></div></div>
+    <div class="compare-panel after"><h3>After</h3><p>The new language gives each colour a clearer job.</p><div class="compare-list"><div class="compare-row"><strong>Neutral first:</strong> structure and content carry most of the interface.</div><div class="compare-row"><strong>Accent selectively:</strong> brand colour is reserved for meaningful emphasis.</div><div class="compare-row"><strong>Semantic colour:</strong> success, warning and error communicate state.</div><div class="compare-row"><strong>Compact structure:</strong> tighter dimensions support data-heavy workflows.</div></div></div>
+  </div>
+
+  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Palette evolution</div><div class="placeholder-copy">Create a side-by-side palette: previous blue/accent-heavy palette vs new neutral + restrained brand + semantic palette. Add small annotations for “hierarchy”, “action”, “status” and “structure”.</div></div></div></div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker solution">System Architecture</div>
+    <h2>From hex values to decisions.</h2>
+    <p>Colour was structured as a reusable system so future changes could propagate consistently instead of being manually corrected component by component.</p>
+  </section>
+
+  <div class="full-section">
+    <div class="token-flow">
+      <div class="token-box"><h3>Primitive tokens</h3><p>Raw colour values and foundational scales that define the palette.</p></div>
+      <div class="token-arrow">→</div>
+      <div class="token-box dark"><h3>Semantic tokens</h3><p>Purpose-based values such as text, background, border, action and status.</p></div>
+      <div class="token-arrow">→</div>
+      <div class="token-box green"><h3>Component tokens</h3><p>Reusable decisions mapped to buttons, fields, tables, dialogs and other UI patterns.</p></div>
+    </div>
+    <div class="callout system"><h3>Why this matters</h3><p>A brand update can now be expressed as a system-level change rather than a hunt through individual screens.</p></div>
+  </div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker solution">Accessibility</div>
+    <h2>Contrast was a design constraint, not a final checkbox.</h2>
+    <p>Colour relationships were evaluated against accessibility needs while also considering luminance, saturation, hierarchy and semantic meaning.</p>
+  </section>
+
+  <div class="full-section">
+    <div class="contrast-grid">
+      <div class="contrast-card"><div class="contrast-swatch dark">Primary text</div><div class="ratio">4.5:1+</div><div class="ratio-note">Target for normal text under WCAG AA.</div></div>
+      <div class="contrast-card"><div class="contrast-swatch red">Error / negative</div><div class="ratio">4.5:1+</div><div class="ratio-note">Use contrast-aware semantic colour rather than decorative red.</div></div>
+      <div class="contrast-card"><div class="contrast-swatch green">Success / positive</div><div class="ratio">4.5:1+</div><div class="ratio-note">State meaning remains distinguishable beyond colour alone.</div></div>
+    </div>
+    <div class="callout solution"><h3>Design principle</h3><p>Colour should reinforce meaning — never be the only mechanism by which a user understands a state.</p></div>
+  </div>
+
+  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Contrast study</div><div class="placeholder-copy">Show 4–6 foreground/background combinations with their contrast ratios and AA/AAA status. Include one “failed” combination from the old exploration and its corrected alternative.</div></div></div></div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker system">Compact by Design</div>
+    <h2>More information in the same viewport.</h2>
+    <p>For data-heavy products, every unnecessary pixel has an opportunity cost. The revamp reconsidered component height, padding and spacing as a system rather than isolated measurements.</p>
+  </section>
+
+  <div class="content-layout">
+    <div class="content-text">
+      <h2>Spacing became a hierarchy tool.</h2>
+      <p>Instead of reducing dimensions indiscriminately, I looked at where space actually helped users group and scan information.</p>
+      <h3>Reconsidered</h3>
+      <ul><li>Button and control height</li><li>Input padding and label relationships</li><li>Table row density</li><li>Vertical rhythm between related elements</li><li>Information hierarchy within dense layouts</li></ul>
+      <div class="callout solution"><h3>Outcome</h3><p>A more compact structure without turning the interface into a cramped or visually noisy experience.</p></div>
+    </div>
+    <div><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Spacing comparison</div><div class="placeholder-copy">Show an anonymised before/after input, button and table row with measurement annotations. Highlight reduced padding, component height and spacing rhythm.</div></div></div></div>
+  </div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker solution">Component Architecture</div>
+    <h2>One component. Many controlled possibilities.</h2>
+    <p>The visual refresh became a component-system refresh: reusable Figma components, variants and states replaced repeated one-off decisions.</p>
+  </section>
+
+  <div class="full-section">
+    <div class="story-grid" style="grid-template-columns:repeat(4,1fr)">
+      <div class="finding-item"><div class="finding-tag positive">01 · Component</div><div class="finding-title">Buttons</div><div class="finding-description">Standardised hierarchy, sizing, states and icon/content configurations.</div></div>
+      <div class="finding-item"><div class="finding-tag positive">02 · Control</div><div class="finding-title">Inputs &amp; controls</div><div class="finding-description">Defined default, focus, error, disabled and selection behaviour.</div></div>
+      <div class="finding-item"><div class="finding-tag positive">03 · Data</div><div class="finding-title">Tables &amp; density</div><div class="finding-description">Reworked structure and spacing to support information-heavy screens.</div></div>
+      <div class="finding-item"><div class="finding-tag positive">04 · Feedback</div><div class="finding-title">Dialogs &amp; states</div><div class="finding-description">Clarified hierarchy and semantic feedback without overusing accent colour.</div></div>
+    </div>
+  </div>
+
+  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Figma component architecture</div><div class="placeholder-copy">Show a cropped Figma view with one component selected and its variants visible. Annotate: component properties, variants, states, instances and token usage. Hide file/product names.</div></div></div></div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker problem">Before → After</div>
+    <h2>The real change happened when components met the product.</h2>
+    <p>A design system is only useful if its rules survive contact with complex screens. The updated language was applied to representative product areas to test density, hierarchy and consistency together.</p>
+  </section>
+
+  <div class="full-width-image"><div class="image-placeholder dls-placeholder" style="min-height:480px"><div><div class="placeholder-label">Image placeholder · Product before / after</div><div class="placeholder-copy">Use a large anonymised product screen from the PDF. Split vertically into BEFORE and AFTER. Add 4 numbered callouts: 01 colour hierarchy, 02 compact spacing, 03 component consistency, 04 semantic states.</div></div></div></div>
+
+  <div class="story-card--solution">
+    <div class="story-grid">
+      <div class="story-cell"><div class="num">01 · HIERARCHY</div><strong>Quiet surfaces</strong><span>Neutral structure lets content and meaningful actions stand out without competing accents.</span></div>
+      <div class="story-cell"><div class="num">02 · DENSITY</div><strong>Compact components</strong><span>Tighter sizing makes more information available within the same viewport.</span></div>
+      <div class="story-cell"><div class="num">03 · CONSISTENCY</div><strong>Reusable rules</strong><span>Variants and tokens make the same decision repeatable across products and states.</span></div>
+    </div>
+    <div class="problem-bottom-line"><span class="label">The shift</span><span class="result">The DLS became a shared visual language rather than a collection of component files.</span></div>
+  </div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker system">Change Impact</div>
+    <h2>What changed — and why it mattered.</h2>
+    <p>Rather than presenting the revamp as a list of visual tweaks, each major change was tied back to a product or system consequence.</p>
+  </section>
+
+  <div class="full-section">
+    <div class="problem-list">
+      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Blue was doing too much.</div><div class="finding-description"><strong>Change:</strong> Reduced default reliance on blue and reserved stronger colour for meaningful emphasis.</div><div class="finding-description"><strong>Impact:</strong> A calmer visual hierarchy and clearer distinction between structure, action and state.</div></div>
+      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Components consumed too much space.</div><div class="finding-description"><strong>Change:</strong> Refined component dimensions, padding and spacing relationships.</div><div class="finding-description"><strong>Impact:</strong> A denser interface better suited to data-heavy workflows.</div></div>
+      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Colour decisions were difficult to scale.</div><div class="finding-description"><strong>Change:</strong> Introduced colour tokens with primitive, semantic and component-level intent.</div><div class="finding-description"><strong>Impact:</strong> System-wide changes became easier to maintain and implement.</div></div>
+      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Accessibility needed to be repeatable.</div><div class="finding-description"><strong>Change:</strong> Built contrast considerations into colour selection and component states.</div><div class="finding-description"><strong>Impact:</strong> Accessibility became part of the design foundation instead of a final-stage check.</div></div>
+    </div>
+  </div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker solution">The System Behind the Screens</div>
+    <h2>Design → tokens → components → product.</h2>
+    <p>The handoff was structured so the new language could travel beyond the Figma canvas and into implementation.</p>
+  </section>
+
+  <div class="full-section">
+    <div class="handoff-grid">
+      <div class="handoff-card"><div class="handoff-index">01 · DESIGN</div><h3>Figma library</h3><p>View-only access to components, elements, variants, states and instances for reference and adoption.</p></div>
+      <div class="handoff-card"><div class="handoff-index">02 · FOUNDATION</div><h3>Token JSON</h3><p>Structured token values prepared for implementation and system-level consistency.</p></div>
+      <div class="handoff-card"><div class="handoff-index">03 · DEVELOPMENT</div><h3>Developer guide</h3><p>Text instructions for rapid changes and implementation, including the Cursor AI workflow used by the team.</p></div>
+      <div class="handoff-card"><div class="handoff-index">04 · BUSINESS</div><h3>Change-impact deck</h3><p>A business-facing presentation explaining what changed, where and the impact of the new language.</p></div>
+    </div>
+  </div>
+
+  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Handoff ecosystem</div><div class="placeholder-copy">Create a visual pipeline: Figma Library → JSON Tokens → Developer Instructions / Cursor AI → Business Change-Impact PPT. Show each artefact as a card connected by arrows.</div></div></div></div>
+
+  <section class="section-intro-card">
+    <div class="section-kicker system">Three Weeks, One System</div>
+    <h2>The deliverable wasn't a new look. It was a new set of rules.</h2>
+    <p>The rebrand gave the project a deadline. The DLS revamp gave the product a more scalable foundation for everything that came after.</p>
+  </section>
+
+  <div class="impact-section">
+    <h2>Impact &amp; Results</h2>
+    <div class="impact-metrics">
+      <div class="impact-stat"><div class="impact-stat-value">3</div><div class="impact-stat-label">Weeks to revamp</div><p>Completed as an urgent rebrand priority.</p></div>
+      <div class="impact-stat"><div class="impact-stat-value">↓</div><div class="impact-stat-label">Accent dependency</div><p>Less blue and fewer unnecessary accent surfaces.</p></div>
+      <div class="impact-stat"><div class="impact-stat-value">↑</div><div class="impact-stat-label">Information density</div><p>More compact sizing for data-heavy workflows.</p></div>
+      <div class="impact-stat"><div class="impact-stat-value">→</div><div class="impact-stat-label">Implementation ready</div><p>Figma + tokens + developer and business handoff.</p></div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <div class="kicker">What I Took Forward</div>
+    <h2>A design system is strongest when the rules are easier to reuse than the exceptions.</h2>
+    <p>This revamp reinforced a systems-first approach: simplify the visual language, encode decisions into reusable structures, validate accessibility at the foundation, and make the handoff clear enough that the system can keep moving without the original designer in every room.</p>
+  </div>
+
 </div>
 
-<footer>
-    <p>&copy; 2025 Janhavi Waikar. All rights reserved.</p>
-</footer>
+<footer><p>&copy; 2026 Janhavi Waikar. All rights reserved.</p></footer>
 
+<script>
+(function(){
+  const button=document.getElementById('hamburger');
+  const menu=document.getElementById('navMobile');
+  if(!button||!menu) return;
+  button.addEventListener('click',()=>{const open=menu.classList.toggle('active');button.setAttribute('aria-expanded',String(open));});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('active');button.setAttribute('aria-expanded','false');}));
+})();
+</script>
 </body>
 </html>
