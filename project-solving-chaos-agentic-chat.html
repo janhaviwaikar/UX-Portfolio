@@ -86,12 +86,22 @@ a{color:inherit}
 }
         
 /* Main case-study frame */
-.container{max-width:1180px;margin:0 auto;padding:54px 32px 82px}
+.container{max-width:1180px;margin:0 auto;padding:76px 32px 82px}
 .hero-section{
-  position:relative;overflow:hidden;margin:52px 0 18px;padding:72px 56px 50px;
+  position:relative;overflow:hidden;margin:0px 0 18px;padding:78px 56px 50px;
   min-height:430px;border-radius:var(--radius-xl);
   background:linear-gradient(#f2f3f5,#fff);border:1px solid var(--gray-2);
   box-shadow:var(--shadow-soft);
+  
+    background-image: url("chaos-hero1.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 300px;
+   
+    
+    pointer-events: none;
+
+    z-index: 0;
 }
 .hero-section::before{
   content:"";position:absolute;inset:0;pointer-events:none;
@@ -129,15 +139,15 @@ a{color:inherit}
 .meta-item p{font-size:14px;color:var(--gray-5);font-weight:400}
 
 /* Metrics */
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:36px 0 82px}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:36px 0 82px}
 .metric-card{
-  padding:26px 24px;border-radius:var(--radius-lg);background:linear-gradient(145deg,#fafafa,#f3f4f6);
+  padding:26px 24px;border-radius:var(--radius-lg);background:#232323;
   border:1px solid var(--gray-2);box-shadow:var(--shadow-soft);transition:transform .25s ease,box-shadow .25s ease
 }
 .metric-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
-.metric-value{font-size:34px;line-height:1;font-weight:500;letter-spacing:-1.2px;color:var(--black);margin-bottom:11px}
-.metric-label{font-size:12px;color:var(--gray-4);text-transform:uppercase;font-weight:600;letter-spacing:1px;margin-bottom:6px}
-.metric-card p{font-size:12px!important;color:var(--gray-4)!important;margin:0!important}
+.metric-value{font-size:34px;line-height:1;font-weight:500;letter-spacing:-1.2px;color:#fff;margin-bottom:11px}
+.metric-label{font-size:16px;color:#cfd3d8;font-weight:400;letter-spacing:1px;margin-bottom:6px}
+.metric-card p{font-size:14px!important;color:#8b9098!important;margin:0!important}
 
 /* Editorial content layout */
 .content-layout{
@@ -146,8 +156,7 @@ a{color:inherit}
 }
 .content-text,.content-layout>div:has(.image-placeholder){min-height:100%}
 .content-text{
-  padding:38px 40px;border:1px solid var(--gray-2);border-radius:var(--radius-lg);
-  background:linear-gradient(145deg,#fafafa,#f5f6f7);box-shadow:var(--shadow-soft)
+  padding:38px 40px;
 }
 .content-text h2,.full-section h2,.impact-section h2{font-size:36px;line-height:1.08;font-weight:500;letter-spacing:-1.2px;color:var(--black);margin-bottom:18px}
 .content-text h3{margin-top:25px;margin-bottom:12px}
@@ -158,10 +167,6 @@ a{color:inherit}
 .image-placeholder{
   min-height:100%;height:100%;min-height:330px;padding:28px;
   display:flex;align-items:center;justify-content:center;text-align:center;
-  border-radius:var(--radius-lg);border:1px solid var(--gray-2);
-  background:
-    linear-gradient(145deg,rgba(248,249,250,.98),rgba(239,241,243,.98)),
-    repeating-linear-gradient(135deg,transparent 0 22px,rgba(255,255,255,.32) 22px 23px);
   box-shadow:var(--shadow-soft);color:var(--gray-4);font-size:13px;line-height:1.6
 }
 .full-width-image{margin:22px 0}
@@ -170,7 +175,7 @@ a{color:inherit}
 /* Large cards */
 .full-section{
   margin:22px 0;padding:42px;border-radius:var(--radius-xl);
-  background:#fff;border:1px solid var(--gray-2);box-shadow:var(--shadow-soft)
+  background:#fff;
 }
 .full-section>p{max-width:840px;margin-bottom:28px}
 .research-findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -191,26 +196,218 @@ a{color:inherit}
 .persona-detail{font-size:13px;color:var(--gray-5);line-height:1.7;margin-bottom:10px}
 .persona-detail strong{color:#2b2e33;font-weight:500}
 
-/* Impact */
-.impact-section{
-  margin:22px 0;padding:42px;border-radius:var(--radius-xl);
-  background:linear-gradient(145deg,#f3f4f5,#e7e9ec);border:1px solid var(--gray-2);
-  box-shadow:var(--shadow-soft);color:var(--ink)
-}
-.impact-section h2{margin-bottom:26px}
-.impact-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.impact-stat{padding:28px 24px;border-radius:var(--radius-lg);background:rgba(255,255,255,.72);border:1px solid rgba(220,223,227,.95)}
-.impact-stat-value{font-size:44px;line-height:1;font-weight:500;letter-spacing:-1.5px;margin-bottom:9px}
-.impact-stat-label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--gray-4);font-weight:600}
-.impact-stat p{font-size:12px!important;color:var(--gray-5)!important;margin:10px 0 0!important;opacity:1!important}
 
+/* ---------- Problem / Opportunity / Validation storytelling ---------- */
+.section-intro-card{text-align:center;margin:20px 0 26px}.section-intro-card .section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:var(--gray-4);font-weight:600;margin-bottom:10px}.section-intro-card h2{font-size:38px;line-height:1.05;font-weight:500;letter-spacing:-1.3px;color:var(--black);margin-bottom:10px}.section-intro-card p{max-width:760px;margin:0 auto;color:var(--gray-5);font-size:16px;line-height:1.6}
+.story-card{position:relative;overflow:hidden;margin:22px 0 64px;padding:34px 36px;border-radius:var(--radius-xl);box-shadow:var(--shadow-soft)}.story-card--dark{color:#fff;background:linear-gradient(135deg,#5a1518 0%,#3f1013 100%);border:1px solid #6f2729}.story-card--dark::before{content:"";position:absolute;width:520px;height:520px;right:-180px;top:-210px;border:42px solid rgba(255,255,255,.06);border-radius:50%;pointer-events:none;transform:rotate(18deg)}.story-card--dark::after{content:"";position:absolute;width:240px;height:240px;left:-120px;bottom:-120px;border:22px solid rgba(255,255,255,.05);border-radius:50%;pointer-events:none}.story-card>*{position:relative;z-index:1}
+.problem-timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0}.problem-step{position:relative;padding:12px 22px 6px;text-align:center}.problem-step+.problem-step{border-left:1px solid rgba(255,255,255,.16)}.problem-step:first-child{padding-left:6px}.problem-step:last-child{padding-right:6px}.problem-step h3{font-size:15px;line-height:1.2;font-weight:500;color:#fff;margin-bottom:12px}.problem-step .step-time{font-size:34px;line-height:1;font-weight:500;letter-spacing:-1.1px;color:#fff;margin-bottom:12px}.problem-step p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.78);margin:0}.problem-bottom-line{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;align-items:center;gap:20px}.problem-bottom-line .label{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;color:rgba(255,255,255,.62);font-weight:600}.problem-bottom-line .result{font-size:15px;color:#fff;font-weight:400}
+.opportunity-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:12px}.opportunity-hero{position:relative;overflow:hidden;padding:34px;border-radius:var(--radius-lg);background:#232323;color:#fff;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}.opportunity-hero::after{content:"$";position:absolute;right:-15px;bottom:-70px;font-size:280px;line-height:1;font-weight:500;color:rgba(255,255,255,.035);pointer-events:none}.opportunity-hero>*{position:relative;z-index:1}.opportunity-hero .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#aeb3ba;font-weight:600}.opportunity-hero .big-number{margin-top:16px;font-size:76px;line-height:.95;letter-spacing:-3px;font-weight:500}.opportunity-hero .big-label{margin-top:12px;max-width:500px;font-size:15px;line-height:1.5;color:#cfd3d8}.opportunity-facts{display:grid;grid-template-columns:1fr;gap:12px}.opportunity-fact{padding:24px;border-radius:var(--radius-lg);background:linear-gradient(145deg,#fafafa,#f1f2f4);border:1px solid var(--gray-2)}.opportunity-fact .fact-number{font-size:28px;line-height:1;letter-spacing:-1px;color:var(--black);font-weight:500;margin-bottom:8px}.opportunity-fact .fact-text{font-size:14px;line-height:1.55;color:var(--gray-5)}.opportunity-friction{margin-top:12px;padding:28px;border-radius:var(--radius-lg);background:#f7f8f9;border:1px solid var(--gray-2)}.opportunity-friction h3{margin-bottom:16px;font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--gray-4);font-weight:600}.friction-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.friction-item{padding:18px;border-radius:var(--radius-md);background:#fff;border:1px solid #e3e5e8}.friction-item strong{display:block;font-size:14px;color:#2a2d31;font-weight:500;margin-bottom:6px}.friction-item span{display:block;font-size:12px;line-height:1.45;color:var(--gray-4)}
+.validation-shell{padding:34px;border-radius:var(--radius-xl);background:linear-gradient(145deg,#f6f7f8,#eceef1);border:1px solid var(--gray-2);box-shadow:var(--shadow-soft)}.validation-top{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:end;margin-bottom:26px}.validation-title h2{margin-bottom:10px}.validation-title p{max-width:700px;color:var(--gray-5);font-size:15px;line-height:1.65}.validation-score{padding:24px;border-radius:var(--radius-lg);background:#232323;color:#fff;text-align:right}.validation-score .score-label{display:block;margin-bottom:8px;color:#aeb3ba;font-size:11px;text-transform:uppercase;letter-spacing:1.1px;font-weight:600}.validation-score .score{font-size:46px;line-height:1;letter-spacing:-1.5px;font-weight:500}.validation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.validation-card{padding:24px;min-height:190px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--gray-2);box-shadow:0 3px 14px rgba(25,30,35,.04)}.validation-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border-radius:12px;background:#f0f1f3;color:#363a40;font-size:12px}.validation-card h3{margin-bottom:8px;font-size:17px;color:var(--black);font-weight:500;letter-spacing:-.3px}.validation-card p{margin:0;font-size:13px;line-height:1.6;color:var(--gray-5)}.beta-strip{display:grid;grid-template-columns:1.1fr repeat(3,1fr);gap:0;margin-top:12px;border-radius:var(--radius-lg);overflow:hidden;background:#232323;color:#fff}.beta-strip .beta-title{padding:20px 22px}.beta-strip .beta-title small{display:block;margin-bottom:5px;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8f969f;font-weight:600}.beta-strip .beta-title strong{font-size:17px;font-weight:500;color:#fff}.beta-stat{padding:20px 22px;border-left:1px solid rgba(255,255,255,.12)}.beta-stat strong{display:block;font-size:22px;line-height:1;margin-bottom:6px;color:#fff;font-weight:500}.beta-stat span{font-size:12px;line-height:1.4;color:#aeb3ba}
+@media(max-width:1050px){.problem-timeline{grid-template-columns:repeat(3,1fr)}.problem-step:nth-child(4){border-left:0}.problem-step:nth-child(n+4){margin-top:18px}.opportunity-grid,.validation-top{grid-template-columns:1fr}.validation-score{text-align:left}.friction-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.section-intro-card h2{font-size:31px}.story-card{padding:24px 20px;margin-bottom:46px}.problem-timeline{grid-template-columns:1fr 1fr}.problem-step,.problem-step:first-child,.problem-step:last-child{padding:18px 12px}.problem-step:nth-child(odd){border-left:0}.problem-step:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}.problem-step .step-time{font-size:29px}.problem-bottom-line{flex-direction:column;align-items:flex-start}.opportunity-hero{min-height:250px;padding:26px}.opportunity-hero .big-number{font-size:60px}.opportunity-fact{padding:20px}.friction-grid{grid-template-columns:1fr 1fr}.validation-shell{padding:24px 20px;border-radius:24px}.validation-grid{grid-template-columns:1fr}.beta-strip{grid-template-columns:1fr 1fr}.beta-strip .beta-title{grid-column:1/-1}.beta-stat:nth-child(3){border-left:0;border-top:1px solid rgba(255,255,255,.12)}.beta-stat:nth-child(4){border-top:1px solid rgba(255,255,255,.12)}}
+@media(max-width:480px){.problem-timeline{grid-template-columns:1fr}.problem-step,.problem-step:nth-child(4),.problem-step:nth-child(n+3){border-left:0;border-top:1px solid rgba(255,255,255,.12)}.problem-step:first-child{border-top:0}.friction-grid{grid-template-columns:1fr}.beta-strip{grid-template-columns:1fr}.beta-strip .beta-title{grid-column:auto}.beta-stat,.beta-stat:nth-child(3),.beta-stat:nth-child(4){border-left:0;border-top:1px solid rgba(255,255,255,.12)}}
+
+/* Impact */
+.impact-section {
+    position: relative;
+    overflow: hidden;
+
+    margin: 22px 0;
+    padding: 42px;
+    border-radius: var(--radius-xl);
+
+    background: #232323;
+    border: 1px solid var(--gray-2);
+    box-shadow: var(--shadow-soft);
+    color: var(--ink);
+}
+
+/* Faded SVG decoration */
+.impact-section::before {
+    content: "";
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    left: 00px;
+    bottom: -140px;
+
+    background-image: url("arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+/* Keep heading above SVG */
+.impact-section h2 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 26px;
+    color: #fff;
+}
+
+/* Keep metrics above SVG */
+.impact-metrics {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.impact-stat {
+    position: relative;
+    z-index: 2;
+
+    padding: 28px 24px;
+    border-radius: var(--radius-lg);
+}
+
+.impact-stat-value {
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+    margin-bottom: 9px;
+    color: #fff;
+}
+
+.impact-stat-label {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #cfd3d8;
+    font-weight: 400;
+}
+
+.impact-stat p {
+    font-size: 12px !important;
+    color: #8b9098;
+    margin: 10px 0 0 !important;
+    opacity: 1 !important;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .impact-section {
+        padding: 28px 20px;
+    }
+
+    .impact-section::before {
+        width: 320px;
+        height: 320px;
+        right: -80px;
+        bottom: -70px;
+        opacity: 0.06;
+    }
+
+    .impact-metrics {
+        grid-template-columns: 1fr;
+    }
+}
 /* Make the two-column learning block feel like cards */
 .full-section .full-section-grid,
 .full-section>div[style*="grid-template-columns"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px!important;margin-top:20px!important}
 .full-section>div[style*="grid-template-columns"]>div{padding:22px;border:1px solid var(--gray-2);border-radius:var(--radius-md);background:linear-gradient(145deg,#fafafa,#f3f4f6)}
 .full-section>div[style*="grid-template-columns"] h3{color:var(--gray-5)!important;margin:0 0 10px!important}
 
-footer{padding:34px 24px;text-align:center;border-top:1px solid var(--gray-2);color:var(--gray-4);font-size:13px}
+
+
+/* ---------- Editable Before / After User Journey ---------- */
+.journey-section{margin:68px 0 22px}
+.journey-intro{text-align:center;margin:0 auto 28px;max-width:780px}
+.journey-intro .journey-kicker{font-size:12px;text-transform:uppercase;letter-spacing:1.3px;color:var(--gray-4);font-weight:600;margin-bottom:10px}
+.journey-intro h2{font-size:38px;line-height:1.05;font-weight:500;letter-spacing:-1.3px;color:var(--black);margin:0 0 10px}
+.journey-intro p{margin:0;color:var(--gray-5);font-size:16px;line-height:1.6}
+
+.journey-panel{position:relative;overflow:hidden;border-radius:var(--radius-xl);padding:34px 28px 24px;margin-top:18px;box-shadow:var(--shadow-soft);}
+.journey-panel--before{background:#fff8f8;border:1px solid #efdfe0}
+.journey-panel--after{background:linear-gradient(145deg,#063f37 0%,#002f2a 100%);border:1px solid #176e60;color:#fff}
+.journey-panel::after{content:"";position:absolute;inset:auto -120px -150px auto;width:360px;height:360px;border-radius:50%;border:34px solid rgba(255,255,255,.05);pointer-events:none}
+.journey-panel--before::after{border-color:rgba(190,67,72,.06)}
+.journey-panel>*{position:relative;z-index:1}
+
+.journey-header{display:flex; align-items:center; justify-content: center; gap:14px;margin-bottom:28px}
+.journey-header h3{font-size:28px;line-height:1.05;font-weight:500;letter-spacing:-.8px;margin:0 0 6px;  text-align: center;}
+.journey-panel--before .journey-header h3{color:#25272b}
+.journey-panel--after .journey-header h3{color:#fff}
+.journey-subtitle{margin:0;font-size:13px;line-height:1.45}
+.journey-panel--before .journey-subtitle{color:#7b7f86}
+.journey-panel--after .journey-subtitle{color:rgba(255,255,255,.76)}
+
+.journey-steps{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    align-items:stretch;
+    }
+.journey-step{    min-width:0;
+    border-radius:18px;
+    padding:18px 14px 16px;
+    min-height:190px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    font-size:clamp(12px,1vw,15px);}
+.journey-step-number{font-size:11px;font-weight:500;letter-spacing:.8px;margin-bottom:12px}
+.journey-panel--before .journey-step-number{color:#a8adb5}
+.journey-panel--after .journey-step-number{color:rgba(255,255,255,.6)}
+.journey-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.journey-panel--before .journey-icon{background:#fff0f1;color:#c84f57}
+.journey-panel--after .journey-icon{background:rgba(37,193,150,.16);color:#8effd9}
+.journey-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.journey-step h4{font-size:14px;line-height:1.35;font-weight:400;margin:0 0 14px;letter-spacing:-.15px}
+.journey-panel--before .journey-step h4{color:#202328}
+.journey-panel--after .journey-step h4{color:#fff}
+.journey-time{display:inline-flex;align-items:center;gap:7px;margin-top:auto;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:500;white-space:nowrap}
+.journey-panel--before .journey-time{background:#fff0f1;color:#2b2829}
+.journey-panel--after .journey-time{background:rgba(20,184,136,.16);color:#dbede8}
+.journey-time svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+
+.journey-total{margin-top:18px;border-radius:14px;padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:18px}
+.journey-panel--before .journey-total{background:#fff0f1;color:#5d1a20;border:1px solid #f2d8da}
+.journey-panel--after .journey-total{background:rgba(8,83,70,.72);color:#eafff9;border:1px solid rgba(38,201,163,.44)}
+.journey-total-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:400}
+.journey-total-label svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.journey-total strong{font-size:22px;line-height:1;font-weight:500;letter-spacing:-.4px}
+.journey-panel--before .journey-total strong{color:#671b22}
+.journey-panel--after .journey-total strong{color:#70f3cc}
+
+@media(max-width:1100px){
+  .journey-panel{padding:30px 20px 20px}
+  .journey-steps{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:12px}
+  .journey-step{min-height:170px}
+}
+@media(max-width:768px){
+  .journey-section{margin-top:52px}
+  .journey-intro h2{font-size:31px}
+  .journey-panel{padding:24px 16px 18px;border-radius:24px}
+  .journey-header{gap:10px;margin-bottom:22px}
+  .journey-status{width:34px;height:34px;flex-basis:34px;font-size:17px}
+  .journey-header h3{font-size:24px}
+  .journey-subtitle{font-size:12px}
+  .journey-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .journey-step{min-height:168px;padding:15px 14px}
+  .journey-total{justify-content:flex-start;padding:13px 16px;gap:12px}
+}
+@media(max-width:480px){
+  .journey-steps{grid-template-columns:1fr}
+  .journey-step{min-height:150px}
+  .journey-total{flex-direction:column;align-items:flex-start}
+}
+
+footer{padding:34px 24px;text-align:center;font-size:13px}
 
 @media(max-width:1050px){
   .site-nav{top:16px}.container{padding-left:24px;padding-right:24px}
@@ -268,7 +465,7 @@ footer{padding:34px 24px;text-align:center;border-top:1px solid var(--gray-2);co
     
     <!-- Hero Section -->
     <div class="hero-section">
-        <h1 class="project-title">Solving For Chaos Behind Agentic Chat</h1>
+        <h1 class="project-title">Solving For Chaos Behind Agentic Chat </h1>
         <p class="project-tagline">Designing an AI-powered platform that enables investment banking analysts to generate institutional-grade reports 10x faster</p>
         
         <!-- Project Tags -->
@@ -326,53 +523,52 @@ footer{padding:34px 24px;text-align:center;border-top:1px solid var(--gray-2);co
     </div>
 
     <!-- Problem Section -->
-    <div class="content-layout">
-        <div class="content-text">
-            <h2>The Problem</h2>
-            <h3>The Broken Workflow</h3>
-            <p>Investment banking analysts spent 60-70% of their time collecting data, formatting reports, and managing versions—not analyzing. A single institutional-grade report required 6-8 hours of manual work:</p>
-            <ul>
-                <li><strong>Data Collection:</strong> 2-3 hours pulling from Bloomberg, CapIQ, PitchBook, FactSet</li>
-                <li><strong>Organization & Cleaning:</strong> 1.5-2 hours standardizing formats, cross-referencing</li>
-                <li><strong>Report Assembly:</strong> 1-1.5 hours building PowerPoint, Excel, Word documents</li>
-                <li><strong>Review & Versioning:</strong> 1-2 hours managing feedback and revisions</li>
-                <li><strong>Compliance Check:</strong> 30-45 minutes ensuring regulatory alignment</li>
-            </ul>
-            <p style="margin-top: 20px;"><strong>Result:</strong> Analysts produced only 1-2 reports per week, with only 30-40% of their time spent on actual analysis.</p>
+    <section class="section-intro-card">
+        <div class="section-kicker">The Problem</div>
+        <h2>Time is money — and we were wasting it on the workflow.</h2>
+        <p>Before the platform, analysts spent hours collecting, reconciling, assembling and revising work before they could focus on the analysis itself.</p>
+    </section>
+
+    <div class="story-card story-card--dark">
+        <div class="problem-timeline">
+            <div class="problem-step"><h3>Data Collection</h3><div class="step-time">2–3 hrs</div><p>pulling from Bloomberg, CapIQ, PitchBook etc.</p></div>
+            <div class="problem-step"><h3>Organization &amp; Cleaning</h3><div class="step-time">1.5–2 hrs</div><p>standardizing formats, cross-referencing</p></div>
+            <div class="problem-step"><h3>Report Assembly</h3><div class="step-time">1–1.5 hrs</div><p>building PowerPoint, Excel, Word documents</p></div>
+            <div class="problem-step"><h3>Review &amp; Versioning</h3><div class="step-time">1–2 hrs</div><p>managing feedback and revisions</p></div>
+            <div class="problem-step"><h3>Compliance Check</h3><div class="step-time">30–45 min</div><p>minutes ensuring regulatory alignment</p></div>
         </div>
-        <div>
-            <div class="image-placeholder">
-                [Hero Image: Current Workflow Chaos]<br/><br/>
-                📊 Wireframe/screenshot of analyst juggling multiple apps<br/>
-                Suggested: 5-app context switching chaos diagram
-            </div>
-        </div>
+        <div class="problem-bottom-line"><span class="label">The outcome</span><span class="result">A 6–8 hour reporting process left only 30–40% of the week for actual analysis.</span></div>
     </div>
 
     <!-- Business Opportunity -->
-    <div class="content-layout">
-        <div>
-            <div class="image-placeholder">
-                [Business Context Image]<br/><br/>
-                💰 Financial impact visualization<br/>
-                Suggested: Chart showing $30M in annual labor inefficiency
+    <section class="section-intro-card">
+        <div class="section-kicker">Business Opportunity</div>
+        <h2>A measurable cost hidden inside a familiar workflow.</h2>
+        <p>The opportunity was not just faster reporting. It was recovering expensive analyst time that was being spent on operational work.</p>
+    </section>
+
+    <div class="opportunity-grid">
+        <div class="opportunity-hero">
+            <div>
+                <div class="eyebrow">Estimated annual inefficiency</div>
+                <div class="big-number">$30M</div>
+                <div class="big-label">Across 15 institutional clients × 50 analysts, based on the report-writing overhead outlined in the project.</div>
             </div>
+            <div class="eyebrow">The opportunity</div>
         </div>
-        <div class="content-text">
-            <h2>Business Opportunity</h2>
-            <p>The financial incentive was clear:</p>
-            <ul>
-                <li>Institutions pay analysts <strong>$150K-$300K annually</strong></li>
-                <li>Report-writing overhead: <strong>$36-48K per analyst per year</strong> (30-40% of salary)</li>
-                <li>Across 15 institutional clients × 50 analysts = <strong>$30M annual inefficiency</strong></li>
-            </ul>
-            <h3>Why Existing Solutions Failed</h3>
-            <ul>
-                <li>Bloomberg & CapIQ provide data access, not deliverables</li>
-                <li>Tableau/Power BI dashboards aren't client-ready reports</li>
-                <li>RPA tools require IT involvement for every workflow</li>
-                <li>AI chatbots don't understand financial domain context</li>
-            </ul>
+        <div class="opportunity-facts">
+            <div class="opportunity-fact"><div class="fact-number">$150K–$300K</div><div class="fact-text">Annual compensation range for analysts, making workflow inefficiency materially expensive.</div></div>
+            <div class="opportunity-fact"><div class="fact-number">$36K–$48K</div><div class="fact-text">Estimated yearly report-writing overhead per analyst — roughly 30–40% of salary.</div></div>
+        </div>
+    </div>
+
+    <div class="opportunity-friction">
+        <h3>Why existing solutions fell short</h3>
+        <div class="friction-grid">
+            <div class="friction-item"><strong>Data, not deliverables</strong><span>Bloomberg &amp; CapIQ solved access, not report production.</span></div>
+            <div class="friction-item"><strong>Dashboards, not reports</strong><span>Tableau and Power BI were not client-ready deliverables.</span></div>
+            <div class="friction-item"><strong>IT dependency</strong><span>RPA tools required technical involvement for each workflow.</span></div>
+            <div class="friction-item"><strong>Generic AI</strong><span>Chatbots lacked the required financial-domain context.</span></div>
         </div>
     </div>
 
@@ -514,62 +710,168 @@ footer{padding:34px 24px;text-align:center;border-top:1px solid var(--gray-2);co
                 <div class="impact-stat-label">Hours Saved Annually</div>
                 <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">Across user base per institution</p>
             </div>
+            <div class="impact-stat">
+                <div class="impact-stat-value">4.8<span style="font-size: 18px;"> &nbsp;/5</span><span style="color: #EEBC02; font-size: 20px;"> &nbsp; &nbsp; ★★★★⯨</span></div>
+                <div class="impact-stat-label">Our Overall User Rating</div>
+                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">Used by over 500 analysts and over 12 clients across globe</p>
+            </div>
         </div>
     </div>
 
     <!-- Testing & Validation -->
-    <div class="full-section">
-        <h2>Testing & Validation</h2>
-        <h3>Usability Testing</h3>
-        <p>Conducted 5 one-on-one sessions with power users from different institutions:</p>
-        <ul style="margin-left: 20px;">
-            <li><strong>Task Completion:</strong> 22 min average (target: 25 min) ✓</li>
-            <li><strong>System Usability Scale (SUS):</strong> 78/100 (target: 70+) ✓</li>
-            <li><strong>Pain Point Identified:</strong> Data source selection UX needed refinement</li>
-        </ul>
-        
-        <h3 style="margin-top: 30px;">Beta Testing (25 Analysts, 6 Weeks)</h3>
-        <ul style="margin-left: 20px;">
-            <li>92% satisfaction rate</li>
-            <li>Resolved 47 feature requests & 23 bugs during beta</li>
-            <li>Feature priority: Custom Skills Editor → Advanced Search → Collaboration Tools</li>
-        </ul>
+    <section class="section-intro-card">
+        <div class="section-kicker">Testing &amp; Validation</div>
+        <h2>Designed, tested, refined — then tested again.</h2>
+        <p>Usability sessions and a six-week beta helped surface where the workflow worked and where the experience still needed refinement.</p>
+    </section>
+
+    <div class="validation-shell">
+        <div class="validation-top">
+            <div class="validation-title"><h2>Usability testing</h2><p>Five one-on-one sessions with power users from different institutions focused on task completion, usability and the places where trust could break down.</p></div>
+            <div class="validation-score"><span class="score-label">System Usability Scale</span><div class="score">78/100</div></div>
+        </div>
+        <div class="validation-grid">
+            <div class="validation-card"><div class="icon">01</div><h3>22 min task completion</h3><p>Average task time against a 25-minute target, keeping the reporting workflow within the intended range.</p></div>
+            <div class="validation-card"><div class="icon">02</div><h3>One friction surfaced</h3><p>Data-source selection UX needed refinement — a critical moment for confidence in the generated output.</p></div>
+            <div class="validation-card"><div class="icon">03</div><h3>Iterate from evidence</h3><p>The test findings were fed back into the workflow instead of treating usability as a final-stage check.</p></div>
+        </div>
+        <div class="beta-strip">
+            <div class="beta-title"><small>Beta testing</small><strong>25 analysts · 6 weeks</strong></div>
+            <div class="beta-stat"><strong>92%</strong><span>Satisfaction rate</span></div>
+            <div class="beta-stat"><strong>47</strong><span>Feature requests resolved</span></div>
+            <div class="beta-stat"><strong>23</strong><span>Bugs resolved during beta</span></div>
+        </div>
+        <div class="problem-bottom-line" style="margin-top:18px;border-top:1px solid #dfe2e6;"><span class="label" style="color:#8b9098;">Next priorities</span><span class="result" style="color:#5f646c;">Custom Skills Editor → Advanced Search → Collaboration Tools</span></div>
     </div>
 
-    <!-- User Journey Outcome -->
-    <div class="content-layout">
-        <div class="content-text">
-            <h2>User Journey Before & After</h2>
-            <h3>Sarah's Workflow (Senior Analyst)</h3>
-            
-            <p><strong style="color: #8b5a3c;">❌ Before (6 hours):</strong></p>
-            <ul>
-                <li>Open Bloomberg, pull data → 45 min</li>
-                <li>Cross-reference with CapIQ → 30 min</li>
-                <li>Format in Excel, validate → 1 hour</li>
-                <li>Build PowerPoint manually → 1.5 hours</li>
-                <li>Send to compliance → wait 24 hours</li>
-                <li>Revisions, re-approval → 1.5 hours</li>
-            </ul>
-
-            <p style="margin-top: 20px;"><strong style="color: #0066cc;">✓ After (42 minutes):</strong></p>
-            <ul>
-                <li>Select client template → 2 min</li>
-                <li>Platform auto-pulls Bloomberg data → 3 min</li>
-                <li>Review pre-validated data → 5 min</li>
-                <li>Customize narrative (AI suggests sections) → 15 min</li>
-                <li>Platform auto-checks compliance → 2 min</li>
-                <li>One-click send to client → 15 min</li>
-            </ul>
+    <!-- User Journey Before & After -->
+    <section class="journey-section" aria-labelledby="journey-heading">
+        <div class="journey-intro">
+            <div class="journey-kicker">Redefining User Journey</div>
+            <h2 id="journey-heading">From fragmented to one-flow reporting</h2>
+            <p>Sarah's workflow before and after the redesigned experience, shown as an editable journey map.</p>
         </div>
-        <div>
-            <div class="image-placeholder">
-                [Journey Mapping Image]<br/><br/>
-                🗺️ Before/after workflow visualization<br/>
-                Suggested: Timeline showing time savings at each step
+
+        <!-- BEFORE -->
+        <div class="journey-panel journey-panel--before">
+            <div class="journey-header">
+               
+                <div>
+                    <h3>Before (6 hours)</h3>
+                    <p class="journey-subtitle">Manual, fragmented and time-consuming process with multiple handoffs and delays.</p>
+                </div>
+            </div>
+
+            <div class="journey-steps">
+                <div class="journey-step">
+                    <div class="journey-step-number">01</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg></div>
+                    <h4>Open Bloomberg,<br>pull data</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>45 min</span>
+                </div>
+            
+                <div class="journey-step">
+                    <div class="journey-step-number">02</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M10 13a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-2 2"></path><path d="M14 11a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l2-2"></path></svg></div>
+                    <h4>Cross-reference<br>with CapIQ</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>30 min</span>
+                </div>
+               
+                <div class="journey-step">
+                    <div class="journey-step-number">03</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1"></rect><path d="M5 10h14M10 5v14M15 5v14"></path></svg></div>
+                    <h4>Format in Excel,<br>validate</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>1 hour</span>
+                </div>
+                
+                <div class="journey-step">
+                    <div class="journey-step-number">04</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1"></rect><path d="M8 19h8M12 15v4"></path></svg></div>
+                    <h4>Build PowerPoint<br>manually</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>1.5 hours</span>
+                </div>
+                
+                <div class="journey-step">
+                    <div class="journey-step-number">05</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M12 4l7 3v5c0 4.2-2.8 7-7 8-4.2-1-7-3.8-7-8V7l7-3z"></path></svg></div>
+                    <h4>Send to compliance<br>(wait)</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>24 hours</span>
+                </div>
+                
+                <div class="journey-step">
+                    <div class="journey-step-number">06</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M7 7h5V2M17 17h-5v5"></path><path d="M7 7a7 7 0 0 1 11 2M17 17a7 7 0 0 1-11-2"></path></svg></div>
+                    <h4>Revisions,<br>re-approval</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>1.5 hours</span>
+                </div>
+            </div>
+
+            <div class="journey-total">
+                <div class="journey-total-label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>Total time</div>
+                <strong>6 hours</strong>
             </div>
         </div>
-    </div>
+
+        <!-- AFTER -->
+        <div class="journey-panel journey-panel--after">
+            <div class="journey-header">
+               
+                <div>
+                    <h3>After (42 minutes)</h3>
+                    <p class="journey-subtitle">Streamlined, automated and compliant — from data to client, in one flow.</p>
+                </div>
+            </div>
+
+            <div class="journey-steps">
+                <div class="journey-step">
+                    <div class="journey-step-number">01</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M7 4h8l3 3v13H7z"></path><path d="M15 4v4h4M10 12h5M10 16h5"></path></svg></div>
+                    <h4>Select client<br>template</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>2 min</span>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-step-number">02</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><ellipse cx="10" cy="7" rx="6" ry="2.5"></ellipse><path d="M4 7v5c0 1.4 2.7 2.5 6 2.5S16 13.4 16 12V7"></path><path d="M14 14a4 4 0 1 0 4-4"></path><path d="M18 8v4h-4"></path></svg></div>
+                    <h4>Platform auto-pulls<br>Bloomberg data</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>3 min</span>
+                </div>
+               
+                <div class="journey-step">
+                    <div class="journey-step-number">03</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="M15 15l5 5"></path></svg></div>
+                    <h4>Review pre-validated<br>data</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>5 min</span>
+                </div>
+                
+                <div class="journey-step">
+                    <div class="journey-step-number">04</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z"></path><path d="M19 3v3M17.5 4.5h3"></path></svg></div>
+                    <h4>Customize narrative<br>(AI suggests sections)</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>15 min</span>
+                </div>
+              
+                <div class="journey-step">
+                    <div class="journey-step-number">05</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M12 4l7 3v5c0 4.2-2.8 7-7 8-4.2-1-7-3.8-7-8V7l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+                    <h4>Platform auto-checks<br>compliance</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>2 min</span>
+                </div>
+              
+                <div class="journey-step">
+                    <div class="journey-step-number">06</div>
+                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-5 16-3-6z"></path><path d="M12 14l-3 6"></path></svg></div>
+                    <h4>One-click send<br>to client</h4>
+                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>15 min</span>
+                </div>
+            </div>
+
+            <div class="journey-total">
+                <div class="journey-total-label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>Total time</div>
+                <strong>42 minutes</strong>
+            </div>
+        </div>
+    </section>
 
     <!-- Key Learnings -->
     <div class="full-section">
