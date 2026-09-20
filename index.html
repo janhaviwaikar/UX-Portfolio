@@ -43,84 +43,78 @@
         text-rendering: optimizeLegibility;
     }
 
-/* ---------- Floating navigation — same as landing page ---------- */
-
-.site-nav {
-    position: sticky;
-    top: -36px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-
-    padding: 0 10px 0 30px;
-    min-height: 68px;
-
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(230, 232, 235, 0.9);
-    border-radius: 40px;
-
-    box-shadow: 0 7px 22px rgba(25, 30, 35, 0.10);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    width: fit-content;
-    margin: 0 auto;
+/* Floating portfolio navigation — matched to index */
+.site-nav{
+  position:sticky;top:20px;z-index:20;
+  display:flex;justify-content:center;align-items:center;
+  padding:0 10px 0 30px; min-height: 68px; gap:0px;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(14px);
+  border-radius:40px;border:1px solid rgba(232,234,237,.8);
+  width:fit-content;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+.logo{font-weight:500;font-size:32px;letter-spacing:-1.5px;color:var(--ink);text-decoration:none; padding-right: 22px;
+        margin-right: 2px;}
+.nav-divider{width:1px;height:36px;background:var(--gray-3)}
+.nav-links{display:flex;gap:12px;align-items:center}
+.nav-links a,.nav-mobile a{
+  padding:12px 16px;text-decoration:none;font-size:18px;font-weight:400;
+  color:var(--ink);transition:color .25s ease;font-family:'Outfit',sans-serif;
+}
+.nav-links a:hover, .nav-mobile a:hover {
+  color: #70757d;
 }
 
-.site-nav .logo {
-    display: flex;
-    align-items: center;
-
-    padding-right: 22px;
-    margin-right: 2px;
-
-    font-size: 32px;
-    line-height: 1;
-    font-weight: 500;
-    letter-spacing: -1.5px;
-
-    color: var(--black);
-    text-decoration: none;
-
-    border-right: 1px solid #cfd2d6;
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  z-index: 100;
 }
 
-.site-nav .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 0;
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.site-nav .nav-links a {
-    padding: 12px 16px;
-
-    text-decoration: none;
-    font-family: 'Outfit', sans-serif;
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 400;
-
-    color: var(--black);
-
-    border-radius: 24px;
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease;
+/* Morph to X Animation when active */
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.site-nav .nav-links a:hover {
-    background: var(--gray-1);
-    transform: translateY(-1px);
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
 }
 
-    /* ---------- Merged landing / hero + projects ---------- */
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media(max-width:1050px){
+  .site-nav{top:16px}
+}
+
+@media(max-width:768px){
+  .site-nav{width:calc(100% - 32px);justify-content:flex-start;gap:18px;padding:13px 18px;top:14px}
+  .nav-links{display:none}.nav-divider{display:none}.hamburger{display:flex;margin-left:auto}
+  .nav-mobile.active{position:absolute;display:flex;top:56px;left:0;right:0;padding:16px 18px;flex-direction:column;gap:4px;background:rgba(255,255,255,.98);border:1px solid var(--gray-2);border-radius:18px;box-shadow:var(--shadow-soft)}
+  .nav-mobile a{padding:10px 4px;font-size:14px}
+}
+
+/* ---------- Merged landing / hero + projects ---------- */
     .landing {
         position: relative;
         margin: 76px 5.5% 0;
@@ -232,14 +226,37 @@
         display: flex;
         align-items: flex-end;
         padding: 0 20px 22px;
-        background:
-            linear-gradient(180deg, rgba(235,237,240,0.92) 0%, rgba(250,250,251,0.98) 67%, #ffffff 100%);
-        border: 1px solid rgba(224, 226, 230, 0.9);
+       solid rgba(224, 226, 230, 0.9);
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-soft);
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+            background-size: cover;
+    background-size: 100% auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    border: none;
+    box-shadow: none;
+}
+
+/* Individual project images */
+
+.project-chaos {
+    background-image: url("chaos.png");
+}
+
+.project-dls {
+    background-image: url("dls.png");
+}
+
+.project-daily-apps {
+    background-image: url("apps.png");
+}
+    
+.project-etl {
+    background-image: url("etl.png");
+}
 
     .landing-projects .project-card::before {
         content: "";
@@ -258,7 +275,9 @@
     }
 
     .landing-projects .project-card img {
-        display: none;
+        display: block;
+        width="100%";
+        height="auto";
     }
 
     .landing-projects .project-card-content {
@@ -548,123 +567,13 @@
     footer {
         text-align: center;
         padding: 40px;
-        border-top: 1px solid var(--gray-2);
-        color: var(--gray-4);
         font-size: 13px;
         font-weight: 400;
     }
 
-    @media (max-width: 1050px) {
-        nav {
-            top: 28px;
-        }
 
-        .landing {
-            margin-left: 3.5%;
-            margin-right: 3.5%;
-            padding-left: 24px;
-            padding-right: 24px;
-        }
 
-        .landing-projects .projects-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
 
-    @media (max-width: 768px) {
-        nav {
-            position: absolute;
-            top: 20px;
-            width: calc(100% - 32px);
-            min-height: 58px;
-            padding-left: 18px;
-            justify-content: flex-start;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .logo {
-            font-size: 26px;
-            padding-right: 16px;
-            flex: 0 0 auto;
-        }
-
-        nav button {
-            padding: 10px 12px;
-            font-size: 15px;
-            flex: 0 0 auto;
-        }
-
-        .landing {
-            margin: 48px 16px 0;
-            padding: 102px 14px 18px;
-            min-height: auto;
-            border-radius: 24px;
-        }
-
-        .hero .quote {
-            margin-bottom: 34px;
-            font-size: 21px;
-        }
-
-        .hero h1 {
-            font-size: 45px;
-            letter-spacing: -1.8px;
-        }
-
-        .hero .subtitle {
-            font-size: 26px;
-            margin-bottom: 24px;
-        }
-
-        .hero .tagline {
-            font-size: 18px;
-        }
-
-        .landing-projects {
-            margin-top: 48px;
-        }
-
-        .landing-projects .projects-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .landing-projects .project-card {
-            height: 230px;
-            padding: 0 14px 17px;
-            border-radius: 14px;
-        }
-
-        .landing-projects .project-card h3 {
-            font-size: 17px;
-        }
-
-        section {
-            padding: 64px 20px;
-        }
-
-        section h2 {
-            font-size: 34px;
-            margin-bottom: 30px;
-        }
-
-        .skills-container,
-        .certificates-grid,
-        .contact-stack {
-            grid-template-columns: 1fr;
-        }
-
-        .skills-category,
-        .experience-timeline,
-        .about-content {
-            padding: 26px;
-        }
-
-        .contact-intro p {
-            font-size: 32px;
-        }
-    }
 
     @media (max-width: 470px) {
         .landing-projects .projects-grid {
@@ -913,15 +822,29 @@
 <body>
 
 <!-- Navigation + Hero + Projects: merged landing area -->
-<div class="landing">
-    <!-- Floating Navigation -->
-    <nav>
-        <div class="logo">JW</div>
-        <button onclick="scrollToSection('projects')">Projects</button>
-        <button onclick="scrollToSection('resume')">Resume</button>
-        <button onclick="scrollToSection('about')">About Me</button>
-        <button onclick="scrollToSection('contact')">Get in touch</button>
+    <!-- Sticky portfolio navigation -->
+    <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html" class="logo">JW</a>
+        <div class="nav-divider" aria-hidden="true"></div>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#about">About Me</a>
+            <a href="#contact">Get in touch</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" type="button">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-mobile" id="navMobile">
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#about">About Me</a>
+            <a href="#contact">Get in touch</a>
+        </div>
     </nav>
+
+<div class="landing">
+
 
     <!-- Hero -->
     <div class="hero">
@@ -937,7 +860,7 @@
     <div class="landing-projects" id="projects">
         <div class="projects-grid">
             <a class="project-link" href="project-solving-chaos-agentic-chat.html">
-                <div class="project-card">
+                <div class="project-card project-chaos">
                     <div class="project-card-content">
                         <h3>Solving For Chaos Behind Agentic Chat</h3>
                     </div>
@@ -945,7 +868,7 @@
             </a>
 
             <a class="project-link" href="project-quick-solutions.html">
-                <div class="project-card">
+                <div class="project-card project-daily-apps">
                     <div class="project-card-content">
                         <h3>Quick Solutions for Daily Apps</h3>
                     </div>
@@ -953,7 +876,7 @@
             </a>
 
             <a class="project-link" href="project-dls-creation.html">
-                <div class="project-card">
+                <div class="project-card project-dls">
                     <div class="project-card-content">
                         <h3>Design Language System Creation</h3>
                     </div>
@@ -961,7 +884,7 @@
             </a>
 
             <a class="project-link" href="project-etl-designer.html">
-                <div class="project-card">
+                <div class="project-card project-etl">
                     <div class="project-card-content">
                         <h3>Extract-Transform-Load Designer</h3>
                     </div>
@@ -1231,7 +1154,7 @@
 <!-- Awards & Recognition Section -->
 <section>
     <h2>Awards & Recognition</h2>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 900px; margin: 0 auto; justify-items: center;">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; justify-items: center;">
    
         <!-- Digi-Star Award -->
         <a href="certificate-digi-star.png" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer;">
@@ -1263,12 +1186,25 @@
        <!--  cricket -->
         <a href="cricket-photo.jpeg.jpeg" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer;">
             <div style="background: var(--white); border: 1px solid var(--gray-2); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.3s ease; height: 100%;" onmouseover="this.style.boxShadow='0 12px 40px rgba(25, 30, 35, 0.15)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='var(--shadow-soft)'; this.style.transform='translateY(0)'">
-                <img src="cricket-photo.jpeg.jpeg" alt="Best Cricket Play (Woman)" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+                <img src="cricket-photo.jpeg.jpeg" alt="Best Cricket Play (Women)" style="width: 100%; height: 240px; object-fit: cover; display: block;">
                 <div style="padding: 20px;">
-                    <div style="font-weight: 700; font-size: 15px; color: var(--ink); margin-bottom: 6px;">Best Cricket Play (Woman)</div>
+                    <div style="font-weight: 700; font-size: 15px; color: var(--ink); margin-bottom: 6px;">Best Cricket Play (Women)</div>
                     <div style="font-size: 12px; color: var(--gray-4);">2026 • Acuity Analytics</div>
                      <p style="font-size: 13px; color: var(--cool-gray-5); margin-top: 12px; line-height: 1.6;">
-                For best woman cricket player on the field during our Cricket Fever Tournament.
+                For best women cricket player on the field during our Cricket Fever Tournament.
+            </p>
+                </div>
+            </div>
+        </a>
+        <!--  badminton -->
+        <a href="badminton-photo.jpg" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer;">
+            <div style="background: var(--white); border: 1px solid var(--gray-2); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.3s ease; height: 100%;" onmouseover="this.style.boxShadow='0 12px 40px rgba(25, 30, 35, 0.15)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='var(--shadow-soft)'; this.style.transform='translateY(0)'">
+                <img src="badminton-photo.jpg" alt="Badminton Mixed Doubles" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+                <div style="padding: 20px;">
+                    <div style="font-weight: 700; font-size: 15px; color: var(--ink); margin-bottom: 6px;">Badminton Mixed Doubles</div>
+                    <div style="font-size: 12px; color: var(--gray-4);">2026 • Acuity Analytics</div>
+                     <p style="font-size: 13px; color: var(--cool-gray-5); margin-top: 12px; line-height: 1.6;">
+                Secured Second place in Mixed Doubles Badmintor Tournament.
             </p>
                 </div>
             </div>
@@ -1362,9 +1298,31 @@
 </footer>
 
 <script>
-    function scrollToSection(sectionId) {
-        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+(function(){
+  const button = document.getElementById('hamburger');
+  const menu = document.getElementById('navMobile');
+  if(!button || !menu) return;
+
+  button.addEventListener('click',()=>{
+    const open = menu.classList.toggle('active');
+    button.classList.toggle('is-active', open);
+    button.setAttribute('aria-expanded', String(open));
+  });
+
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.remove('active');
+    button.classList.remove('is-active');
+    button.setAttribute('aria-expanded','false');
+  }));
+
+  document.addEventListener('click',event=>{
+    if(!event.target.closest('.site-nav')){
+      menu.classList.remove('active');
+      button.classList.remove('is-active');
+      button.setAttribute('aria-expanded','false');
     }
+  });
+})();
 </script>
 
 </body>
