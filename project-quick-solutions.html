@@ -1,181 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Solutions for Daily Apps - Janhavi Waikar</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        .back-button {
-            display: inline-block;
-            padding: 20px 40px;
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        .back-button:hover {
-            text-decoration: underline;
-        }
-        
-        .project-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px;
-        }
-        
-        .project-hero {
-            margin-bottom: 60px;
-        }
-        
-        .project-hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .project-meta {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: #f0f0f0;
-            padding: 6px 12px;
-            font-size: 13px;
-            border-radius: 4px;
-        }
-        
-        .project-description {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        .project-hero-image {
-            width: 100%;
-            height: 400px;
-            background: #e0e0e0;
-            border: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 40px;
-        }
-        
-        .project-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .project-content section {
-            padding: 0;
-        }
-        
-        .project-content h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        
-        .project-content p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid #eee;
-            color: #999;
-            margin-top: 60px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solving for the Apps We Use Every Day — Janhavi Waikar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--black:#111;--ink:#171717;
+  --gray-1:#f8f9fa;--gray-2:#eef0f2;--gray-3:#dfe2e6;
+  --gray-4:#8b9098;--gray-5:#5f646c;--muted:#737982;--line:#e5e7ea;
+  --red:#5a1518;--red-dark:#3f1013;--red-soft:#fff6f6;--red-line:#efdfe0;
+  --green:#063f37;--green-dark:#032f2a;--green-soft:#f2faf7;--green-line:#cfe7df;
+  --system:#232323;--system-soft:#f4f5f6;
+  --shadow-soft:0 8px 28px rgba(25,30,35,.08);--shadow-hover:0 14px 34px rgba(25,30,35,.12);
+  --radius-xl:34px;--radius-lg:22px;--radius-md:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+
+/* NAVIGATION — same visual language as the portfolio */
+.site-nav{position:sticky;top:20px;z-index:50;display:flex;justify-content:center;align-items:center;padding:0 10px 0 30px;min-height:68px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-radius:40px;border:1px solid rgba(232,234,237,.8);width:fit-content;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.logo{font-weight:500;font-size:32px;letter-spacing:-1.5px;color:var(--ink);text-decoration:none;padding-right:22px;margin-right:2px}
+.nav-divider{width:1px;height:36px;background:var(--gray-3)}
+.nav-links{display:flex;gap:12px;align-items:center}
+.nav-links a,.nav-mobile a{padding:12px 16px;text-decoration:none;font-size:18px;font-weight:400;color:var(--ink);transition:color .25s ease}
+.nav-links a:hover,.nav-mobile a:hover{color:#70757d}
+.hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:transparent;border:0;padding:0}
+.hamburger span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+.hamburger.is-active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.is-active span:nth-child(2){opacity:0}.hamburger.is-active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.nav-mobile{display:none}
+
+.container{max-width:1180px;margin:0 auto;padding:76px 32px 82px}
+
+/* HERO */
+.hero-section{position:relative;overflow:hidden;margin:0 0 20px;padding:78px 56px 50px;min-height:430px;border-radius:var(--radius-xl);background:linear-gradient(145deg,#f1f2f4 0%,#fff 68%);border:1px solid var(--gray-2);box-shadow:var(--shadow-soft);background-image:radial-gradient(circle at 88% 18%,rgba(90,21,24,.09),transparent 24%),radial-gradient(#e2e4e7 1.5px,transparent 1.5px);background-size:auto,165px 165px;background-position:center,center}
+.hero-section:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.82) 52%,rgba(255,255,255,.15) 100%);pointer-events:none}
+.hero-section>*{position:relative;z-index:2}
+.project-title{max-width:860px;font-size:clamp(48px,6vw,72px);line-height:1.02;font-weight:500;letter-spacing:-3px;color:var(--black);margin-bottom:20px}
+.project-tagline{max-width:780px;font-size:22px;line-height:1.42;color:#4e5259;font-weight:300;letter-spacing:-.2px;margin-bottom:30px}
+.project-tags{display:flex;flex-wrap:wrap;gap:9px;max-width:800px}.tag{padding:8px 13px;border:1px solid #e1e3e6;border-radius:999px;background:rgba(255,255,255,.82);color:#40444a;font-size:13px;box-shadow:0 2px 7px rgba(25,30,35,.035)}
+
+/* SELF-INITIATED CONTEXT — intentionally immediately after hero */
+.self-initiated{gap:24px;align-items:start;margin:0 0 72px;padding:30px 36px;border-radius:var(--radius-lg);background:#232323;color:#fff;box-shadow:var(--shadow-soft);}
+.self-label{font-size:14px;text-transform:uppercase;letter-spacing:1.4px;color:#8f969f;font-weight:400;padding-bottom:5px}.self-initiated h2{font-size:28px;line-height:1.15;font-weight:500;letter-spacing:-.7px;margin-bottom:10px;color:#fff}.self-initiated p{font-size:15px;line-height:1.7;color:#cfd3d8;}.self-initiated strong{color:#fff;font-weight:500}
+
+/* SECTION HEADINGS */
+.section-heading{margin:0 0 30px}.section-kicker,.app-kicker,.feature-number,.story-label,.placeholder-label{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;font-weight:600}.section-kicker{color:var(--gray-4);margin-bottom:10px}.section-heading h2{font-size:42px;line-height:1.04;font-weight:500;letter-spacing:-1.5px;margin-bottom:10px}.section-heading p{max-width:740px;color:var(--gray-5);font-size:16px;line-height:1.65}
+
+/* APP SECTION */
+.app-section{margin:0 0 76px}.app-header{display:grid;grid-template-columns:72px 1fr auto;gap:22px;align-items:center;margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.app-logo-placeholder{width:72px;height:72px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--gray-4);font-size:10px;line-height:1.25;padding:0px}.app-kicker{color:var(--gray-4);margin-bottom:5px}.app-header h2{font-size:38px;line-height:1;font-weight:500;letter-spacing:-1.2px}.app-header p{margin-top:7px;color:var(--gray-5);font-size:14px;line-height:1.5;max-width:650px}.app-index{font-size:48px;line-height:1;font-weight:500;letter-spacing:-2px;color:#e1e3e5}
+
+/* FEATURE MODULE: text + image stay aligned */
+.feature-module{margin:0 0 18px;border:1px solid var(--gray-2);border-radius:var(--radius-xl);background:#fff;box-shadow:0 4px 18px rgba(25,30,35,.045);overflow:hidden}
+.feature-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:30px 34px 24px;border-bottom:1px solid var(--gray-2)}
+.feature-number{color:var(--gray-4);margin-bottom:7px}.feature-head h3{font-size:27px;line-height:1.15;font-weight:500;letter-spacing:-.7px;margin-bottom:7px}.feature-head p{font-size:14px;color:var(--gray-5);line-height:1.5}.feature-badge{flex:0 0 auto;padding:7px 10px;border:1px solid var(--gray-2);border-radius:999px;background:#fafafa;color:var(--gray-4);font-size:11px;white-space:nowrap}
+.feature-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(380px,.9fr);align-items:stretch}.feature-copy{padding:28px 34px;display:flex;flex-direction:column;gap:10px}.feature-media{padding:28px 28px 28px 0;display:flex}.feature-media:empty{display:none}.feature-layout:has(.feature-media:empty){grid-template-columns:1fr}
+.story-block{border-radius:16px;padding:20px 22px}.story-block .story-label{margin-bottom:7px}.story-block p{font-size:14px;line-height:1.62;margin:0}.story-block strong{font-weight:500}.story-block.problem{background:var(--red-soft);border:1px solid var(--red-line);color:#4b1518}.story-block.problem .story-label{color:#8d3d42}.story-block.problem p{color:#641e22}.story-block.solution{background:var(--green-soft);border:1px solid var(--green-line);color:#164f46}.story-block.solution .story-label{color:#2b7468}.story-block.solution p{color:#285d55}.story-block.impact{background:var(--system);border:1px solid #303030;color:#fff}.story-block.impact .story-label{color:#8f969f}.impact-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mini-stat{padding:10px 0 0}.mini-stat strong{display:block;font-size:22px;line-height:1;color:#fff;letter-spacing:-.5px}.mini-stat span{display:block;margin-top:5px;font-size:11px;line-height:1.35;color:#9da3aa}
+.image-placeholder{width:100%;min-height:390px;border-radius:18px;border:1px dashed #c9cdd2;background:linear-gradient(145deg,#f7f8f9,#eceef1);display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:var(--gray-4)}.placeholder-inner{max-width:290px}.placeholder-icon{width:44px;height:44px;border-radius:14px;background:#fff;border:1px solid #e2e4e7;display:flex;align-items:center;justify-content:center;margin:0 auto 13px;font-size:16px;color:#7e858e}.placeholder-label{color:#6f767f;margin-bottom:7px}.placeholder-copy{font-size:12px;line-height:1.55;color:#90969e}
+
+/* Analytics concept */
+.analytics-concept{margin-top:18px;padding:30px;border-radius:var(--radius-xl);background:#f6f7f8;border:1px solid var(--gray-2);display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}.analytics-concept h3{font-size:30px;line-height:1.08;font-weight:500;letter-spacing:-.9px;margin-bottom:9px}.analytics-concept p{font-size:14px;color:var(--gray-5);line-height:1.6}.analytics-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--gray-4);font-weight:600;margin-bottom:9px}.category-list{display:flex;flex-direction:column;gap:13px}.category-row{display:grid;grid-template-columns:105px 1fr 42px;gap:10px;align-items:center}.category-row span,.category-row strong{font-size:12px;color:#50555c}.category-row strong{text-align:right;font-weight:500}.category-track{height:8px;border-radius:999px;background:#dfe2e5;overflow:hidden}.category-fill{height:100%;border-radius:999px;background:#232323}
+
+/* APP NOTE */
+.app-note{margin-top:18px;padding:21px 24px;border-left:3px solid #232323;background:#f7f8f9;color:var(--gray-5);font-size:13px;line-height:1.65}.app-note strong{color:#272a2e;font-weight:500}
+
+/* Closing */
+.closing{margin-top:78px;padding:54px 42px;border-radius:var(--radius-xl);background:linear-gradient(145deg,#f4f5f6,#fff);border:1px solid var(--gray-2);text-align:center}.closing .section-kicker{margin-bottom:10px}.closing h2{max-width:760px;margin:0 auto 14px;font-size:42px;line-height:1.06;font-weight:500;letter-spacing:-1.5px}.closing p{max-width:700px;margin:auto;color:var(--gray-5);font-size:16px;line-height:1.7}
+footer{padding:34px 24px;text-align:center;font-size:13px;color:var(--gray-4)}
+
+/* RESPONSIVE */
+@media(max-width:1050px){.site-nav{top:16px}.container{padding-left:24px;padding-right:24px}.hero-section{padding:62px 40px 46px}.feature-layout{grid-template-columns:1fr .82fr}.feature-media{padding-left:0}.image-placeholder{min-height:350px}}
+@media(max-width:768px){
+  .site-nav{width:calc(100% - 32px);justify-content:flex-start;gap:18px;padding:13px 18px;top:14px}.nav-links{display:none}.nav-divider{display:none}.hamburger{display:flex;margin-left:auto}.nav-mobile.active{position:absolute;display:flex;top:56px;left:0;right:0;padding:16px 18px;flex-direction:column;gap:4px;background:rgba(255,255,255,.98);border:1px solid var(--gray-2);border-radius:18px;box-shadow:var(--shadow-soft)}.nav-mobile a{padding:10px 4px;font-size:14px}
+  .container{padding:24px 16px 60px}.hero-section{margin-top:30px;padding:48px 24px 34px;border-radius:24px;min-height:400px}.hero-orbit{right:-60px;top:30px;opacity:.45}.project-title{font-size:46px;letter-spacing:-2px}.project-tagline{font-size:18px}.project-tags{max-width:100%}
+  .self-initiated{grid-template-columns:1fr;gap:10px;padding:25px 22px;margin-bottom:58px}.self-initiated h2{font-size:25px}
+  .section-heading h2{font-size:32px}.app-header{grid-template-columns:58px 1fr;gap:15px}.app-logo-placeholder{width:58px;height:58px;border-radius:16px}.app-index{display:none}.app-header h2{font-size:32px}
+  .feature-head{padding:24px 22px 20px}.feature-head h3{font-size:24px}.feature-badge{display:none}.feature-layout{grid-template-columns:1fr}.feature-copy{padding:20px 22px 22px}.feature-media{padding:0 22px 22px}.image-placeholder{min-height:290px}.impact-stat-row{grid-template-columns:repeat(3,1fr)}
+  .analytics-concept{grid-template-columns:1fr;padding:25px 22px}.category-row{grid-template-columns:90px 1fr 38px}.closing{padding:40px 22px;border-radius:24px}.closing h2{font-size:32px}
+}
+@media(max-width:480px){.logo{font-size:28px}.project-title{font-size:38px}.hero-section{min-height:430px}.project-tagline{font-size:17px}.tag{font-size:12px}.app-header{grid-template-columns:52px 1fr}.app-logo-placeholder{width:52px;height:52px}.app-header h2{font-size:28px}.feature-head{padding:22px 18px 18px}.feature-copy{padding:18px}.feature-media{padding:0 18px 18px}.story-block{padding:17px}.impact-stat-row{grid-template-columns:1fr}.mini-stat{padding-top:7px}.image-placeholder{min-height:250px}.analytics-concept{padding:22px 18px}.category-row{grid-template-columns:82px 1fr 34px;gap:7px}.category-row span,.category-row strong{font-size:11px}}
+</style>
 </head>
 <body>
 
-<a href="index.html" class="back-button">← Back to Portfolio</a>
+<nav class="site-nav" aria-label="Primary navigation">
+  <a class="logo" href="index.html">JW</a>
+  <div class="nav-divider"></div>
+  <div class="nav-links">
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#resume">Resume</a>
+    <a href="index.html#about">About Me</a>
+    <a href="index.html#contact">Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html#projects">Projects</a><a href="index.html#resume">Resume</a><a href="index.html#about">About Me</a><a href="index.html#contact">Get in touch</a>
+  </div>
+</nav>
 
-<div class="project-container">
-    <!-- Project Title -->
-    <div class="project-hero">
-        <h1>Quick Solutions for Daily Apps</h1>
+<main class="container">
+
+  <!-- HERO: intentionally no project-detail strip -->
+  <section class="hero-section">
+    
+    <h1 class="project-title">Solving for the Apps We Use Every Day</h1>
+    <p class="project-tagline">A collection of self-initiated product explorations — noticing everyday friction, questioning familiar flows, and designing small interventions that could make common apps feel more thoughtful.</p>
+    <div class="project-tags">
+      <span class="tag">Product Thinking</span><span class="tag">UX Exploration</span><span class="tag">Everyday Apps</span><span class="tag">Interaction Design</span><span class="tag">Concept Design</span>
     </div>
+  </section>
 
-    <!-- Project Meta Info (Tags + Description on Left, Hero Image on Right) -->
-    <div class="project-meta">
-        <div>
-            <div class="project-tags">
-                <span class="tag">Mobile Design</span>
-                <span class="tag">User Experience</span>
-                <span class="tag">Optimization</span>
-                <span class="tag">Daily Tools</span>
-            </div>
-            <div class="project-description">
-                <p><strong>Project Overview:</strong></p>
-                <p>Focused on improving the everyday user experience of popular mobile applications. Lorem ipsum dolor sit amet, consectetur adipiscing elit. The goal was to identify friction points and deliver elegant, quick solutions that enhance usability.</p>
-                <p><strong>Problem Statement:</strong></p>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-            </div>
+  <!-- IMPORTANT: this comes directly after the hero -->
+  <section class="self-initiated" aria-label="Self initiated work disclaimer">
+    <div class="self-label">Self-initiated product thinking</div>
+    <div>
+      <h2>This is exploration, not client work.</h2>
+      <p>This work is purely driven by <strong>self-exploration</strong> and by noticing issues I experience as a user in apps I use every day. I am <strong>not involved with these apps or companies in any way</strong>. These are independent UX hypotheses and concept explorations, created to practise looking at familiar products with a product designer’s lens.</p>
+    </div>
+  </section>
+
+  <!-- APP 01 -->
+  <section class="app-section" id="google-pay">
+    <header class="app-header">
+      <div class="app-logo-placeholder"><img src="google-pay.jpg"; alt="Google Pay Logo"; style="width: 100%; height: auto;"></div>
+      <div><h2>Google Pay</h2><p>Two explorations around a familiar payment experience: making rewards easier to act on, and helping users understand the bigger picture behind their spending.</p>
+ </p></div>
+      <div class="app-index">01</div>
+    </header>
+
+    <!-- DUPLICATE THIS .feature-module TO ADD ANOTHER GOOGLE PAY FEATURE -->
+    <article class="feature-module">
+      <div class="feature-head"><div><div class="feature-number">FEATURE #1 · Batch reveal</div><h3>Scratch All</h3><p>Turn four separate reward reveals into one intentional action.</p></div><span class="feature-badge">01 / 04</span></div>
+      <div class="feature-layout">
+        <div class="feature-copy">
+          <div class="story-block problem"><div class="story-label">The problem</div><p>When several reward cards are waiting to be revealed, opening them one by one adds unnecessary repetition. The interaction makes a simple “show me what I got” task feel longer than it needs to be.</p></div>
+          <div class="story-block solution"><div class="story-label">The solution</div><p>Add a <strong>Scratch All</strong> action that reveals the available cards together, while preserving the individual cards for users who want the reveal to remain playful and deliberate.</p></div>
+          <div class="story-block impact"><div class="story-label">Concept impact</div><div class="impact-stat-row"><div class="mini-stat"><strong>1</strong><span>batch action</span></div><div class="mini-stat"><strong>4</strong><span>cards in one reveal</span></div><div class="mini-stat"><strong>↓</strong><span>repetitive effort</span></div></div></div>
         </div>
-        <div class="project-hero-image">
-            [Hero Image Placeholder]
+        <div class="feature-media"><div class="image-placeholder"><div class="placeholder-inner"><div class="placeholder-icon">＋</div><div class="placeholder-label">App logo / UI image</div><div class="placeholder-copy">Replace this with the Google Pay rewards screen or your concept. Keep the image area intact if you want the text and visual to remain aligned.</div></div></div></div>
+      </div>
+    </article>
+
+    <article class="feature-module">
+      <div class="feature-head"><div><div class="feature-number">FEATURE #2 · Smart categorization</div><h3>Give rewards a mental map</h3><p>Organise offers around the kinds of things people actually shop, book and spend on.</p></div><span class="feature-badge">02 / 04</span></div>
+      <div class="feature-layout">
+        <div class="feature-copy">
+          <div class="story-block problem"><div class="story-label">The problem</div><p>A long mixed list of rewards forces users to scan everything to find something relevant. The value of an offer can get buried simply because the collection has no useful structure.</p></div>
+          <div class="story-block solution"><div class="story-label">The solution</div><p>Introduce lightweight categories such as <strong>Entertainment, Beauty, Health, Travel</strong> and more. Categories create a predictable way to narrow the collection without introducing another complex navigation layer.</p></div>
+          <div class="story-block impact"><div class="story-label">Concept impact</div><div class="impact-stat-row"><div class="mini-stat"><strong>4+</strong><span>clear categories</span></div><div class="mini-stat"><strong>1</strong><span>scanable structure</span></div><div class="mini-stat"><strong>↓</strong><span>search friction</span></div></div></div>
         </div>
+        <div class="feature-media"><div class="image-placeholder"><div class="placeholder-inner"><div class="placeholder-icon">＋</div><div class="placeholder-label">Categorized rewards UI</div><div class="placeholder-copy">Show the category chips, tabs or grouped reward cards. Use dummy content if the original interface contains sensitive information.</div></div></div></div>
+      </div>
+    </article>
+
+    <article class="feature-module">
+      <div class="feature-head"><div><div class="feature-number">FEATURE #3 · Priority sorting</div><h3>Show what deserves attention first</h3><p>Make urgency and value visible through ordering, not more visual noise.</p></div><span class="feature-badge">03 / 04</span></div>
+      <div class="feature-layout">
+        <div class="feature-copy">
+          <div class="story-block problem"><div class="story-label">The problem</div><p>Users can miss a high-value or soon-to-expire offer when every reward has the same visual priority. The list tells users what exists, but not what deserves attention first.</p></div>
+          <div class="story-block solution"><div class="story-label">The solution</div><p>Prioritise rewards using signals such as <strong>expiring soon, higher value, recently unlocked</strong> and relevance. The ordering does the work while the interface stays visually calm.</p></div>
+          <div class="story-block impact"><div class="story-label">Concept impact</div><div class="impact-stat-row"><div class="mini-stat"><strong>1st</strong><span>priority position</span></div><div class="mini-stat"><strong>2+</strong><span>urgency signals</span></div><div class="mini-stat"><strong>↑</strong><span>relevance at a glance</span></div></div></div>
+        </div>
+        <div class="feature-media"><div class="image-placeholder"><div class="placeholder-inner"><div class="placeholder-icon">＋</div><div class="placeholder-label">Priority logic UI</div><div class="placeholder-copy">Show the same rewards reordered by expiry or value, with subtle labels explaining why an item appears where it does.</div></div></div></div>
+      </div>
+    </article>
+
+
+    <article class="feature-module">
+      <div class="feature-head"><div><div class="feature-number">FEATURE #4 · Spending analytics</div><h3>Give spending history a story</h3><p>A new view to help users understand where their money goes across categories.</p></div><span class="feature-badge">New section</span></div>
+      <div class="feature-layout">
+        <div class="feature-copy">
+          <div class="story-block problem"><div class="story-label">The problem</div><p>Transaction history is useful for finding individual payments, but it is harder to answer the broader question: <strong>“What am I actually spending on?”</strong></p></div>
+          <div class="story-block solution"><div class="story-label">The solution</div><p>Create a lightweight analytics view that groups expenses into meaningful categories and shows their share of total spending. The intent is not to turn payments into a finance dashboard, but to reveal patterns quickly.</p></div>
+          <div class="story-block impact"><div class="story-label">Concept impact</div><div class="impact-stat-row"><div class="mini-stat"><strong>5</strong><span>example categories</span></div><div class="mini-stat"><strong>100%</strong><span>of sample spend mapped</span></div><div class="mini-stat"><strong>1</strong><span>monthly overview</span></div></div></div>
+        </div>
+        <div class="feature-media"><div class="image-placeholder"><div class="placeholder-inner"><div class="placeholder-icon">＋</div><div class="placeholder-label">Analytics dashboard</div><div class="placeholder-copy">Add the analytics screen, category breakdown or trend view. Use dummy values if showing real transaction data.</div></div></div></div>
+      </div>
+    </article>
+
+    <div class="analytics-concept">
+      <div><div class="analytics-eyebrow">Illustrative concept data</div><h3>Where did the month go?</h3><p>A category view can turn a long transaction history into a pattern users can understand in seconds. These percentages are placeholders for the concept, not real Google Pay data.</p></div>
+      <div class="category-list">
+        <div class="category-row"><span>Travel</span><div class="category-track"><div class="category-fill" style="width:20%"></div></div><strong>20%</strong></div>
+        <div class="category-row"><span>Entertainment</span><div class="category-track"><div class="category-fill" style="width:30%"></div></div><strong>30%</strong></div>
+        <div class="category-row"><span>Food</span><div class="category-track"><div class="category-fill" style="width:20%"></div></div><strong>20%</strong></div>
+        <div class="category-row"><span>Groceries</span><div class="category-track"><div class="category-fill" style="width:10%"></div></div><strong>10%</strong></div>
+        <div class="category-row"><span>Rent</span><div class="category-track"><div class="category-fill" style="width:20%"></div></div><strong>20%</strong></div>
+      </div>
     </div>
+  </section>
 
-    <!-- Project Content -->
-    <div class="project-content">
-        <section>
-            <h2>User Testing & Analysis</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Conducted user interviews and usability testing to identify key pain points in daily app usage.</p>
-        </section>
-        <section>
-            <h2>Design Iterations</h2>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Rapid prototyping and iterative design based on user feedback and data analysis.</p>
-        </section>
-    </div>
+  <!-- APP 02 -->
+  <section class="app-section" id="zomato">
+    <header class="app-header">
+      <div class="app-logo-placeholder"><img src="zomato-logo.png"; alt="Zomato Logo"; style="width: 100%; height: auto;"></div>
+      <div><h2>Zomato</h2><p>A guided food recommendation flow for the moments when scrolling through options becomes the problem.</p></div>
+      <div class="app-index">02</div>
+    </header>
 
-    <div class="project-content">
-        <section>
-            <h2>Implementation & Launch</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Successfully deployed features with cross-functional collaboration across engineering and product teams.</p>
-        </section>
-        <section>
-            <h2>Metrics & Success</h2>
-            <p>Post-launch analysis showed significant improvements in user engagement and retention metrics.</p>
-            <p>Key metrics: Daily Active Users +28%, Session Duration +15%, Feature Adoption 72%.</p>
-        </section>
-    </div>
-</div>
+    <!-- DUPLICATE THIS .feature-module TO ADD MORE ZOMATO FEATURES -->
+    <article class="feature-module">
+      <div class="feature-head"><div><div class="feature-number">FEATURE #1 · Decision support</div><h3>Decide for Me</h3><p>Change the job from “search through everything” to “help me choose.”</p></div><span class="feature-badge">Concept feature</span></div>
+      <div class="feature-layout">
+        <div class="feature-copy">
+          <div class="story-block problem"><div class="story-label">The problem</div><p>When users are hungry but undecided, a large catalogue can increase decision fatigue. They may scroll, compare restaurants, reopen options and still not know what they want.</p></div>
+          <div class="story-block solution"><div class="story-label">The solution</div><p>Add a <strong>Decide for Me</strong> entry point. Ask a small set of questions around mood, cuisine, budget, distance and dietary preferences, then combine those answers with past-order behaviour to recommend a short list instead of an endless feed.</p></div>
+          <div class="story-block impact"><div class="story-label">Concept impact</div><div class="impact-stat-row"><div class="mini-stat"><strong>3–4</strong><span>questions before results</span></div><div class="mini-stat"><strong>1</strong><span>guided decision flow</span></div><div class="mini-stat"><strong>3</strong><span>focused recommendations</span></div></div></div>
+        </div>
+        <div class="feature-media"><div class="image-placeholder"><div class="placeholder-inner"><div class="placeholder-icon">＋</div><div class="placeholder-label">Decide for Me flow</div><div class="placeholder-copy">Show the question flow, recommendation logic and final shortlist. A simple storyboard can work well here.</div></div></div></div>
+      </div>
+    </article>
 
-<footer>
-    <p>&copy; 2025 Janhavi Waikar. All rights reserved.</p>
-</footer>
+    <div class="app-note"><strong>Product thinking:</strong> the concept does not remove choice. It changes the interaction from browsing an entire catalogue to giving the product enough context to help make a choice. Past orders act as a supporting signal, not the only source of recommendation.</div>
+  </section>
 
+  <section class="closing">
+    <div class="section-kicker">Self-initiated product thinking</div>
+    <h2>Small frictions are often hiding in plain sight.</h2>
+    <p>This project is a growing collection of observations, hypotheses and interface concepts for products I use in everyday life — a way to practise looking beyond screens and questioning the decisions behind them.</p>
+  </section>
+</main>
+
+<footer>© Janhavi Waikar · Independent UX explorations</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');
+const navMobile=document.getElementById('navMobile');
+if(hamburger&&navMobile){
+  hamburger.addEventListener('click',()=>{
+    const open=hamburger.classList.toggle('is-active');
+    navMobile.classList.toggle('active',open);
+    hamburger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  navMobile.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+    hamburger.classList.remove('is-active');navMobile.classList.remove('active');hamburger.setAttribute('aria-expanded','false');
+  }));
+}
+</script>
 </body>
 </html>
