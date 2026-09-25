@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solving For Chaos Behind Agentic Chat - Janhavi Waikar</title>
+    <title>Unified AI Workspace for Financial Analysts - Janhavi Waikar</title>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
@@ -19,7 +19,7 @@
 }
 html{scroll-behavior:smooth}
 body{
-  font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-family:'Outfit',sans-serif;
   line-height:1.65;color:var(--ink);background:var(--white);
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
@@ -235,7 +235,7 @@ a{color:inherit}
 
     background-image: url("arrow.svg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: contain;
 
     
@@ -435,6 +435,69 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
 @media(max-width:480px){
   .project-title{font-size:38px}.metrics-grid{grid-template-columns:1fr}.project-meta{grid-template-columns:1fr}
 }
+
+/* New case-study content */
+.solution-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.solution-card{padding:28px;border-radius:var(--radius-md);background:linear-gradient(145deg,#fafafa,#f3f4f6);border:1px solid var(--gray-2);box-shadow:0 3px 14px rgba(25,30,35,.04)}
+.solution-card .solution-number{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;color:var(--gray-4);font-weight:600;margin-bottom:12px}
+.solution-card h3{font-size:21px;font-weight:500;letter-spacing:-.5px;color:var(--black);margin-bottom:10px}
+.solution-card p{font-size:14px;line-height:1.68;color:var(--gray-5);margin:0}
+.workflow-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:22px}
+.workflow-card{padding:28px;border-radius:var(--radius-lg);background:#232323;color:#fff;min-height:260px;min-width:0;width:100%}
+.workflow-card .workflow-kicker{font-size:11px;text-transform:uppercase;letter-spacing:1.1px;color:#8f969f;font-weight:600;margin-bottom:14px}
+.workflow-card h3{font-size:25px;line-height:1.1;font-weight:500;letter-spacing:-.6px;margin-bottom:12px;color:#fff}
+.workflow-card p{font-size:14px;line-height:1.65;color:#cfd3d8;margin:0}
+.workflow-card .placeholder{margin-top:20px;padding:4px;}
+/* Gallery Wrapper Grid */
+        /* Workflow gallery */
+.slider-gallery{width:100%;max-width:100%;display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.gallery-main{position:relative;width:100%;border-radius:14px;overflow:hidden;background:#3b3b3b;border:1px solid #3b3b3b)}
+.gallery-viewport{width:100%;overflow:hidden}
+.gallery-track{display:flex;width:100%;transition:transform .4s cubic-bezier(.25,1,.5,1);touch-action:pan-y}
+.gallery-slide{min-width:100%;flex:0 0 100%;height:auto;overflow:hidden;background:#3b3b3b;display:flex;align-items:flex-start;justify-content:center}
+.gallery-slide img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:38px;height:38px;border:1px solid #3b3b3b;border-radius:50%;background:rgba(20,20,20,.72);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;cursor:pointer;backdrop-filter:blur(6px);transition:background .2s ease,transform .2s ease}
+.gallery-nav:hover{background:rgba(20,20,20,.92)}
+.gallery-prev{left:12px}.gallery-next{right:12px}
+.gallery-caption{padding:16px 18px 18px;background:#1f1f1f;border-top:1px solid rgba(255,255,255,.08)}
+.gallery-caption h4{margin:0 0 6px;color:#fff;font-size:17px;line-height:1.25;font-weight:500;letter-spacing:-.2px}
+.gallery-caption p{margin:0;color:#aeb4bb;font-size:12.5px;line-height:1.55}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:8px;overflow-x:auto;padding:0 1px 2px}
+.gallery-thumb{position:relative;min-width:0;aspect-ratio:4/3;padding:0;border:2px solid transparent;border-radius:9px;overflow:hidden;background:#1b1b1b;cursor:pointer;opacity:.48;transition:opacity .2s ease,border-color .2s ease,transform .2s ease}
+.gallery-thumb:hover{opacity:.82}.gallery-thumb.is-active{opacity:1;border-color:#fff;transform:translateY(-1px)}
+.gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:768px){
+  .gallery-nav{width:34px;height:34px;font-size:18px}
+  .gallery-prev{left:8px}.gallery-next{right:8px}
+  .gallery-caption{padding:14px 14px 16px}
+  .gallery-caption h4{font-size:16px}.gallery-caption p{font-size:12px}
+  .gallery-thumbs{grid-template-columns:repeat(4,minmax(88px,1fr));overflow-x:auto}
+}
+@media(max-width:480px){
+  .gallery-thumbs{grid-template-columns:repeat(7,78px)}
+}
+
+/* Closing the gaps */
+.issue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.issue-card{min-width:0;padding:24px;border-radius:var(--radius-md);background:#fff;border:1px solid var(--gray-2);box-shadow:0 3px 14px rgba(25,30,35,.04);display:flex;flex-direction:column}
+.issue-card .issue-num{font-size:12px;font-weight:600;letter-spacing:1px;color:var(--gray-4);margin-bottom:9px}
+.issue-card h3{font-size:18px;line-height:1.25;font-weight:500;color:var(--black);margin-bottom:9px}
+.issue-card p{font-size:13px;line-height:1.6;color:var(--gray-5);margin:0 0 18px}
+.fix-image-wrap{width:100%;height:clamp(220px,24vw,340px);margin-top:auto;overflow:hidden;border-radius:12px;background:#f5f6f7;border:1px solid #e5e7ea;display:flex;align-items:center;justify-content:center}
+.fix-image{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center}
+@media(max-width:768px){.issue-grid{grid-template-columns:1fr;gap:14px}.fix-image-wrap{height:clamp(200px,52vw,300px)}}
+.journey-table-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.journey-table-card{padding:24px;border-radius:var(--radius-lg);border:1px solid var(--gray-2);background:linear-gradient(145deg,#fafafa,#f3f4f6);overflow:hidden}
+.journey-table-card h3{font-size:22px;font-weight:500;letter-spacing:-.5px;margin-bottom:16px;color:var(--black)}
+.journey-table{width:100%;border-collapse:collapse;font-size:12px}
+.journey-table th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-4);font-weight:600;padding:0 0 9px;border-bottom:1px solid var(--gray-3)}
+.journey-table td{padding:12px 6px 12px 0;vertical-align:top;color:var(--gray-5);line-height:1.45;border-bottom:1px solid #e9ebee}
+.journey-table td:first-child{color:#2c3035;font-weight:500}
+.journey-table tr:last-child td{border-bottom:0}
+.placeholder-large{min-height:250px;margin-top:18px;border:1px dashed #d5d8dc;border-radius:18px;background:#f7f8f9;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--gray-4);font-size:13px;line-height:1.6}
+@media(max-width:1050px){.solution-grid{grid-template-columns:1fr 1fr}.workflow-grid{grid-template-columns:1fr}.journey-table-wrap{grid-template-columns:1fr}}
+@media(max-width:768px){.solution-grid,.workflow-grid,.issue-grid{grid-template-columns:1fr}.journey-table-wrap{grid-template-columns:1fr}.workflow-card{min-height:auto;width:100%}}
+
 </style>
 </head>
 <body>
@@ -460,446 +523,487 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
   </div>
 </nav>
 
-<!-- Main Container -->
 <div class="container">
-    
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <h1 class="project-title">Solving For Chaos Behind Agentic Chat </h1>
-        <p class="project-tagline">Designing an AI-powered platform that enables investment banking analysts to generate institutional-grade reports 10x faster</p>
-        
-        <!-- Project Tags -->
-        <div class="project-tags">
-            <span class="tag">AI/Agentic Design</span>
-            <span class="tag">Enterprise UX</span>
-            <span class="tag">Research-Driven</span>
-            <span class="tag">Product Design</span>
-            <span class="tag">Complexity Simplification</span>
-        </div>
-        
-        <!-- Project Metadata -->
-        <div class="project-meta">
-            <div class="meta-item">
-                <h3>My Role</h3>
-                <p>Product Designer & Lead UX Architect</p>
-            </div>
-            <div class="meta-item">
-                <h3>Timeline</h3>
-                <p>8 Months</p>
-            </div>
-            <div class="meta-item">
-                <h3>Team</h3>
-                <p>Cross-functional (PM, Engineers, ML)</p>
-            </div>
-            <div class="meta-item">
-                <h3>Users Impacted</h3>
-                <p>250+ Institutional Analysts</p>
-            </div>
-        </div>
+
+  <!-- Cover -->
+  <div class="hero-section">
+    <h1 class="project-title">Unified AI Workspace for Financial Analysts</h1>
+    <p class="project-tagline">An end-to-end AI product for financial teams — bringing finance-tuned chat, structured conversations and files, and an in-product app builder into one connected workflow.</p>
+
+    <div class="project-tags">
+      <span class="tag">Enterprise UX</span>
+      <span class="tag">FinTech</span>
+      <span class="tag">AI/LLM Product Design</span>
+      <span class="tag">B2B SaaS</span>
+      <span class="tag">Design Systems</span>
+      <span class="tag">0→1</span>
+      <span class="tag">Workflow Design</span>
     </div>
 
-    <!-- Key Impact Metrics -->
-    <div class="metrics-grid">
-        <div class="metric-card">
-            <div class="metric-value">8.5x</div>
-            <div class="metric-label">Faster Delivery</div>
-            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">6 hours → 42 minutes</p>
+    <div class="project-meta">
+      <div class="meta-item">
+        <h3>My Role</h3>
+        <p>Lead Product Designer — end-to-end UX for Repository, Workspace &amp; App Builder; partnered on Chat/Harness</p>
+      </div>
+      <div class="meta-item">
+        <h3>Timeline</h3>
+        <p>7 months</p>
+      </div>
+      <div class="meta-item">
+        <h3>Team</h3>
+        <p>3 PM · 4 Designers · 8 Engineers · 4 Data/AI team</p>
+      </div>
+      <div class="meta-item">
+        <h3>Users Impacted</h3>
+        <p>450+ analysts across IB, PE, AM &amp; Compliance<br> 60+ client-facing managers</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem -->
+  <section class="section-intro-card">
+    <div class="section-kicker">The Problem</div>
+    <h2>Analysts have AI. They still don't have a workflow.</h2>
+    <p>Financial analysts sit at the intersection of heavy data and heavy output pressure, but the tools in between are disconnected. The result: analysts spend more time managing the process than doing the analysis.</p>
+  </section>
+
+  <div class="full-section">
+    <h2>Where the workflow breaks</h2>
+    <div class="research-findings">
+      <div class="finding-item">
+        <div class="finding-title">Generic AI has no financial context</div>
+        <div class="finding-description">No native connection to CapIQ, Bloomberg, PitchBook, FactSet, or internal data sources.</div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-title">Every use case starts from zero</div>
+        <div class="finding-description">Analysts repeatedly re-explain instructions because reusable skills, plugins, and templates are missing.</div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-title">Conversations and files are unstructured</div>
+        <div class="finding-description">There is no clear way to track inputs, sources, models used, or final versus draft outputs.</div>
+      </div>
+      
+      <div class="finding-item">
+        <div class="finding-title">Client outputs become stale</div>
+        <div class="finding-description">Once shared, static outputs require another manual cycle whenever the underlying data changes.</div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-title">No single source of truth</div>
+        <div class="finding-description">Teams cannot easily answer: what was generated, from which source, using which template?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden cost -->
+  <section class="section-intro-card">
+    <div class="section-kicker">The Hidden Cost</div>
+    <h2>The cost isn't visible on a P&amp;L — it's buried in analyst hours.</h2>
+    <p>The inefficiency appears as senior analyst time spent on formatting instead of judgment, repeated rework when data changes, and deliverables delayed because multiple tools have to talk to each other manually.</p>
+  </section>
+
+  <div class="story-card story-card--dark">
+    <div class="problem-timeline">
+      <div class="problem-step"><h3>Low-value work</h3><div class="step-time">$70/hr</div><p>Expensive analyst time spent pulling, reformatting and re-explaining context.</p></div>
+      <div class="problem-step"><h3>Manual rework</h3><div class="step-time">34%</div><p>Client-facing outputs rebuilt when source data changes.</p></div>
+      <div class="problem-step"><h3>Business loss of</h3><div class="step-time">$180,000</div><p>Delayed delivery, stale dashboards and version confusion.</p></div>
+      <div class="problem-step"><h3>Projected savings</h3><div class="step-time">6.5 hrs</div><p>Per analyst time recovered each week.</p></div>
+      <div class="problem-step"><h3>Business aim</h3><div class="step-time">40%</div><p>Target reduction in time-to-first-output and client-facing rework.</p></div>
+    </div>
+    <div class="problem-bottom-line">
+      <span class="label">The goal</span>
+      <span class="result">Collapse data-gathering, analysis and delivery into one workspace — and make every shared deliverable live instead of static.</span>
+    </div>
+  </div>
+
+  <!-- Solution -->
+  <section class="section-intro-card">
+    <div class="section-kicker">How We're Solving It</div>
+    <h2>Everyone has AI. Everyone has chat. Here's what we built instead.</h2>
+    <p>Rather than building a smarter chatbot, we designed a connected workspace where chat, data, files and the final client deliverable are part of the same system.</p>
+  </section>
+
+  <div class="solution-grid">
+    <div class="solution-card">
+      <div class="solution-number">USP 01 · Harness</div>
+      <h3>Chat built for finance</h3>
+      <p>A dedicated harness layer connects directly to CapIQ, Bloomberg, PitchBook, FactSet, public filings and client databases through MCP and connectors, so the model works with sourced financial data from message one.</p>
+    </div>
+    <div class="solution-card">
+      <div class="solution-number">USP 02 · Repository</div>
+      <h3>A refined repository, not a file dump</h3>
+      <p>Conversations and files become structured, trackable and actionable. Bookmark important work, inspect versions, mark a primary output, and run bulk actions across related files or conversations.</p>
+    </div>
+    <div class="solution-card">
+      <div class="solution-number">USP 03 · App Builder</div>
+      <h3>Turn output into a living deliverable</h3>
+      <p>Build a client-ready dashboard inside the product and push new outputs directly to an existing app, so clients see the latest numbers without another “please resend” email.</p>
+    </div>
+  </div>
+
+  <!-- Research -->
+  <div class="full-section">
+    <h2>Starting with the people who live in the workflow</h2>
+    <p>Before designing anything, we ran in-depth research with analysts, research managers and institutional stakeholders across IB, PE, AM and Compliance to understand how work actually moves.</p>
+    <div class="research-findings">
+      <div class="finding-item">
+        <div class="finding-title">Deliverables, not tools</div>
+        <div class="finding-description">Analysts think in reports, decks and client updates. Tool switching is invisible overhead they've normalized.</div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-title">Trust depends on traceable sourcing</div>
+        <div class="finding-description">Analysts want to see which data source and model produced a number before they'll use it.</div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-title">Final vs. draft is confusing</div>
+        <div class="finding-description">Multiple analysts described sending the wrong version to a client at least once.</div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-title">Managers prioritize auditability</div>
+        <div class="finding-description">Who generated what, from what source, and when matters more than the AI itself.</div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-title">Clients expect always-current outputs</div>
+        <div class="finding-description">Client-facing teams want deliverables to stay current without manually resending files.</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Personas -->
+  <div class="full-section">
+    <h2>User Personas</h2>
+    <div class="personas-grid">
+      <div class="persona-card">
+        <div class="persona-name">The Analyst</div>
+        <div class="persona-role">Primary user · IB / PE / AM Analyst or Associate</div>
+        <div class="persona-detail"><strong>Goals:</strong> Produce accurate, sourced outputs fast; minimize repetitive setup; avoid version mistakes.</div>
+        <div class="persona-detail"><strong>Frustrations:</strong> Re-explaining instructions, pulling data manually across CapIQ/Bloomberg/PitchBook/FactSet, losing track of final output.</div>
+        <div class="persona-detail"><strong>Needs:</strong> Fast, sourced chat; a repository that remembers context; bulk actions across similar work.</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-name">The Manager</div>
+        <div class="persona-role">Secondary user · Team Lead / Compliance / Client-Facing Manager</div>
+        <div class="persona-detail"><strong>Goals:</strong> Oversight of generated and client-sent work; consistent quality and compliance; fast client responsiveness.</div>
+        <div class="persona-detail"><strong>Frustrations:</strong> No visibility into versions, limited auditability of sources/models, stale dashboards.</div>
+        <div class="persona-detail"><strong>Needs:</strong> Workspace-level metadata visibility and a way to share live dashboards without manual re-sends.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified workflow -->
+  <section class="section-intro-card">
+    <div class="section-kicker">Unified Workflow in Design</div>
+    <h2>Three parts, one workflow.</h2>
+    <p>We designed three connected surfaces that map to how analysts actually move through work: <br> <strong><h3>converse → organize → deliver</h3></strong></p>
+  </section>
+
+  <div class="workflow-grid">
+
+    <div class="workflow-card">
+      <div class="workflow-kicker">7a · Chat / Harness</div>
+      <h3>Converse</h3>
+      <p>Financial-context chat with direct connector access, skills and plugins pre-loaded per use case, and templates that generate outputs matching firm/client formatting from the first draft.</p>
+
+      <div class="slider-gallery" data-gallery="converse">
+        <div class="gallery-main">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous Converse image">&#10094;</button>
+          <div class="gallery-viewport">
+            <div class="gallery-track">
+              <div class="gallery-slide"><img src="chatlanding.png" alt="Converse — finance chat workspace"></div>
+              <div class="gallery-slide"><img src="chatskills.png" alt="Converse — reusable finance skills"></div>
+              <div class="gallery-slide"><img src="chatsources.png" alt="Converse — connected financial sources"></div>
+              <div class="gallery-slide"><img src="chatui.png" alt="Converse — focused chat interface"></div>
+            </div>
+          </div>
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next Converse image">&#10095;</button>
+          <div class="gallery-caption">
+            <h4 class="gallery-caption-title"></h4>
+            <p class="gallery-caption-desc"></p>
+          </div>
         </div>
-        <div class="metric-card">
-            <div class="metric-value">340%</div>
-            <div class="metric-label">Productivity Gain</div>
-            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">3.4x reports/week</p>
+        <div class="gallery-thumbs" aria-label="Converse gallery thumbnails">
+          <button class="gallery-thumb is-active" type="button" aria-label="Show Converse image 1"><img src="chatlanding.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Converse image 2"><img src="chatskills.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Converse image 3"><img src="chatsources.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Converse image 4"><img src="chatui.png" alt=""></button>
         </div>
-        <div class="metric-card">
-            <div class="metric-value">92%</div>
-            <div class="metric-label">Adoption Rate</div>
-            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">In first 6 months</p>
-        </div>
-        <div class="metric-card">
-            <div class="metric-value">67%</div>
-            <div class="metric-label">Error Reduction</div>
-            <p style="font-size: 12px; color: #7a8ba8; margin-top: 8px;">Through validation</p>
-        </div>
+      </div>
     </div>
 
-    <!-- Problem Section -->
-    <section class="section-intro-card">
-        <div class="section-kicker">The Problem</div>
-        <h2>Time is money — and we were wasting it on the workflow.</h2>
-        <p>Before the platform, analysts spent hours collecting, reconciling, assembling and revising work before they could focus on the analysis itself.</p>
-    </section>
+    <div class="workflow-card">
+      <div class="workflow-kicker">7b · Repository</div>
+      <h3>Organize</h3>
+      <p>A structured home for every conversation and file — bookmarking, file-wise views, a primary-output marker, and metadata for sources, templates and models.</p>
 
-    <div class="story-card story-card--dark">
-        <div class="problem-timeline">
-            <div class="problem-step"><h3>Data Collection</h3><div class="step-time">2–3 hrs</div><p>pulling from Bloomberg, CapIQ, PitchBook etc.</p></div>
-            <div class="problem-step"><h3>Organization &amp; Cleaning</h3><div class="step-time">1.5–2 hrs</div><p>standardizing formats, cross-referencing</p></div>
-            <div class="problem-step"><h3>Report Assembly</h3><div class="step-time">1–1.5 hrs</div><p>building PowerPoint, Excel, Word documents</p></div>
-            <div class="problem-step"><h3>Review &amp; Versioning</h3><div class="step-time">1–2 hrs</div><p>managing feedback and revisions</p></div>
-            <div class="problem-step"><h3>Compliance Check</h3><div class="step-time">30–45 min</div><p>minutes ensuring regulatory alignment</p></div>
+      <div class="slider-gallery" data-gallery="organize">
+        <div class="gallery-main">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous Organize image">&#10094;</button>
+          <div class="gallery-viewport">
+            <div class="gallery-track">
+              <div class="gallery-slide"><img src="repo-convo.png" alt="Organize"></div>
+              <div class="gallery-slide"><img src="repo-bulk.png" alt="Organize"></div>
+              <div class="gallery-slide"><img src="repo-bulk-1.png" alt="Organize"></div>
+            </div>
+          </div>
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next Organize image">&#10095;</button>
+          <div class="gallery-caption">
+            <h4 class="gallery-caption-title"></h4>
+            <p class="gallery-caption-desc"></p>
+          </div>
         </div>
-        <div class="problem-bottom-line"><span class="label">The outcome</span><span class="result">A 6–8 hour reporting process left only 30–40% of the week for actual analysis.</span></div>
+        <div class="gallery-thumbs" aria-label="Organize gallery thumbnails">
+          <button class="gallery-thumb is-active" type="button" aria-label="Show Organize image 1"><img src="repo-convo.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Organize image 2"><img src="repo-bulk.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Organize image 3"><img src="repo-bulk-1.png" alt=""></button>
+        </div>
+      </div>
     </div>
 
-    <!-- Business Opportunity -->
-    <section class="section-intro-card">
-        <div class="section-kicker">Business Opportunity</div>
-        <h2>A measurable cost hidden inside a familiar workflow.</h2>
-        <p>The opportunity was not just faster reporting. It was recovering expensive analyst time that was being spent on operational work.</p>
-    </section>
+    <div class="workflow-card">
+      <div class="workflow-kicker">7c · App Builder</div>
+      <h3>Deliver</h3>
+      <p>A no-rework path from analysis to client deliverable — build a dashboard or custom analysis view and push updated outputs to an existing app.</p>
 
-    <div class="opportunity-grid">
-        <div class="opportunity-hero">
-            <div>
-                <div class="eyebrow">Estimated annual inefficiency</div>
-                <div class="big-number">$30M</div>
-                <div class="big-label">Across 15 institutional clients × 50 analysts, based on the report-writing overhead outlined in the project.</div>
+      <div class="slider-gallery" data-gallery="deliver">
+        <div class="gallery-main">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous Deliver image">&#10094;</button>
+          <div class="gallery-viewport">
+            <div class="gallery-track">
+              <div class="gallery-slide"><img src="applibrary.png" alt="Deliver — dashboard workspace"></div>
+              <div class="gallery-slide"><img src="startapp.png" alt="Deliver — configurable output workflow"></div>
+              <div class="gallery-slide"><img src="kpiapp.png" alt="Deliver — connected data for outputs"></div>
+              <div class="gallery-slide"><img src="themeapp.png" alt="Deliver — final client-ready view"></div>
+              <div class="gallery-slide"><img src="demoapp.png" alt="Deliver — final client-ready view"></div>
+              <div class="gallery-slide"><img src="dataapp.png" alt="Deliver — final client-ready view"></div>
+              <div class="gallery-slide"><img src="chatapp.png" alt="Deliver — final client-ready view"></div>
+              <div class="gallery-slide"><img src="client.png" alt="Deliver — final client-ready view"></div>
+              <div class="gallery-slide"><img src="clientnotify.png" alt="Deliver — final client-ready view"></div>
+              <div class="gallery-slide"><img src="clientchat.png" alt="Deliver — final client-ready view"></div>
             </div>
-            <div class="eyebrow">The opportunity</div>
+          </div>
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next Deliver image">&#10095;</button>
+          <div class="gallery-caption">
+            <h4 class="gallery-caption-title"></h4>
+            <p class="gallery-caption-desc"></p>
+          </div>
         </div>
-        <div class="opportunity-facts">
-            <div class="opportunity-fact"><div class="fact-number">$150K–$300K</div><div class="fact-text">Annual compensation range for analysts, making workflow inefficiency materially expensive.</div></div>
-            <div class="opportunity-fact"><div class="fact-number">$36K–$48K</div><div class="fact-text">Estimated yearly report-writing overhead per analyst — roughly 30–40% of salary.</div></div>
+        <div class="gallery-thumbs" aria-label="Deliver gallery thumbnails">
+          <button class="gallery-thumb is-active" type="button" aria-label="Show Deliver image 1"><img src="applibrary.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 2"><img src="startapp.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 3"><img src="kpiapp.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 4"><img src="themeapp.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 4"><img src="demoapp.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 4"><img src="dataapp.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 4"><img src="chatapp.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 4"><img src="client.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 4"><img src="clientnotify.png" alt=""></button>
+          <button class="gallery-thumb" type="button" aria-label="Show Deliver image 4"><img src="clientchat.png" alt=""></button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const galleryContent = {
+      converse: [
+        {title:'Finance-first chat',desc:'A focused chat workspace designed around financial analysis and sourced answers.'},
+        {title:'Reusable skills',desc:'Preset skills and plugins reduce repetitive setup across recurring analyst workflows.'},
+        {title:'Connected sources',desc:'Created an easy, segregated yet put together representation of the Market Data Source Universe.'},
+        {title:'Responses & Workspace',desc:'A clean conversation surface maiantains data clarity and has key actions tied to each reponse like Copy, Export, Share & Fork. A woorkspace panel helps analyst keep his files and links in order.'}
+      ],
+      organize: [
+        {title:'Repository',desc:'A single tab bringing conversations and outputs files into one structured workspace.'},
+        {title:'Repository Bulk Features',desc:'Merge a bunch of your conversations into a single new conversation, delete, download workspaces and share conversations among peers.'},
+        {title:'Files Bulk Features',desc:'Send files to an app, start a new conversation with a bunch, delete, download and share.'},
+     ],
+      deliver: [
+        {title:'App Library',desc:'Create and Manage dashboard apps made specifically for clients requirements so you can avoid back and forth of files and maintaining versions.'},
+        {title:'Creating an App',desc:'Start by adding basic details of your clients ideal dashboard requirement.'},
+        {title:'Validating KPIs',desc:'With the details you added, AI will select the appropriate KPIs to be tracked in the app. Add or remove further to your needs.'},
+        {title:'Setting Theme',desc:'Set a theme, whether your branding or clients, this will give the output of your choice.'},
+        {title:'A Preview is Ready',desc:'An outline view of your app is ready with a chat feature to make changes and start filling it with data.'},
+        {title:'Data-Filled App',desc:'Once you upload the data, it sets in order with the app you created.'},
+        {title:'Client Channel',desc:'Once your app is live and published with the clients, have seamless conversation and customise the data and dashboard as per needed.'},
+        {title:'The Client View',desc:'How the Client sees the app is just the shared link you sent with features like notification, chat with analyst and share it further with his peers.'},
+        {title:'Notification Update',desc:'Any new update will trigger the client.'},
+        {title:'Chat with Analyst',desc:'Need changes? Ping your analyst and share the requirements ASAP.'}
+      ]
+    };
+
+    document.querySelectorAll('.slider-gallery').forEach(gallery=>{
+      const key=gallery.dataset.gallery;
+      const data=galleryContent[key] || galleryContent.converse;
+      const track=gallery.querySelector('.gallery-track');
+      const slides=gallery.querySelectorAll('.gallery-slide');
+      const thumbs=gallery.querySelectorAll('.gallery-thumb');
+      const title=gallery.querySelector('.gallery-caption-title');
+      const desc=gallery.querySelector('.gallery-caption-desc');
+      const prev=gallery.querySelector('.gallery-prev');
+      const next=gallery.querySelector('.gallery-next');
+      let index=0;
+      let startX=0;
+      let startY=0;
+
+      function update(nextIndex){
+        index=(nextIndex+slides.length)%slides.length;
+        track.style.transform='translateX(-'+(index*100)+'%)';
+        thumbs.forEach((thumb,i)=>{
+          thumb.classList.toggle('is-active',i===index);
+          thumb.setAttribute('aria-current',i===index?'true':'false');
+        });
+        title.textContent=data[index].title;
+        desc.textContent=data[index].desc;
+      }
+
+      prev.addEventListener('click',()=>update(index-1));
+      next.addEventListener('click',()=>update(index+1));
+      thumbs.forEach((thumb,i)=>thumb.addEventListener('click',()=>update(i)));
+
+      track.addEventListener('touchstart',e=>{
+        startX=e.changedTouches[0].clientX;
+        startY=e.changedTouches[0].clientY;
+      },{passive:true});
+      track.addEventListener('touchend',e=>{
+        const dx=e.changedTouches[0].clientX-startX;
+        const dy=e.changedTouches[0].clientY-startY;
+        if(Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)) update(index+(dx<0?1:-1));
+      },{passive:true});
+
+      update(0);
+    });
+  })();
+  </script>
+
+  <!-- Testing -->
+  <div class="full-section">
+    <h2>Testing the flow surfaced real friction</h2>
+    <p>We put the connected chat → repository → app builder flow in front of analysts and managers. The core idea held up, but execution gaps emerged.</p>
+    <div class="issue-grid">
+      <div class="issue-card"><div class="issue-num">01 · DESIGN FIX</div><h3>Primary output clarity</h3><p>Introduced a visible “Primary” badge indicator.</p> 
+      
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">02</div><h3>Live updates felt risky</h3>
+        <p>Users were unsure if pushing a new output would silently change what a client was viewing mid-meeting.</p>
+     
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">03</div><h3>Workspace had metadata overload</h3>
+        <p>Sources, models, templates and analysis history competed for attention without a clear hierarchy.</p>
+     
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">04</div><h3>Connector status was invisible</h3>
+        <p>When a CapIQ or Bloomberg pull failed or data was stale, users had no in-chat signal.</p>
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixes -->
+  <div class="full-section">
+    <h2>Closing the gaps</h2>
+    <p>Each issue mapped to a specific design fix, validated in a second round of testing.</p>
+    <div class="issue-grid">
+      <div class="issue-card"><div class="issue-num">01 · DESIGN FIX</div><h3>Primary output clarity</h3><p>Introduced a visible “Primary” badge indicator.</p><div class="fix-image-wrap"><img src="output.png" alt="Primary output clarity design fix" class="fix-image"></div></div>
+      <div class="issue-card"><div class="issue-num">02 · DESIGN FIX</div><h3>Notification Channel</h3><p>Client gets a notification for new update and when clicked on 'Refresh Dashboard' would apply the new changes.</p><div class="fix-image-wrap"><img src="notification.png" alt="Notification channel design fix" class="fix-image"></div></div>
+      <div class="issue-card"><div class="issue-num">03 · DESIGN FIX</div><h3>Workspace hierarchy</h3><p>Restructured Workspace into Overview, Sources, Outputs and Metadata tabs for progressive disclosure.</p><div class="fix-image-wrap"><img src="workspace.png" alt="Workspace hierarchy design fix" class="fix-image"></div></div>
+      <div class="issue-card"><div class="issue-num">04 · DESIGN FIX</div><h3>Connector health indicators</h3><p>Added inline status chips — connected, syncing, stale or failed — next to each data source as well as once a prompt is run, the prompt section shows a status of all that was connected..</p><div class="fix-image-wrap"><img src="mcpfix.png" alt="Connector health indicators design fix" class="fix-image"></div></div>
+    </div>
+  </div>
+
+  <!-- Journey -->
+  <section class="journey-section">
+    <div class="journey-intro">
+      <div class="journey-kicker">Redefining the Workflow · User Journey</div>
+      <h2>From five tools to one, from hours to minutes.</h2>
+      <p>The connected workflow removes repeated setup and creates a direct path from sourced analysis to a living client deliverable.</p>
     </div>
 
-    <div class="opportunity-friction">
-        <h3>Why existing solutions fell short</h3>
-        <div class="friction-grid">
-            <div class="friction-item"><strong>Data, not deliverables</strong><span>Bloomberg &amp; CapIQ solved access, not report production.</span></div>
-            <div class="friction-item"><strong>Dashboards, not reports</strong><span>Tableau and Power BI were not client-ready deliverables.</span></div>
-            <div class="friction-item"><strong>IT dependency</strong><span>RPA tools required technical involvement for each workflow.</span></div>
-            <div class="friction-item"><strong>Generic AI</strong><span>Chatbots lacked the required financial-domain context.</span></div>
-        </div>
+    <div class="journey-table-wrap">
+      <div class="journey-table-card">
+        <h3>Before</h3>
+        <table class="journey-table">
+          <thead><tr><th>Step</th><th>Surface</th><th>Time</th></tr></thead>
+          <tbody>
+            <tr><td>Pull data manually</td><td>Terminal + Excel</td><td>~35 min</td></tr>
+            <tr><td>Re-explain context</td><td>Generic AI chat</td><td>~15 min</td></tr>
+            <tr><td>Draft &amp; format report/deck</td><td>Word / PPT</td><td>~2.5 hrs</td></tr>
+            <tr><td>Save &amp; track versions</td><td>Drive / email</td><td>~10 min</td></tr>
+            <tr><td>Build client dashboard</td><td>Separate BI tool</td><td>~3 hrs</td></tr>
+            <tr><td>Re-send when data changes</td><td>Email</td><td>~10 min (repeated 3-4x/week)</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td><strong>~6.5 hrs</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="journey-table-card">
+        <h3>After</h3>
+        <table class="journey-table">
+          <thead><tr><th>Step</th><th>Surface</th><th>Time</th></tr></thead>
+          <tbody>
+            <tr><td>Chat with connected sources</td><td>Chat / Harness</td><td>~8 min</td></tr>
+            <tr><td>Apply skill / template preset</td><td>Chat</td><td>~3 min</td></tr>
+            <tr><td>Auto-save, tag &amp; mark primary</td><td>Repository</td><td>Instant</td></tr>
+            <tr><td>Push to client dashboard</td><td>App Builder</td><td>~5 min</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td><strong>~1.4 hrs · ↓ 78%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </section>
 
-    <!-- Research Section -->
-    <div class="full-section">
-        <h2>User Research & Discovery</h2>
-        <p style="margin-bottom: 30px; color: #4a5f7f;">We conducted in-depth research across 12 senior analysts, 8 portfolio managers, and 3 institutions through interviews, contextual inquiry, and workflow analysis.</p>
-        
-        <div class="research-findings">
-            <div class="finding-item">
-                <div class="finding-title">🔍 Finding #1: Data Anxiety</div>
-                <div class="finding-description">73% of analysts manually validate numbers across 2-3 sources. Average 3-5 data discrepancies per report create "verification paralysis."</div>
-                <div class="finding-quote">"I spend more time verifying that my numbers match Bloomberg and CapIQ than actually thinking about what the numbers mean."</div>
-                <div class="finding-description"><strong>Design Implication:</strong> Provide transparent data lineage, source attribution, and one-click validation.</div>
-            </div>
-
-            <div class="finding-item">
-                <div class="finding-title">⚡ Finding #2: Context Switching Tax</div>
-                <div class="finding-description">Analysts juggle 5-7 applications simultaneously. Each switch costs 8 seconds, with 120+ switches per report (16+ minutes wasted) plus information loss.</div>
-                <div class="finding-quote">"I have Bloomberg in one monitor, CapIQ in another, Excel on my laptop, and I'm copying data between them. I can't focus."</div>
-                <div class="finding-description"><strong>Design Implication:</strong> Create a unified workspace minimizing friction between tools.</div>
-            </div>
-
-            <div class="finding-item">
-                <div class="finding-title">📋 Finding #3: Template Inflexibility</div>
-                <div class="finding-description">While analysts need templates, current ones require 40-60 minutes to customize. This leads to unsafe copy-paste workflows.</div>
-                <div class="finding-quote">"I have 20 report templates, but none match what this client wants. So I copy last month's report and change numbers—it's faster but terrifying."</div>
-                <div class="finding-description"><strong>Design Implication:</strong> Templates must be modular, customizable, and version-controlled.</div>
-            </div>
-
-            <div class="finding-item">
-                <div class="finding-title">✅ Finding #4: Approval Workflow Friction</div>
-                <div class="finding-description">Manual compliance review adds 2-3 days; 40% of reports return for revisions (mostly formatting, not content).</div>
-                <div class="finding-quote">"A report that took 6 hours to write takes 3 days to approve because of back-and-forth feedback."</div>
-                <div class="finding-description"><strong>Design Implication:</strong> Build compliance checks into the workflow, not after.</div>
-            </div>
-
-            <div class="finding-item">
-                <div class="finding-title">🤝 Finding #5: Knowledge Silos</div>
-                <div class="finding-description">Institutional knowledge trapped in personal workflows. New analysts rebuild work instead of reusing it. Onboarding takes 4-6 weeks.</div>
-                <div class="finding-quote">"My colleague built an amazing dashboard, but nobody uses it because I didn't know it existed."</div>
-                <div class="finding-description"><strong>Design Implication:</strong> Enable discovery, sharing, and reuse of workflows.</div>
-            </div>
-        </div>
+  <!-- Impact -->
+  <div class="impact-section">
+    <h2>The Impact</h2>
+    <div class="impact-metrics">
+      <div class="impact-stat"><div class="impact-stat-value">58%</div><div class="impact-stat-label">Faster report delivery</div><p>Reduction in time-to-first-draft</p></div>
+      <div class="impact-stat"><div class="impact-stat-value">73%</div><div class="impact-stat-label">User adoption</div><p>Target analysts actively using the product</p></div>
+      <div class="impact-stat"><div class="impact-stat-value">~6.5 hrs</div><div class="impact-stat-label">Saved weekly</div><p>Per analyst from manual work</p></div>
+      <div class="impact-stat"><div class="impact-stat-value">64%</div><div class="impact-stat-label">Less rework</div><p>Fewer duplicate / near-duplicate outputs</p></div>
     </div>
-
-    <!-- Personas Section -->
-    <div class="full-section">
-        <h2>User Personas</h2>
-        
-        <div class="personas-grid">
-            <div class="persona-card">
-                <div class="persona-name">Sarah</div>
-                <div class="persona-role">Senior Equity Analyst</div>
-                <div class="persona-detail">
-                    <strong>Age:</strong> 32 | <strong>Experience:</strong> 7 years<br/>
-                    <strong>Reports/week:</strong> 3-4
-                </div>
-                <div class="persona-detail">
-                    <strong>Motivation:</strong> Spend time on analysis & insights, not admin work
-                </div>
-                <div class="persona-detail">
-                    <strong>Pain Points:</strong> Template customization, version control, compliance delays
-                </div>
-                <div class="persona-detail">
-                    <strong>Tech Comfort:</strong> High (power user of finance tools)
-                </div>
-            </div>
-
-            <div class="persona-card">
-                <div class="persona-name">Marcus</div>
-                <div class="persona-role">Associate Analyst (Year 1)</div>
-                <div class="persona-detail">
-                    <strong>Age:</strong> 23 | <strong>Experience:</strong> &lt; 1 year<br/>
-                    <strong>Reports/week:</strong> 1-2
-                </div>
-                <div class="persona-detail">
-                    <strong>Motivation:</strong> Learn best practices, prove capability, move up
-                </div>
-                <div class="persona-detail">
-                    <strong>Pain Points:</strong> Don't know what good looks like, fear mistakes
-                </div>
-                <div class="persona-detail">
-                    <strong>Tech Comfort:</strong> Medium (web native but new to finance)
-                </div>
-            </div>
-        </div>
+    <div class="problem-bottom-line" style="margin-top:24px;">
+      <span class="label">Additional signals</span>
+      <span class="result">47% fewer “please resend” requests &nbsp;&nbsp;·&nbsp;&nbsp;  4.4/5 overall user rating</span>
     </div>
+  </div>
 
-    <!-- Design Solution Section -->
-    <div class="content-layout">
-        <div class="content-text">
-            <h2>Design Solution</h2>
-            <h3>Unified AI-Powered Workflow</h3>
-            <p>Instead of analysts jumping between 5-7 apps, we created a unified platform where:</p>
-            <ul>
-                <li><strong>Data Access:</strong> Bloomberg, CapIQ data integrated directly—no copy-paste</li>
-                <li><strong>Smart Templates:</strong> AI suggests sections based on report type; analysts customize in minutes</li>
-                <li><strong>Real-Time Validation:</strong> Data lineage tracked automatically; sources transparent</li>
-                <li><strong>Built-in Compliance:</strong> Rules enforced during creation, not review</li>
-                <li><strong>Knowledge Sharing:</strong> Analysts fork successful reports, learn methodologies</li>
-            </ul>
-            <p style="margin-top: 20px;"><strong>Result:</strong> 6-8 hour process compressed to 40 minutes.</p>
-        </div>
-        <div>
-            <div class="image-placeholder">
-                [Solution Architecture Image]<br/><br/>
-                🎨 Wireframes/mockups of unified platform<br/>
-                Suggested: Before/after workflow visualization
-            </div>
-        </div>
+  <!-- Learnings -->
+  <div class="full-section">
+    <h2>What this project taught me</h2>
+    <div class="full-section-grid">
+      <div>
+        <h3>1. Trust in AI is a sourcing problem</h3>
+        <p>In regulated financial workflows, showing where a number came from mattered to adoption more than how smart the AI seemed.</p>
+      </div>
+      <div>
+        <h3>2. A unified workflow needs shared state</h3>
+        <p>Chat, Repository and App Builder had to share sources, versions and metadata invisibly, or users perceived them as three products again.</p>
+      </div>
+      <div>
+        <h3>3. Power features need guardrails</h3>
+        <p>Bulk actions and live-push updates became usable through confirmation and preview patterns, not simply discoverability or onboarding.</p>
+      </div>
+      <div>
+        <h3>4. Domain-specific AI builds enterprise trust</h3>
+        <p>Direct MCP connectors to CapIQ, Bloomberg, PitchBook and FactSet did more for credibility with financial users than chat polish alone.</p>
+      </div>
+      <div>
+        <h3>5. Personal reflection</h3>
+        <p>[Add what you would do differently, what surprised you, or how this project shaped your design process going forward.]</p>
+      </div>
+      <div>
+        <h3>6. The design principle</h3>
+        <p>When the workflow is complex, the interface should carry the complexity through connected context rather than making users carry it themselves.</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Design Decision Deep Dive -->
-    <div class="full-width-image">
-        <div class="image-placeholder">
-            [Design Decisions Image]<br/><br/>
-            📐 Key design decisions & rationale<br/>
-            Suggested: 3-4 annotated interface mockups with design thinking notes
-        </div>
-    </div>
-
-    <!-- Impact Results -->
-    <div class="impact-section">
-        <h2>Impact & Results</h2>
-        <div class="impact-metrics">
-            <div class="impact-stat">
-                <div class="impact-stat-value">8.5x</div>
-                <div class="impact-stat-label">Faster Report Delivery</div>
-                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">From 6 hours to 42 minutes</p>
-            </div>
-            <div class="impact-stat">
-                <div class="impact-stat-value">92%</div>
-                <div class="impact-stat-label">User Adoption</div>
-                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">Within 6 months of launch</p>
-            </div>
-            <div class="impact-stat">
-                <div class="impact-stat-value">2.1M</div>
-                <div class="impact-stat-label">Hours Saved Annually</div>
-                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">Across user base per institution</p>
-            </div>
-            <div class="impact-stat">
-                <div class="impact-stat-value">4.8<span style="font-size: 18px;"> &nbsp;/5</span><span style="color: #EEBC02; font-size: 20px;"> &nbsp; &nbsp; ★★★★⯨</span></div>
-                <div class="impact-stat-label">Our Overall User Rating</div>
-                <p style="font-size: 12px; margin-top: 12px; opacity: 0.8;">Used by over 500 analysts and over 12 clients across globe</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testing & Validation -->
-    <section class="section-intro-card">
-        <div class="section-kicker">Testing &amp; Validation</div>
-        <h2>Designed, tested, refined — then tested again.</h2>
-        <p>Usability sessions and a six-week beta helped surface where the workflow worked and where the experience still needed refinement.</p>
-    </section>
-
-    <div class="validation-shell">
-        <div class="validation-top">
-            <div class="validation-title"><h2>Usability testing</h2><p>Five one-on-one sessions with power users from different institutions focused on task completion, usability and the places where trust could break down.</p></div>
-            <div class="validation-score"><span class="score-label">System Usability Scale</span><div class="score">78/100</div></div>
-        </div>
-        <div class="validation-grid">
-            <div class="validation-card"><div class="icon">01</div><h3>22 min task completion</h3><p>Average task time against a 25-minute target, keeping the reporting workflow within the intended range.</p></div>
-            <div class="validation-card"><div class="icon">02</div><h3>One friction surfaced</h3><p>Data-source selection UX needed refinement — a critical moment for confidence in the generated output.</p></div>
-            <div class="validation-card"><div class="icon">03</div><h3>Iterate from evidence</h3><p>The test findings were fed back into the workflow instead of treating usability as a final-stage check.</p></div>
-        </div>
-        <div class="beta-strip">
-            <div class="beta-title"><small>Beta testing</small><strong>25 analysts · 6 weeks</strong></div>
-            <div class="beta-stat"><strong>92%</strong><span>Satisfaction rate</span></div>
-            <div class="beta-stat"><strong>47</strong><span>Feature requests resolved</span></div>
-            <div class="beta-stat"><strong>23</strong><span>Bugs resolved during beta</span></div>
-        </div>
-        <div class="problem-bottom-line" style="margin-top:18px;border-top:1px solid #dfe2e6;"><span class="label" style="color:#8b9098;">Next priorities</span><span class="result" style="color:#5f646c;">Custom Skills Editor → Advanced Search → Collaboration Tools</span></div>
-    </div>
-
-    <!-- User Journey Before & After -->
-    <section class="journey-section" aria-labelledby="journey-heading">
-        <div class="journey-intro">
-            <div class="journey-kicker">Redefining User Journey</div>
-            <h2 id="journey-heading">From fragmented to one-flow reporting</h2>
-            <p>Sarah's workflow before and after the redesigned experience, shown as an editable journey map.</p>
-        </div>
-
-        <!-- BEFORE -->
-        <div class="journey-panel journey-panel--before">
-            <div class="journey-header">
-               
-                <div>
-                    <h3>Before (6 hours)</h3>
-                    <p class="journey-subtitle">Manual, fragmented and time-consuming process with multiple handoffs and delays.</p>
-                </div>
-            </div>
-
-            <div class="journey-steps">
-                <div class="journey-step">
-                    <div class="journey-step-number">01</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg></div>
-                    <h4>Open Bloomberg,<br>pull data</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>45 min</span>
-                </div>
-            
-                <div class="journey-step">
-                    <div class="journey-step-number">02</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M10 13a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-2 2"></path><path d="M14 11a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l2-2"></path></svg></div>
-                    <h4>Cross-reference<br>with CapIQ</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>30 min</span>
-                </div>
-               
-                <div class="journey-step">
-                    <div class="journey-step-number">03</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1"></rect><path d="M5 10h14M10 5v14M15 5v14"></path></svg></div>
-                    <h4>Format in Excel,<br>validate</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>1 hour</span>
-                </div>
-                
-                <div class="journey-step">
-                    <div class="journey-step-number">04</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1"></rect><path d="M8 19h8M12 15v4"></path></svg></div>
-                    <h4>Build PowerPoint<br>manually</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>1.5 hours</span>
-                </div>
-                
-                <div class="journey-step">
-                    <div class="journey-step-number">05</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M12 4l7 3v5c0 4.2-2.8 7-7 8-4.2-1-7-3.8-7-8V7l7-3z"></path></svg></div>
-                    <h4>Send to compliance<br>(wait)</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>24 hours</span>
-                </div>
-                
-                <div class="journey-step">
-                    <div class="journey-step-number">06</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M7 7h5V2M17 17h-5v5"></path><path d="M7 7a7 7 0 0 1 11 2M17 17a7 7 0 0 1-11-2"></path></svg></div>
-                    <h4>Revisions,<br>re-approval</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>1.5 hours</span>
-                </div>
-            </div>
-
-            <div class="journey-total">
-                <div class="journey-total-label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>Total time</div>
-                <strong>6 hours</strong>
-            </div>
-        </div>
-
-        <!-- AFTER -->
-        <div class="journey-panel journey-panel--after">
-            <div class="journey-header">
-               
-                <div>
-                    <h3>After (42 minutes)</h3>
-                    <p class="journey-subtitle">Streamlined, automated and compliant — from data to client, in one flow.</p>
-                </div>
-            </div>
-
-            <div class="journey-steps">
-                <div class="journey-step">
-                    <div class="journey-step-number">01</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M7 4h8l3 3v13H7z"></path><path d="M15 4v4h4M10 12h5M10 16h5"></path></svg></div>
-                    <h4>Select client<br>template</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>2 min</span>
-                </div>
-
-                <div class="journey-step">
-                    <div class="journey-step-number">02</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><ellipse cx="10" cy="7" rx="6" ry="2.5"></ellipse><path d="M4 7v5c0 1.4 2.7 2.5 6 2.5S16 13.4 16 12V7"></path><path d="M14 14a4 4 0 1 0 4-4"></path><path d="M18 8v4h-4"></path></svg></div>
-                    <h4>Platform auto-pulls<br>Bloomberg data</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>3 min</span>
-                </div>
-               
-                <div class="journey-step">
-                    <div class="journey-step-number">03</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="M15 15l5 5"></path></svg></div>
-                    <h4>Review pre-validated<br>data</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>5 min</span>
-                </div>
-                
-                <div class="journey-step">
-                    <div class="journey-step-number">04</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z"></path><path d="M19 3v3M17.5 4.5h3"></path></svg></div>
-                    <h4>Customize narrative<br>(AI suggests sections)</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>15 min</span>
-                </div>
-              
-                <div class="journey-step">
-                    <div class="journey-step-number">05</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M12 4l7 3v5c0 4.2-2.8 7-7 8-4.2-1-7-3.8-7-8V7l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
-                    <h4>Platform auto-checks<br>compliance</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>2 min</span>
-                </div>
-              
-                <div class="journey-step">
-                    <div class="journey-step-number">06</div>
-                    <div class="journey-icon"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-5 16-3-6z"></path><path d="M12 14l-3 6"></path></svg></div>
-                    <h4>One-click send<br>to client</h4>
-                    <span class="journey-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>15 min</span>
-                </div>
-            </div>
-
-            <div class="journey-total">
-                <div class="journey-total-label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>Total time</div>
-                <strong>42 minutes</strong>
-            </div>
-        </div>
-    </section>
-
-    <!-- Key Learnings -->
-    <div class="full-section">
-        <h2>Key Design Learnings</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
-            <div>
-                <h3 style="color: #0066cc; margin-bottom: 15px;">1. Domain Expertise Matters</h3>
-                <p>Understanding finance terminology, compliance requirements, and institutional workflows was critical. Generic UX patterns don't work in specialized domains.</p>
-            </div>
-            <div>
-                <h3 style="color: #0066cc; margin-bottom: 15px;">2. Trust > Efficiency</h3>
-                <p>Even 8.5x faster delivery meant nothing if analysts didn't trust the data. Transparent lineage and validation built confidence.</p>
-            </div>
-            <div>
-                <h3 style="color: #0066cc; margin-bottom: 15px;">3. Power Users Need Escape Hatches</h3>
-                <p>Advanced users like Sarah needed customization depth. Junior users like Marcus needed guided workflows. One-size-fits-all UI failed both.</p>
-            </div>
-            <div>
-                <h3 style="color: #0066cc; margin-bottom: 15px;">4. Context Switching is Underrated</h3>
-                <p>Most platforms ignore app-switching friction. Consolidating 5 apps into 1 was more valuable than any feature optimization.</p>
-            </div>
-        </div>
-    </div>
 </div>
 
-<!-- Footer -->
 <footer>
-    <p>&copy; 2026 Janhavi Waikar. All rights reserved.</p>
+  <p>&copy; 2026 Janhavi Waikar. All rights reserved.</p>
 </footer>
 
 <script>
