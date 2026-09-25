@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Janhavi Waikar - Product Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
 
@@ -209,36 +209,38 @@
     .landing-projects .projects-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
+        gap: 20px;
+        max-width: 1080px;
+        margin: 0 auto;
+        align-items: start;
     }
 
     .landing-projects .project-link {
         display: block;
+        width: 100%;
+        min-width: 0;
         text-decoration: none;
         color: inherit;
-        min-width: 0;
     }
 
     .landing-projects .project-card {
         position: relative;
-        height: 292px;
+        width: 345px;
+        max-width: 100%;
+        min-height: 280px;
         overflow: hidden;
         display: flex;
-        align-items: flex-end;
-        padding: 0 20px 22px;
-       solid rgba(224, 226, 230, 0.9);
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0;
         border-radius: var(--radius-md);
-        box-shadow: var(--shadow-soft);
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-size: cover;
-    background-size: 100% auto;
-    background-position: top center;
-    background-repeat: no-repeat;
+        background-size: 100% 220px;
+        background-position: top center;
+        background-repeat: no-repeat;
 
-    border: none;
-    box-shadow: none;
-}
+    }
 
 /* Individual project images */
 
@@ -266,38 +268,45 @@
         right: 20px;
         top: 20px;
         height: 1px;
-        background: rgba(255,255,255,0.55);
+        
         opacity: 0.65;
     }
 
     .landing-projects .project-card:hover {
         transform: translateY(-5px);
+        background: #fff;
         box-shadow: 0 14px 34px rgba(25, 30, 35, 0.12);
     }
 
     .landing-projects .project-card img {
         display: block;
-        width="100%";
-        height="auto";
+        width: 100%;
+        height: auto;
     }
 
     .landing-projects .project-card-content {
-        position: static;
-        display: block;
-        opacity: 1;
-        padding: 0;
-        width: 100%;
-        background: none;
+        display: flex;
+        align-items: center;
+        min-height: 60px;
+        margin-top: 220px;
+        padding: 14px 18px 16px;
+        background: #ffffff;
     }
 
-    .landing-projects .project-card h3 {
+    .landing-projects .project-card-content h3 {
         margin: 0;
+        width: 100%;
         color: var(--black);
-        font-size: 22px;
-        line-height: 1.18;
+        font-size: 18px;
+        line-height: 1.3;
         font-weight: 400;
-        letter-spacing: -0.55px;
-        text-transform: none;
+        letter-spacing: -0.35px;
+        text-align: center;
+    }
+
+    .landing-projects .project-link {
+        display: flex;
+        justify-content: center;
     }
 
     .landing-projects .project-tags {
@@ -580,6 +589,117 @@
         opacity: 0.65;
     }
 
+
+        /* ---------- Refined contact UI ---------- */
+        #contact {
+            padding-top: 96px;
+            padding-bottom: 104px;
+            background:
+                radial-gradient(circle at 50% 0%, #f4f5f7 0, #ffffff 46%);
+        }
+
+        #contact .contact-container {
+            max-width: 980px;
+        }
+
+        #contact .contact-intro {
+            margin-bottom: 42px;
+        }
+
+        #contact .contact-intro h3 {
+            margin-bottom: 12px;
+        }
+
+        #contact .contact-intro p {
+            font-size: 42px;
+            line-height: 1.1;
+            letter-spacing: -1.4px;
+        }
+
+        #contact .contact-stack {
+            max-width: 900px;
+            gap: 16px;
+        }
+
+        #contact .contact-item {
+            position: relative;
+            min-height: 150px;
+            padding: 26px 22px;
+            background: linear-gradient(145deg, #fafafa, #f3f4f6);
+            border: 1px solid var(--gray-2);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 8px 28px rgba(25, 30, 35, 0.06);
+            overflow: hidden;
+        }
+
+        #contact .contact-item::after {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            top: -65px;
+            right: -55px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.75);
+            pointer-events: none;
+        }
+
+        #contact .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(255,255,255,.9);
+            border: 1px solid var(--gray-2);
+            box-shadow: 0 4px 12px rgba(25,30,35,.05);
+            font-size: 17px;
+        }
+
+        #contact .contact-item h3 {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: var(--gray-4);
+        }
+
+        #contact .contact-item a {
+            max-width: 100%;
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 400;
+            overflow-wrap: anywhere;
+        }
+
+        #contact .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 34px rgba(25, 30, 35, .10);
+        }
+
+        #contact .contact-item:hover .contact-icon {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            #contact .contact-intro p {
+                font-size: 34px;
+            }
+
+            #contact .contact-stack {
+                grid-template-columns: 1fr;
+                max-width: 520px;
+            }
+        }
+
+        @media (max-width: 470px) {
+            #contact .contact-intro p {
+                font-size: 31px;
+            }
+        }
+
     footer {
         text-align: center;
         padding: 40px;
@@ -591,13 +711,33 @@
 
 
 
-    @media (max-width: 470px) {
+    @media (max-width: 900px) {
         .landing-projects .projects-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 345px);
+            max-width: 100%;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 760px) {
+        .landing-projects .projects-grid {
+            grid-template-columns: 345px;
+            max-width: 100%;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .landing-projects .projects-grid {
+            grid-template-columns: minmax(0, 345px);
+            width: 100%;
+            max-width: 100%;
+            gap: 24px;
         }
 
         .landing-projects .project-card {
-            height: 190px;
+            width: 345px;
+            max-width: calc(100vw - 48px);
         }
 
         .hero h1 {
@@ -833,6 +973,82 @@
         }
     }
 
+    /* ---------- Global responsive fixes ---------- */
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    section h2 {
+        text-align: center;
+    }
+
+    /* Keep the landing area aligned with the rest of the page */
+    .landing {
+        width: auto;
+        max-width: none;
+    }
+
+    /* Contact: consistent section width and responsive cards */
+    #contact {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 5.5%;
+        padding-right: 5.5%;
+    }
+
+    #contact .contact-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #contact .contact-stack {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 768px) {
+        .landing {
+            margin-left: 16px;
+            margin-right: 16px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        section {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        #contact {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        #contact .contact-stack {
+            grid-template-columns: 1fr;
+            max-width: 520px;
+        }
+
+        #contact .contact-item {
+            width: 100%;
+            min-width: 0;
+        }
+
+        #contact .contact-item a {
+            max-width: 100%;
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -876,27 +1092,30 @@
     <div class="landing-projects" id="projects">
         <div class="projects-grid">
             <a class="project-link" href="project-solving-chaos-agentic-chat.html">
-                <div class="project-card project-chaos">
+                <article class="project-card">
+                    <div class="project-card-media project-chaos" aria-hidden="true"></div>
                     <div class="project-card-content">
                         <h3>Unified AI Workspace for Financial Analysts</h3>
                     </div>
-                </div>
+                </article>
             </a>
 
             <a class="project-link" href="project-quick-solutions.html">
-                <div class="project-card project-daily-apps">
+                <article class="project-card">
+                    <div class="project-card-media project-daily-apps" aria-hidden="true"></div>
                     <div class="project-card-content">
                         <h3>Quick Solutions for Daily Apps</h3>
                     </div>
-                </div>
+                </article>
             </a>
 
             <a class="project-link" href="project-dls-creation.html">
-                <div class="project-card project-dls">
+                <article class="project-card">
+                    <div class="project-card-media project-dls" aria-hidden="true"></div>
                     <div class="project-card-content">
                         <h3>Design Language System Creation</h3>
                     </div>
-                </div>
+                </article>
             </a>
 <!--
             <a class="project-link" href="project-etl-designer.html">
@@ -935,7 +1154,7 @@
     </div>
 
     <!-- Section Header -->
-    <div style="text-align:center;margin-bottom:64px;position:relative;z-index:1;padding:0 40px;">
+    <div class="process-heading-wrap" style="text-align:center;margin-bottom:64px;position:relative;z-index:1;padding:0 40px;">
         <p style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:#8a92a2;margin-bottom:14px;">My Process</p>
         <h2 style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:700;color:#1a1a1a;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.2;">How I do the magic</h2>
         <p style="font-family:'Outfit',sans-serif;font-size:18px;color:#6c7481;font-weight:400;max-width:620px;margin:0 auto;line-height:1.6;">Turning complex requirements into thoughtful, validated, high-quality product experiences.</p>
@@ -1015,6 +1234,24 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Caveat:wght@700&display=swap');
 
+
+        /* Keep the process heading visually consistent with all portfolio section headings */
+        #process > div[style*="text-align:center"] h2 {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-size: 42px !important;
+            font-weight: 500 !important;
+            line-height: 1.1 !important;
+            letter-spacing: -1.4px !important;
+            color: var(--black) !important;
+            margin-bottom: 14px !important;
+        }
+
+        #process > div[style*="text-align:center"] {
+            max-width: 680px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
         .process-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1070,7 +1307,7 @@
             border-radius: 10px;
             margin: 0 14px 14px 14px;
             padding: 14px 16px;
-            flex: 1
+            flex: 1;
             display: flex;
             flex-direction: column;
             height: auto; 
@@ -1104,7 +1341,7 @@
 <section id="resume">
     <h2>Experience & Education</h2>
     
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px;">
+    <div class="resume-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px;">
         <!-- Job 1 -->
         <div style="background: var(--white); border: 1px solid var(--gray-2); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-soft); transition: all 0.3s ease;">
             <div style="color: #43464C; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">UI/UX Designer • Full-time</div>
@@ -1155,14 +1392,30 @@
     </div>
 
     <style>
+        .resume-grid {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+
+        .resume-grid > div {
+            min-width: 0;
+            text-align: center;
+        }
+
         @media (max-width: 1024px) {
-            [style*="grid-template-columns: repeat(3"] {
-                grid-template-columns: repeat(2, 1fr) !important;
+            .resume-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
             }
         }
+
         @media (max-width: 640px) {
-            [style*="grid-template-columns: repeat(3"] {
+            .resume-grid {
                 grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                margin-bottom: 40px !important;
             }
         }
     </style>
@@ -1171,7 +1424,7 @@
 <!-- Awards & Recognition Section -->
 <section>
     <h2>Awards & Recognition</h2>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; justify-items: center;">
+    <div class="awards-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; max-width: 1200px; width: 100%; margin: 0 auto; justify-items: stretch;">
    
         <!-- Digi-Star Award -->
         <a href="certificate-digi-star.png" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer;">
@@ -1229,9 +1482,32 @@
     </div>
 
     <style>
-        @media (max-width: 768px) {
-            [style*="grid-template-columns: repeat(2"] {
+        .awards-grid > a {
+            width: 100%;
+            min-width: 0;
+        }
+
+        .awards-grid > a > div {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 1100px) {
+            .awards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                max-width: 900px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .awards-grid {
                 grid-template-columns: 1fr !important;
+                max-width: 420px !important;
+                gap: 18px !important;
+            }
+
+            .awards-grid img {
+                height: 220px !important;
             }
         }
     </style>
@@ -1270,8 +1546,8 @@
 <section id="contact">
     <div class="contact-container">
         <div class="contact-intro">
-            <h3>Seems Like a Fit?</h3>
-            <p>Get in Touch</p>
+            <p class="contact-eyebrow">Seems Like a Fit?</p>
+            <h2>Get in Touch</h2>
         </div>
         
         <div class="contact-stack">
@@ -1341,6 +1617,437 @@
   });
 })();
 </script>
+
+
+<style id="final-portfolio-fixes">
+/* =========================================================
+   FINAL PORTFOLIO POLISH
+   Authoritative overrides for typography, project cards,
+   section headings and contact UI.
+   ========================================================= */
+
+/* ---------- Type system ---------- */
+html, body,
+body button,
+body input,
+body textarea,
+body select,
+body option {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+body *:not(i):not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad) {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ---------- Consistent section headings ---------- */
+section > h2,
+#process .process-heading-wrap h2 {
+    width: min(680px, 100%);
+    max-width: 680px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 42px !important;
+    text-align: center !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 42px !important;
+    line-height: 1.1 !important;
+    font-weight: 500 !important;
+    letter-spacing: -1.4px !important;
+    color: var(--black) !important;
+}
+
+#process .process-heading-wrap {
+    width: min(680px, calc(100% - 48px));
+    max-width: 680px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 52px !important;
+}
+
+#process .process-heading-wrap p:first-child {
+    margin: 0 0 12px !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    letter-spacing: 2.5px !important;
+    text-transform: uppercase !important;
+    color: #8a92a2 !important;
+}
+
+#process .process-heading-wrap h2 {
+    margin-bottom: 14px !important;
+}
+
+#process .process-heading-wrap p:last-child {
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    color: #6c7481 !important;
+}
+
+/* ---------- Project cards: media and text are one card ---------- */
+.landing-projects .projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 345px) !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 1075px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+    align-items: start !important;
+}
+
+.landing-projects .project-link {
+    display: block !important;
+    width: 345px !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.landing-projects .project-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 345px !important;
+    max-width: 100% !important;
+    height: 330px !important;
+    min-height: 330px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid var(--gray-2) !important;
+    border-radius: var(--radius-md) !important;
+    background: #fff !important;
+    box-shadow: 0 6px 22px rgba(25, 30, 35, 0.06) !important;
+    transform: translateZ(0) !important;
+    transition: transform .25s ease, box-shadow .25s ease !important;
+}
+
+.landing-projects .project-link:hover .project-card {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 14px 34px rgba(25, 30, 35, 0.12) !important;
+}
+
+.landing-projects .project-card::before {
+    display: none !important;
+}
+
+.landing-projects .project-card-media {
+    display: block !important;
+    flex: 0 0 245px !important;
+    width: 100% !important;
+    height: 245px !important;
+    min-height: 245px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    border-bottom: 1px solid var(--gray-2) !important;
+}
+
+.landing-projects .project-chaos {
+    background-image: url("chat.png") !important;
+}
+
+.landing-projects .project-daily-apps {
+    background-image: url("apps.png") !important;
+}
+
+.landing-projects .project-dls {
+    background-image: url("DLS.png") !important;
+}
+
+.landing-projects .project-card-content {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 83px !important;
+    height: 83px !important;
+    margin: 0 !important;
+    padding: 14px 18px !important;
+    background: #fff !important;
+    border-top: 0 !important;
+}
+
+.landing-projects .project-card-content h3 {
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.35px !important;
+    color: var(--black) !important;
+    text-transform: none !important;
+}
+
+/* ---------- Contact section ---------- */
+#contact {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 96px 5.5% 104px !important;
+    background:
+        radial-gradient(circle at 50% 0%, #f5f6f8 0%, #ffffff 48%) !important;
+}
+
+#contact .contact-container {
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+}
+
+#contact .contact-intro {
+    width: min(680px, 100%) !important;
+    max-width: 680px !important;
+    margin: 0 auto 42px !important;
+    text-align: center !important;
+}
+
+#contact .contact-eyebrow {
+    margin: 0 0 12px !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    color: var(--gray-4) !important;
+}
+
+#contact .contact-intro h2 {
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 42px !important;
+    line-height: 1.1 !important;
+    font-weight: 500 !important;
+    letter-spacing: -1.4px !important;
+    color: var(--black) !important;
+}
+
+#contact .contact-stack {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 920px !important;
+    margin: 0 auto !important;
+    gap: 16px !important;
+}
+
+#contact .contact-item {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 15px !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    min-height: 116px !important;
+    width: 100% !important;
+    padding: 20px 22px !important;
+    text-align: left !important;
+    background: linear-gradient(145deg, #fbfbfc, #f3f4f6) !important;
+    border: 1px solid var(--gray-2) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 0 8px 24px rgba(25, 30, 35, 0.06) !important;
+    overflow: hidden !important;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease !important;
+}
+
+#contact .contact-item::after {
+    content: "→" !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 20px !important;
+    transform: translateY(-50%) translateX(4px) !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: grid !important;
+    place-items: center !important;
+    border: 1px solid var(--gray-3) !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,.75) !important;
+    color: var(--gray-5) !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 14px !important;
+    opacity: .65 !important;
+    transition: transform .25s ease, opacity .25s ease, background .25s ease !important;
+    pointer-events: none !important;
+}
+
+#contact .contact-item:hover {
+    transform: translateY(-4px) !important;
+    border-color: #dfe2e6 !important;
+    box-shadow: 0 14px 34px rgba(25, 30, 35, 0.10) !important;
+}
+
+#contact .contact-item:hover::after {
+    transform: translateY(-50%) translateX(0) !important;
+    opacity: 1 !important;
+    background: #fff !important;
+}
+
+#contact .contact-icon {
+    grid-row: 1 / span 2 !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.92) !important;
+    border: 1px solid var(--gray-2) !important;
+    box-shadow: 0 4px 12px rgba(25,30,35,.05) !important;
+    color: var(--black) !important;
+    font-size: 17px !important;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease !important;
+}
+
+#contact .contact-item:hover .contact-icon {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    border-color: var(--black) !important;
+    transform: translateY(-1px) !important;
+}
+
+#contact .contact-item h3 {
+    margin: 0 !important;
+    padding-right: 36px !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    color: var(--gray-4) !important;
+}
+
+#contact .contact-item a {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding-right: 36px !important;
+    color: var(--black) !important;
+    text-decoration: none !important;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+    overflow-wrap: anywhere !important;
+    transition: color .25s ease !important;
+}
+
+#contact .contact-item a:hover {
+    color: var(--gray-5) !important;
+    opacity: 1 !important;
+}
+
+/* ---------- Mobile: never allow cards to overflow the landing ---------- */
+@media (max-width: 900px) {
+    .landing-projects .projects-grid {
+        grid-template-columns: repeat(2, 345px) !important;
+        max-width: 710px !important;
+    }
+}
+
+@media (max-width: 780px) {
+    .landing-projects .projects-grid {
+        grid-template-columns: minmax(0, 345px) !important;
+        max-width: 100% !important;
+    }
+
+    .landing-projects .project-link,
+    .landing-projects .project-card {
+        width: 100% !important;
+        max-width: 345px !important;
+        justify-self: center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    section > h2,
+    #process .process-heading-wrap h2,
+    #contact .contact-intro h2 {
+        font-size: 34px !important;
+        letter-spacing: -1px !important;
+    }
+
+    #process .process-heading-wrap {
+        width: min(680px, calc(100% - 32px));
+        margin-bottom: 44px !important;
+    }
+
+    #process .process-heading-wrap p:last-child {
+        font-size: 16px !important;
+    }
+
+    #contact {
+        padding: 76px 16px 84px !important;
+    }
+
+    #contact .contact-stack {
+        grid-template-columns: 1fr !important;
+        max-width: 560px !important;
+    }
+}
+
+@media (max-width: 560px) {
+    .landing-projects .projects-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 18px !important;
+    }
+
+    .landing-projects .project-link,
+    .landing-projects .project-card {
+        max-width: 100% !important;
+    }
+
+    .landing-projects .project-card {
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    .landing-projects .project-card-media {
+        flex-basis: clamp(200px, 62vw, 245px) !important;
+        height: clamp(200px, 62vw, 245px) !important;
+        min-height: 200px !important;
+    }
+
+    .landing-projects .project-card-content {
+        min-height: 78px !important;
+        height: auto !important;
+        padding: 14px 16px 15px !important;
+    }
+
+    .landing-projects .project-card-content h3 {
+        font-size: 17px !important;
+    }
+
+    #contact .contact-item {
+        min-height: 108px !important;
+        padding: 18px !important;
+        column-gap: 13px !important;
+    }
+
+    #contact .contact-item::after {
+        right: 16px !important;
+    }
+}
+</style>
 
 </body>
 </html>
