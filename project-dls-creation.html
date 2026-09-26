@@ -6,7 +6,7 @@
     <title>Rebuilding the Rules Behind the UI - Janhavi Waikar</title>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
- 
+
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --white:#fff;--black:#111;--ink:#171717;
@@ -90,14 +90,10 @@ a{color:inherit}
 .hero-section{
   position:relative;overflow:hidden;margin:0px 0 18px;padding:78px 56px 50px;
   min-height:430px;border-radius:var(--radius-xl);
-  background:linear-gradient(#f2f3f5,#fff);border:1px solid var(--gray-2);
+  background:#fff;border:1px solid var(--gray-2);
   box-shadow:var(--shadow-soft);
   
-    background-image: url("chaos-hero1.png");
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 300px;
-   
+    
     
     pointer-events: none;
 
@@ -105,10 +101,7 @@ a{color:inherit}
 }
 .hero-section::before{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:radial-gradient(#e2e4e7 1.5px,transparent 1.5px);
-  background-size:165px 165px;opacity:.28;
-  mask-image:linear-gradient(to bottom,black 0%,transparent 72%);
-  -webkit-mask-image:linear-gradient(to bottom,black 0%,transparent 72%);
+ 
 }
 .hero-section>*{position:relative;z-index:1}
 .project-title{
@@ -167,7 +160,7 @@ a{color:inherit}
 .image-placeholder{
   min-height:100%;height:100%;min-height:330px;padding:28px;
   display:flex;align-items:center;justify-content:center;text-align:center;
-  box-shadow:var(--shadow-soft);color:var(--gray-4);font-size:13px;line-height:1.6
+  color:var(--gray-4);font-size:13px;line-height:1.6
 }
 .full-width-image{margin:22px 0}
 .full-width-image .image-placeholder{min-height:420px}
@@ -429,8 +422,8 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
   .content-text h2,.full-section h2,.impact-section h2{font-size:30px}
   .image-placeholder{min-height:250px}.full-width-image .image-placeholder{min-height:300px}
   .full-section{padding:28px 20px;border-radius:24px}.research-findings,.personas-grid,.impact-metrics{grid-template-columns:1fr}
-  .finding-item:first-child{grid-column:auto}
-  .full-section>div[style*="grid-template-columns"]{grid-template-columns:1fr!important}
+  .finding-item{grid-template-columns:repeat(3,1fr)}
+  
 }
 @media(max-width:480px){
   .project-title{font-size:38px}.metrics-grid{grid-template-columns:1fr}.project-meta{grid-template-columns:1fr}
@@ -456,14 +449,16 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
 .story-card h3{font-size:18px;font-weight:500;margin-bottom:8px;color:#fff}.story-card p,.story-card li{font-size:14px;line-height:1.65;color:rgba(255,255,255,.78)}
 .story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.story-cell{padding:22px;border-radius:var(--radius-md);background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10)}
 .story-cell .num{font-size:12px;color:rgba(255,255,255,.55);letter-spacing:1px;margin-bottom:16px}.story-cell strong{display:block;font-size:16px;color:#fff;font-weight:500;margin-bottom:8px}.story-cell span{display:block;font-size:13px;line-height:1.55;color:rgba(255,255,255,.68)}
-.problem-list,.solution-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.problem-list .finding-item{background:var(--problem-soft);border-color:var(--problem-line)}.solution-list .finding-item{background:var(--solution-soft);border-color:var(--solution-line)}
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;border-radius: 12px;}
+.problem-list,.solution-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.problem-list .finding-item{background:var(--problem-soft);}.solution-list .finding-item{background:var(--solution-soft);border-color:var(--solution-line)}
 .finding-tag{display:inline-block;margin-bottom:12px;padding:5px 9px;border-radius:999px;font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600;background:#fff;border:1px solid #e4e6e9;color:#777}.finding-tag.negative{color:#8b383d;border-color:#efd0d2;background:#fff7f7}.finding-tag.positive{color:#276c5e;border-color:#cce5dd;background:#f5fbf9}.finding-tag.neutral{color:#565b63}
 .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.principle{padding:22px;border-radius:var(--radius-lg);background:#f7f8f9;border:1px solid var(--gray-2)}.principle-number{font-size:11px;color:#8b9098;letter-spacing:1px;margin-bottom:18px}.principle h3{font-size:17px;color:#24272b;font-weight:500;margin-bottom:8px}.principle p{font-size:13px!important;line-height:1.55!important;margin:0!important;color:#737982!important}
 .reference-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.reference-card{padding:24px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--gray-2);box-shadow:0 3px 14px rgba(25,30,35,.04)}.reference-card .ref-name{font-size:22px;font-weight:500;letter-spacing:-.6px;margin-bottom:7px}.reference-card p{font-size:13px;line-height:1.6;color:var(--gray-5);margin:0}.reference-card small{display:block;margin-top:14px;color:#969ba2;font-size:11px;text-transform:uppercase;letter-spacing:1px}
 .token-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin-top:24px}.token-box{padding:26px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--gray-2);min-height:150px}.token-box.dark{background:#232323;color:#fff;border-color:#333}.token-box.green{background:var(--solution);color:#fff;border-color:#176e60}.token-box h3{font-size:17px;font-weight:500;margin-bottom:9px}.token-box p{font-size:13px!important;line-height:1.55!important;margin:0!important;color:#737982!important}.token-box.dark p,.token-box.green p{color:rgba(255,255,255,.70)!important}.token-arrow{display:flex;align-items:center;justify-content:center;color:#9a9fa6;font-size:20px}
-.contrast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.contrast-card{padding:20px;border-radius:var(--radius-md);background:#fff;border:1px solid var(--gray-2)}.contrast-swatch{height:74px;border-radius:12px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500}.contrast-swatch.dark{background:#232323;color:#fff}.contrast-swatch.red{background:#5a1518;color:#fff}.contrast-swatch.green{background:#063f37;color:#fff}.ratio{font-size:22px;font-weight:500;color:#25272b}.ratio-note{font-size:12px;color:#7b8088;margin-top:5px}
+.contrast-grid{display:grid;place-content: center;justify-items: center; grid-template-columns:repeat(5  ,1fr);gap:12px;margin-top:20px}.contrast-card{padding:20px;border-radius:var(--radius-md);background:#fff;border:1px solid var(--gray-2)}.contrast-swatch{height:74px;border-radius:12px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500}.contrast-swatch.dark{background:#232323;color:#fff}.contrast-swatch.red{background:#5a1518;color:#fff}.contrast-swatch.green{background:#063f37;color:#fff}.ratio{font-size:22px;font-weight:500;color:#25272b}.ratio-note{font-size:12px;color:#7b8088;margin-top:5px}
+.semantic-grid{display:grid;place-content: center;justify-items: center; grid-template-columns:repeat(4  ,1fr);gap:12px;margin-top:20px}.semantic-card{padding:20px;border-radius:var(--radius-md);background:#fff;border:1px solid var(--gray-2)}.semantic-swatch{height:74px;border-radius:12px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500}.semantic-swatch.dark{background:#232323;color:#fff}.semantic-swatch.red{background:#5a1518;color:#fff}.semantic-swatch.green{background:#063f37;color:#fff}.ratio{font-size:22px;font-weight:500;color:#25272b}.ratio-note{font-size:12px;color:#7b8088;margin-top:5px}
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.compare-panel{border-radius:var(--radius-xl);padding:30px;min-height:300px;border:1px solid var(--gray-2)}.compare-panel.before{background:#fff8f8;border-color:#efdfe0}.compare-panel.after{background:linear-gradient(145deg,#f2faf7,#e8f4f0);border-color:#cfe7df}.compare-panel h3{font-size:24px;font-weight:500;margin-bottom:8px}.compare-panel.before h3{color:#671b22}.compare-panel.after h3{color:#0d5146}.compare-panel p{font-size:14px;color:#737982;line-height:1.6;margin-bottom:16px}.compare-list{display:grid;gap:8px}.compare-row{padding:12px 14px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.06);font-size:13px;color:#4f545c}.compare-panel.after .compare-row{background:rgba(255,255,255,.72);border-color:#d9ebe5}.compare-row strong{font-weight:500;color:#282b30}
-.image-placeholder.dls-placeholder{border-radius:var(--radius-xl);background:linear-gradient(145deg,#fafafa,#f1f2f4);border:1px dashed #cfd3d8;min-height:360px;position:relative;overflow:hidden}.dls-placeholder .placeholder-label{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#7e848c;font-weight:600}.dls-placeholder .placeholder-copy{max-width:520px;margin-top:10px;color:#9a9fa6;font-size:13px;line-height:1.55}.dls-placeholder:before{content:"";position:absolute;inset:22px;border:1px solid #e1e3e6;border-radius:20px;pointer-events:none}.dls-placeholder>*{position:relative;z-index:1}
+.image-placeholder.dls-placeholder{min-height:360px;position:relative;overflow:hidden}.dls-placeholder .placeholder-label{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#7e848c;font-weight:600}.dls-placeholder .placeholder-copy{max-width:520px;margin-top:10px;color:#9a9fa6;font-size:13px;line-height:1.55}.dls-placeholder:before{content:"";position:absolute;inset:22px;border-radius:20px;pointer-events:none}.dls-placeholder>*{position:relative;z-index:1}
 .callout{padding:24px 26px;border-radius:var(--radius-lg);margin-top:18px}.callout.problem{background:var(--problem-soft);border:1px solid var(--problem-line)}.callout.solution{background:var(--solution-soft);border:1px solid var(--solution-line)}.callout.system{background:#f5f5f5;border:1px solid #dedfe1}.callout h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:600}.callout.problem h3{color:#8b383d}.callout.solution h3{color:#2c6f62}.callout.system h3{color:#5f646c}.callout p{margin:0;color:#626870;font-size:14px;line-height:1.6}
 .handoff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.handoff-card{padding:24px;border-radius:var(--radius-lg);background:#232323;color:#fff;min-height:180px}.handoff-card .handoff-index{font-size:11px;color:#8f969f;letter-spacing:1px;margin-bottom:28px}.handoff-card h3{font-size:18px;font-weight:500;margin-bottom:8px}.handoff-card p{font-size:13px!important;color:#aeb3ba!important;line-height:1.55!important;margin:0!important}
 .closing{margin:22px 0;padding:56px 52px;border-radius:var(--radius-xl);background:linear-gradient(135deg,#232323,#151515);color:#fff;text-align:center;box-shadow:var(--shadow-soft)}.closing .kicker{color:#8f969f}.closing h2{font-size:42px;line-height:1.05;font-weight:500;letter-spacing:-1.4px;max-width:820px;margin:0 auto 14px}.closing p{max-width:720px;margin:0 auto;color:#aeb3ba;font-size:15px;line-height:1.7}
@@ -493,7 +488,7 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
 <div class="container">
 
   <section class="hero-section dls-hero">
-    <div class="hero-orbit" aria-hidden="true"><div class="hero-orbit-dot"></div></div>
+    
     <h1 class="project-title">Rebuilding the Rules Behind the UI</h1>
     <p class="project-tagline">Revamping a product Design Language System in 3 weeks — translating a company rebrand into a quieter, denser, accessible and scalable interface language for data-heavy products.</p>
     <div class="project-tags">
@@ -508,10 +503,10 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
   </section>
 
   <div class="metrics-grid">
-    <div class="metric-card"><div class="metric-accent"></div><div class="metric-value">3 wks</div><div class="metric-label">Rebrand sprint</div><p>System revamp completed as an urgent product priority.</p></div>
-    <div class="metric-card problem"><div class="metric-accent"></div><div class="metric-value">↓ Blue</div><div class="metric-label">Less visual noise</div><p>Reduced dependence on the previous blue-heavy visual language.</p></div>
-    <div class="metric-card solution"><div class="metric-accent"></div><div class="metric-value">↑ Density</div><div class="metric-label">More compact UI</div><p>Refined sizing and spacing for information-dense workflows.</p></div>
-    <div class="metric-card system"><div class="metric-accent"></div><div class="metric-value">1 system</div><div class="metric-label">Design → Dev</div><p>Components, variants, tokens and implementation guidance connected.</p></div>
+    <div class="metric-card"><div class="metric-value">Just 3 weeks</div><div class="metric-label">Rebrand sprint</div><p>System revamp completed as an urgent product priority.</p></div>
+    <div class="metric-card problem"><div class="metric-value">Low on Accent</div><div class="metric-label">Less visual noise</div><p>Reduced dependence on the previous blue-heavy visual language.</p></div>
+    <div class="metric-card solution"><div class="metric-value">Rethink Density</div><div class="metric-label">More compact UI</div><p>Refined sizing and spacing for information-dense workflows.</p></div>
+    <div class="metric-card system"><div class="metric-value">End-to-End </div><div class="metric-label">Discovery → Delivery</div><p>Components, variants, tokens and implementation guidance connected.</p></div>
   </div>
 
   <section class="section-intro-card">
@@ -522,7 +517,7 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
 
   <div class="story-card--problem">
     <div class="story-grid">
-      <div class="story-cell"><div class="num">01 · VISUAL</div><strong>Too much blue</strong><span>Blue and accent colour appeared too frequently, making hierarchy harder to establish in dense screens.</span></div>
+      <div class="story-cell"><div class="num">01 · VISUAL</div><strong>Too much accent</strong><span>Accent colour appeared too frequently, making hierarchy harder to establish in dense screens.</span></div>
       <div class="story-cell"><div class="num">02 · STRUCTURE</div><strong>Too much space</strong><span>Large component dimensions consumed valuable viewport space in data-heavy workflows.</span></div>
       <div class="story-cell"><div class="num">03 · SYSTEM</div><strong>Inconsistency accumulated</strong><span>Past patterns needed a more systematic foundation of variants, tokens and reusable component logic.</span></div>
     </div>
@@ -555,7 +550,7 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
     <div class="reference-card"><div class="ref-name">Material</div><p>Reference for colour, spacing, component behaviour, states and accessibility principles.</p><small>Benchmark reference</small></div>
     <div class="reference-card"><div class="ref-name">Leading DLS patterns</div><p>Compared patterns across mature systems to understand what should become a rule instead of a one-off decision.</p><small>Pattern study</small></div>
   </div>
-
+<!--
   <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Reference board</div><div class="placeholder-copy">Show a visual benchmark board with selected Atlassian / Material / other DLS patterns. Highlight what was borrowed as a principle: tokens, variants, hierarchy, states and accessibility — not visual styling.</div></div></div></div>
 
   <section class="section-intro-card">
@@ -587,23 +582,51 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
     </div>
     <div class="callout system"><h3>Why this matters</h3><p>A brand update can now be expressed as a system-level change rather than a hunt through individual screens.</p></div>
   </div>
-
+-->
+  
+  <br>
+  <br>
+  <br>
+  <br>
   <section class="section-intro-card">
     <div class="section-kicker solution">Accessibility</div>
-    <h2>Contrast was a design constraint, not a final checkbox.</h2>
-    <p>Colour relationships were evaluated against accessibility needs while also considering luminance, saturation, hierarchy and semantic meaning.</p>
+    <h2>Brand color didn't meet the standards.</h2>
+    <p>Brand color didn't meet 4.5:1 contrast ratio. We drilled further to find a right shade to depict our brand and pass all tests.</p>
   </section>
 
   <div class="full-section">
     <div class="contrast-grid">
-      <div class="contrast-card"><div class="contrast-swatch dark">Primary text</div><div class="ratio">4.5:1+</div><div class="ratio-note">Target for normal text under WCAG AA.</div></div>
-      <div class="contrast-card"><div class="contrast-swatch red">Error / negative</div><div class="ratio">4.5:1+</div><div class="ratio-note">Use contrast-aware semantic colour rather than decorative red.</div></div>
-      <div class="contrast-card"><div class="contrast-swatch green">Success / positive</div><div class="ratio">4.5:1+</div><div class="ratio-note">State meaning remains distinguishable beyond colour alone.</div></div>
+      <div class="contrast-card"><div class="contrast-swatch dark" style="background-color: #4061c7; color: #fff;">Old Primary</div><div class="ratio">5.59:1</div><div class="ratio-note">It worked but rebranding demanded an update.</div></div>
+      <div class="contrast-card"><div class="contrast-swatch dark" style="background-color: #00959A; color: #fff;">Brand Color</div><div class="ratio">3.64:1</div><div class="ratio-note">Selected for marketing logo.</div></div>
+      <div class="contrast-card"><div class="contrast-swatch red"  style="background-color: #22797A; color: #fff;">Primary Color</div><div class="ratio"> 5.14:1 </div><div class="ratio-note">Enhanced a little to meet Digital Accessibility Standards.</div></div>
+      <div class="contrast-card"><div class="contrast-swatch green" style="background-color: #034A51; color: #fff;">Secondary Color</div><div class="ratio">9.98:1</div><div class="ratio-note">A Secondary tone to lighten the 'too much accent' contrast.</div></div>
+      <div class="contrast-card"><div class="contrast-swatch green" style="background-image: linear-gradient(to right, #1F2533, #98a1b2); color: #fff;">Neutral Color</div><div class="ratio">Cool Gray</div><div class="ratio-note"> Cool gray gave a new edge that our products needed in this AI world.</div></div>
     </div>
-    <div class="callout solution"><h3>Design principle</h3><p>Colour should reinforce meaning — never be the only mechanism by which a user understands a state.</p></div>
+   <!-- <div class="callout solution"><h3>Design principle</h3><p>Colour should reinforce meaning — never be the only mechanism by which a user understands a state.</p></div>
   </div>
+-->
+  <br>
+  <br>
+  <br>
+  <br>
+<section class="section-intro-card">
+    <div class="section-kicker solution">Creating a Balance</div>
+    <h2>Revamping our Semantics</h2>
+    <p>Reducing contrast of accent color also meant stabalising and balancing all our colors in a way it looks like parts of the same puzzle.</p>
+  </section>
 
-  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Contrast study</div><div class="placeholder-copy">Show 4–6 foreground/background combinations with their contrast ratios and AA/AAA status. Include one “failed” combination from the old exploration and its corrected alternative.</div></div></div></div>
+  <div class="full-section">
+    <div class="semantic-grid">
+      <div class="semantic-card"><div class="semantic-swatch dark" style="background: linear-gradient(90deg, #1b873a 50%, #6a9a23 50%); color: #fff;">  Positive Color</div><div class="ratio-note">Turned it warmer so it doesnt coincide with our Primary color.</div></div>
+      <div class="semantic-card"><div class="semantic-swatch red"  style="background: linear-gradient(90deg, #de3139 50%, #ce505d 50%); color: #fff;">Negative Color</div><div class="ratio-note">Reduced the contrast to make it less alarming.</div></div>
+      <div class="semantic-card"><div class="semantic-swatch green" style="background: linear-gradient(90deg, #f68523 50%, #b98d00 50%); color: #fff;">Noticeable Color</div><div class="ratio-note">Tilted towards brown shade to show clear distinction between Negative & Noticable.</div></div>
+      <div class="semantic-card"><div class="semantic-swatch green" style="background: linear-gradient(90deg, #1a6aff 50%, #5e86cf 50%); color: #fff;">Informational Color</div><div class="ratio-note">Toned down the contrast for better visibility and enough emphasis for Informational elements.</div></div>
+    </div>
+    <!--
+    <div class="callout solution"><h3>Design principle</h3><p>Colour should reinforce meaning — never be the only mechanism by which a user understands a state.</p></div>
+  </div>-->
+
+  <div class="full-width-image"><img src="palette.png" width="100%" height="auto"></div>
 
   <section class="section-intro-card">
     <div class="section-kicker system">Compact by Design</div>
@@ -613,32 +636,48 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
 
   <div class="content-layout">
     <div class="content-text">
-      <h2>Spacing became a hierarchy tool.</h2>
+      <h4>Spacing became a hierarchy tool.</h4>
       <p>Instead of reducing dimensions indiscriminately, I looked at where space actually helped users group and scan information.</p>
       <h3>Reconsidered</h3>
       <ul><li>Button and control height</li><li>Input padding and label relationships</li><li>Table row density</li><li>Vertical rhythm between related elements</li><li>Information hierarchy within dense layouts</li></ul>
-      <div class="callout solution"><h3>Outcome</h3><p>A more compact structure without turning the interface into a cramped or visually noisy experience.</p></div>
-    </div>
-    <div><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Spacing comparison</div><div class="placeholder-copy">Show an anonymised before/after input, button and table row with measurement annotations. Highlight reduced padding, component height and spacing rhythm.</div></div></div></div>
+      <h3>Outcome</h3><p>A more compact structure without turning the interface into a cramped or visually noisy experience.</p>
+      </div>
+    <div><div class="image-placeholder dls-placeholder"> <img src="components.png" width="100%" height="auto"></div></div>
   </div>
+
+ 
 
   <section class="section-intro-card">
-    <div class="section-kicker solution">Component Architecture</div>
-    <h2>One component. Many controlled possibilities.</h2>
-    <p>The visual refresh became a component-system refresh: reusable Figma components, variants and states replaced repeated one-off decisions.</p>
+    <div class="section-kicker system">the naming convention</div>
+    <h2>Tokens brings harmony in communication</h2>
+    <p>Tokens are the language of the color system. What you call a color and in what context, defines the usability and helps developers better to implement in the code.</p>
   </section>
-
+  <div class="image-placeholder dls-placeholder"> <img src="tokens.png" width="100%" height="auto"></div>
+<!--
   <div class="full-section">
-    <div class="story-grid" style="grid-template-columns:repeat(4,1fr)">
-      <div class="finding-item"><div class="finding-tag positive">01 · Component</div><div class="finding-title">Buttons</div><div class="finding-description">Standardised hierarchy, sizing, states and icon/content configurations.</div></div>
-      <div class="finding-item"><div class="finding-tag positive">02 · Control</div><div class="finding-title">Inputs &amp; controls</div><div class="finding-description">Defined default, focus, error, disabled and selection behaviour.</div></div>
-      <div class="finding-item"><div class="finding-tag positive">03 · Data</div><div class="finding-title">Tables &amp; density</div><div class="finding-description">Reworked structure and spacing to support information-heavy screens.</div></div>
-      <div class="finding-item"><div class="finding-tag positive">04 · Feedback</div><div class="finding-title">Dialogs &amp; states</div><div class="finding-description">Clarified hierarchy and semantic feedback without overusing accent colour.</div></div>
+    <div class="problem-list">
+      <div class="finding-item"><div class="finding-title">#1 &nbsp;Accent was doing too much.</div><div class="finding-description"><strong>Change:</strong> Reduced default reliance on blue and reserved stronger colour for meaningful emphasis.</div><div class="finding-description"><strong>Impact:</strong> A calmer visual hierarchy and clearer distinction between structure, action and state.</div></div>
+      <div class="finding-item"><div class="finding-title">#2 &nbsp;Components consumed too much space.</div><div class="finding-description"><strong>Change:</strong> Refined component dimensions, padding and spacing relationships.</div><div class="finding-description"><strong>Impact:</strong> A denser interface better suited to data-heavy workflows.</div></div>
+      <div class="finding-item"><div class="finding-title">#3 &nbsp;Colour decisions were difficult to scale.</div><div class="finding-description"><strong>Change:</strong> Introduced colour tokens with primitive, semantic and component-level intent.</div><div class="finding-description"><strong>Impact:</strong> System-wide changes became easier to maintain and implement.</div></div>
+      <div class="finding-item"><div class="finding-title">#4 &nbsp;Accessibility needed to be repeatable.</div><div class="finding-description"><strong>Change:</strong> Built contrast considerations into colour selection and component states.</div><div class="finding-description"><strong>Impact:</strong> Accessibility became part of the design foundation instead of a final-stage check.</div></div>
     </div>
   </div>
+-->
 
-  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Figma component architecture</div><div class="placeholder-copy">Show a cropped Figma view with one component selected and its variants visible. Annotate: component properties, variants, states, instances and token usage. Hide file/product names.</div></div></div></div>
+ <section class="section-intro-card">
+    <div class="section-kicker solution">Component Architecture</div>
+    <h2>The real change happened when components met the product.</h2>
+    <p>A design system is only useful if its rules survive contact with complex screens. The updated language was applied to representative product areas to test density, hierarchy and consistency together.<br> <strong>Following images are a mock up for portfolio demo purposes and do not represent actual product or contain any confidential data. </strong></p>
+  </section>
 
+ 
+    <div class="product-grid">
+      <div class="product-item"><img src="sample2.png"; width="100%"; height="auto"></div>
+      <div class="product-item"><img src="sample3.png"; width="100%"; height="auto"></div>
+      
+  </div>
+
+  <!--
   <section class="section-intro-card">
     <div class="section-kicker problem">Before → After</div>
     <h2>The real change happened when components met the product.</h2>
@@ -646,30 +685,14 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
   </section>
 
   <div class="full-width-image"><div class="image-placeholder dls-placeholder" style="min-height:480px"><div><div class="placeholder-label">Image placeholder · Product before / after</div><div class="placeholder-copy">Use a large anonymised product screen from the PDF. Split vertically into BEFORE and AFTER. Add 4 numbered callouts: 01 colour hierarchy, 02 compact spacing, 03 component consistency, 04 semantic states.</div></div></div></div>
-
+-->
   <div class="story-card--solution">
     <div class="story-grid">
       <div class="story-cell"><div class="num">01 · HIERARCHY</div><strong>Quiet surfaces</strong><span>Neutral structure lets content and meaningful actions stand out without competing accents.</span></div>
       <div class="story-cell"><div class="num">02 · DENSITY</div><strong>Compact components</strong><span>Tighter sizing makes more information available within the same viewport.</span></div>
       <div class="story-cell"><div class="num">03 · CONSISTENCY</div><strong>Reusable rules</strong><span>Variants and tokens make the same decision repeatable across products and states.</span></div>
     </div>
-    <div class="problem-bottom-line"><span class="label">The shift</span><span class="result">The DLS became a shared visual language rather than a collection of component files.</span></div>
-  </div>
-
-  <section class="section-intro-card">
-    <div class="section-kicker system">Change Impact</div>
-    <h2>What changed — and why it mattered.</h2>
-    <p>Rather than presenting the revamp as a list of visual tweaks, each major change was tied back to a product or system consequence.</p>
-  </section>
-
-  <div class="full-section">
-    <div class="problem-list">
-      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Blue was doing too much.</div><div class="finding-description"><strong>Change:</strong> Reduced default reliance on blue and reserved stronger colour for meaningful emphasis.</div><div class="finding-description"><strong>Impact:</strong> A calmer visual hierarchy and clearer distinction between structure, action and state.</div></div>
-      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Components consumed too much space.</div><div class="finding-description"><strong>Change:</strong> Refined component dimensions, padding and spacing relationships.</div><div class="finding-description"><strong>Impact:</strong> A denser interface better suited to data-heavy workflows.</div></div>
-      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Colour decisions were difficult to scale.</div><div class="finding-description"><strong>Change:</strong> Introduced colour tokens with primitive, semantic and component-level intent.</div><div class="finding-description"><strong>Impact:</strong> System-wide changes became easier to maintain and implement.</div></div>
-      <div class="finding-item"><div class="finding-tag negative">Problem → Response</div><div class="finding-title">Accessibility needed to be repeatable.</div><div class="finding-description"><strong>Change:</strong> Built contrast considerations into colour selection and component states.</div><div class="finding-description"><strong>Impact:</strong> Accessibility became part of the design foundation instead of a final-stage check.</div></div>
     </div>
-  </div>
 
   <section class="section-intro-card">
     <div class="section-kicker solution">The System Behind the Screens</div>
@@ -680,15 +703,13 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
   <div class="full-section">
     <div class="handoff-grid">
       <div class="handoff-card"><div class="handoff-index">01 · DESIGN</div><h3>Figma library</h3><p>View-only access to components, elements, variants, states and instances for reference and adoption.</p></div>
-      <div class="handoff-card"><div class="handoff-index">02 · FOUNDATION</div><h3>Token JSON</h3><p>Structured token values prepared for implementation and system-level consistency.</p></div>
-      <div class="handoff-card"><div class="handoff-index">03 · DEVELOPMENT</div><h3>Developer guide</h3><p>Text instructions for rapid changes and implementation, including the Cursor AI workflow used by the team.</p></div>
+      <div class="handoff-card"><div class="handoff-index">02 · FOUNDATION</div><h3>dls-light.json</h3><p>Shared structured token values prepared for implementation and system-level consistency in .json file for our global css.</p></div>
+      <div class="handoff-card"><div class="handoff-index">03 · DEVELOPMENT</div><h3>Developer guide</h3><p>Component wise instructions for rapid changes and implementation to understand before & after so the change is seamless.</p></div>
       <div class="handoff-card"><div class="handoff-index">04 · BUSINESS</div><h3>Change-impact deck</h3><p>A business-facing presentation explaining what changed, where and the impact of the new language.</p></div>
     </div>
   </div>
 
-  <div class="full-width-image"><div class="image-placeholder dls-placeholder"><div><div class="placeholder-label">Image placeholder · Handoff ecosystem</div><div class="placeholder-copy">Create a visual pipeline: Figma Library → JSON Tokens → Developer Instructions / Cursor AI → Business Change-Impact PPT. Show each artefact as a card connected by arrows.</div></div></div></div>
-
-  <section class="section-intro-card">
+   <section class="section-intro-card">
     <div class="section-kicker system">Three Weeks, One System</div>
     <h2>The deliverable wasn't a new look. It was a new set of rules.</h2>
     <p>The rebrand gave the project a deadline. The DLS revamp gave the product a more scalable foundation for everything that came after.</p>
@@ -697,16 +718,16 @@ footer{padding:34px 24px;text-align:center;font-size:13px}
   <div class="impact-section">
     <h2>Impact &amp; Results</h2>
     <div class="impact-metrics">
-      <div class="impact-stat"><div class="impact-stat-value">3</div><div class="impact-stat-label">Weeks to revamp</div><p>Completed as an urgent rebrand priority.</p></div>
-      <div class="impact-stat"><div class="impact-stat-value">↓</div><div class="impact-stat-label">Accent dependency</div><p>Less blue and fewer unnecessary accent surfaces.</p></div>
-      <div class="impact-stat"><div class="impact-stat-value">↑</div><div class="impact-stat-label">Information density</div><p>More compact sizing for data-heavy workflows.</p></div>
-      <div class="impact-stat"><div class="impact-stat-value">→</div><div class="impact-stat-label">Implementation ready</div><p>Figma + tokens + developer and business handoff.</p></div>
+      <div class="impact-stat"><div class="impact-stat-label">3 Weeks to revamp</div><p>Completed as an urgent rebrand priority.</p></div>
+      <div class="impact-stat"><div class="impact-stat-label">Reduced Accent dependency</div><p>Less blue and fewer unnecessary accent surfaces.</p></div>
+      <div class="impact-stat"><div class="impact-stat-label">More Information quantity</div><p>More compact sizing for data-heavy workflows.</p></div>
+      <div class="impact-stat"><div class="impact-stat-label">CompleteReady to use</div><p>Figma + tokens + developer and business handoff.</p></div>
     </div>
   </div>
 
   <div class="closing">
     <div class="kicker">What I Took Forward</div>
-    <h2>A design system is strongest when the rules are easier to reuse than the exceptions.</h2>
+    A design system is strongest when the rules are easier to reuse than the exceptions.
     <p>This revamp reinforced a systems-first approach: simplify the visual language, encode decisions into reusable structures, validate accessibility at the foundation, and make the handoff clear enough that the system can keep moving without the original designer in every room.</p>
   </div>
 
